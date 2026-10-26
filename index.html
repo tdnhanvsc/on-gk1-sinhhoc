@@ -1,0 +1,4560 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1E6BFF">
+<meta name="description" content="Ôn tập Sinh học 12 giữa học kỳ I: DNA, biểu hiện gene, đột biến và quy luật di truyền. Luyện tập, thi thử, đảo đề, giải thích đáp án.">
+<title>Sinh học 12 · Trạm ôn tập</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E6BFF'/%3E%3Ctext x='32' y='45' font-size='30' text-anchor='middle' fill='white'%3ESH%3C/text%3E%3C/svg%3E">
+<style>
+/* Màu sắc và bố cục dùng chung, không tải font hay tài nguyên bên ngoài. */
+:root{--blue:#1E6BFF;--blue-light:#EEF4FF;--green:#22B573;--red:#F04438;--orange:#F79009;--ink:#172B4D;--muted:#63718A;--line:#E3E8F0;--bg:#F4F6FA;--shadow:0 4px 24px rgba(23,43,77,.045)}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:112px}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,select{font:inherit}
+button,select{cursor:pointer}
+button{touch-action:manipulation}
+button:disabled{cursor:default;opacity:.65}
+button:focus-visible,a:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #8CB4FF;outline-offset:3px}
+a{color:var(--blue)}
+h1,h2,h3,p{margin-top:0}
+h1,h2,h3{line-height:1.3;letter-spacing:-.025em}
+button{color:inherit}
+button svg{flex-shrink:0}
+svg{vertical-align:middle}
+button,.card,select{border-radius:12px}
+.hidden,[hidden]{display:none!important}
+.wrap{max-width:1200px;margin:auto;padding:0 32px}
+.site-header{background:white;border-bottom:1px solid var(--line)}
+.brand-row{min-height:80px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);background:none;border:0;padding:0;text-align:left}
+.logo{width:42px;height:42px;display:grid;place-items:center;background:var(--blue);color:white;border-radius:12px}
+.brand strong{display:block;font-size:19px;line-height:1.3}
+.brand small{display:block;font-size:11px;color:var(--muted);letter-spacing:.1em;margin-top:3px}
+.header-note{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:7px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:8px;background:var(--blue-light);color:var(--blue);font-size:12px;font-weight:650}
+.pill.orange{color:#955508;background:#FFF3DF}
+.pill.green{color:#127447;background:#E8F8EF}
+.hero{padding:48px 0 32px;display:grid;grid-template-columns:1.45fr 1fr;align-items:center;gap:48px}
+.eyebrow{color:var(--blue);font-size:11px;letter-spacing:.16em;font-weight:750;margin-bottom:14px}
+.hero h1{font-size:42px;line-height:1.2;margin-bottom:16px;letter-spacing:-.045em}
+.hero h1 span{color:var(--blue)}
+.hero p{max-width:530px;color:var(--muted);margin-bottom:18px}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px}
+.overview{background:white;border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--shadow);display:flex;align-items:center;gap:24px}
+.overview .ring{width:116px;height:116px;flex-shrink:0;background:conic-gradient(var(--blue) 0% 88.1%,#B7CFFF 88.1% 98.4%,var(--green) 98.4% 100%);padding:9px}
+.ring{border-radius:50%;display:grid;place-items:center}
+.ring-inner{background:white;border-radius:50%;width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.overview .ring strong{font-size:32px;line-height:1.2}
+.ring small{font-size:11px;color:var(--muted)}
+.overview h2{font-size:16px;margin-bottom:12px}
+.overview p{font-size:13px;margin-bottom:5px;display:flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;background:var(--blue)}
+.dot.light{background:#B7CFFF}
+.section-heading{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:18px}
+.section-heading h2{font-size:21px;margin:0}
+.section-heading p{margin:3px 0 0;color:var(--muted);font-size:13px}
+.toolbar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin:22px 0}
+.tabs{padding:4px;background:#E9EDF4;border-radius:12px;display:flex;gap:3px}
+.tab{border:0;background:transparent;color:var(--muted);padding:9px 16px;font-weight:600;font-size:13px;border-radius:9px}
+.tab.active{background:white;color:var(--blue);box-shadow:0 2px 5px #14294D0C}
+.filter{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--muted)}
+select{border:1px solid var(--line);padding:9px 30px 9px 12px;background:white;color:var(--ink);max-width:100%}
+.exam-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{background:white;border:1px solid var(--line);box-shadow:var(--shadow)}
+.exam-card{padding:23px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.exam-card.comprehensive{background:linear-gradient(135deg,#fff 35%,#EEF4FF)}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:21px}
+.chapter-icon{background:var(--blue-light);color:var(--blue);border-radius:12px;width:46px;height:46px;display:grid;place-items:center}
+.exam-card h3{font-size:18px;margin-bottom:9px}
+.exam-card .description{color:var(--muted);font-size:13px;min-height:42px;margin-bottom:19px}
+.meta{display:flex;gap:20px;font-size:13px;color:var(--muted);padding-bottom:19px;margin-top:auto}
+.meta span{display:flex;align-items:center;gap:6px}
+.card-bottom{border-top:1px solid var(--line);padding-top:17px;display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--muted);gap:12px}
+.btn{border:1px solid var(--line);background:white;padding:10px 16px;font-weight:650;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:8px;line-height:1.5;text-decoration:none}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:white}
+.btn.primary:hover{background:#155BE0}
+.btn:hover{filter:brightness(.98)}
+.btn.soft{background:var(--blue-light);color:var(--blue);border-color:transparent}
+.btn.danger{color:var(--red)}
+.text-button{border:0;background:none;color:var(--blue);font-size:13px;font-weight:600;padding:5px}
+.note{padding:15px 18px;color:var(--muted);background:white;border:1px solid var(--line);border-radius:12px;font-size:13px;margin-top:22px}
+.note strong{color:var(--ink)}
+.history-section{margin-top:38px}
+.history-box{overflow-x:auto}
+.history-table{width:100%;border-collapse:collapse;font-size:13px;white-space:nowrap}
+.history-table th,.history-table td{text-align:left;padding:16px 20px;border-bottom:1px solid var(--line)}
+.history-table tr:last-child td{border:0}
+.history-table th{font-weight:500;color:var(--muted);font-size:12px;background:#FBFCFE}
+.score-small{color:var(--blue);font-weight:750}
+.empty{padding:32px;text-align:center;color:var(--muted);font-size:13px}
+.empty svg{display:block;margin:0 auto 10px;color:#A2AEC1}
+.footer{padding:30px 0;color:var(--muted);font-size:12px;text-align:center}
+.footer span{color:var(--blue)}
+
+/* Thanh thi và bảng câu hỏi: hai cột trên màn hình lớn, ngăn dưới trên điện thoại. */
+.exam-topbar{position:sticky;top:0;background:white;z-index:20;border-bottom:1px solid var(--line)}
+.exam-topbar .wrap{min-height:80px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:15px}
+.exam-title{font-weight:700;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.exam-subtitle{font-size:12px;font-weight:400;color:var(--muted)}
+.timer-box{text-align:center}
+.timer-label{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.timer{font-size:23px;font-weight:750;font-variant-numeric:tabular-nums;color:var(--blue);line-height:1.3}
+.timer.urgent{color:var(--red)}
+.top-actions{justify-self:end;display:flex;gap:8px}
+.exam-layout{display:grid;grid-template-columns:minmax(0,7fr) minmax(265px,3fr);gap:24px;padding-top:25px;padding-bottom:35px;align-items:start}
+.exam-tools{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px;flex-wrap:wrap}
+.exam-tools .tabs .tab{padding:7px 11px;font-size:12px}
+.exam-tools>span{color:var(--muted);font-size:12px}
+.part-label{display:flex;align-items:center;gap:10px;margin:24px 0 13px;font-weight:700;font-size:14px}
+.part-label:first-child{margin-top:0}
+.part-label span{background:#E4EBF6;color:#536783;border-radius:6px;padding:2px 7px;font-size:11px;letter-spacing:.04em}
+.question-card{padding:26px;margin-bottom:18px;scroll-margin-top:102px;overflow-wrap:anywhere}
+.question-heading{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:14px}
+.question-heading h2{font-size:17px;margin:0}
+.question-source{display:block;font-size:11px;font-weight:400;color:var(--muted);margin-top:5px;letter-spacing:0}
+.question-text,.statement-text,.explanation,.original-text{white-space:pre-line}
+.question-text{font-size:16px;line-height:1.75;margin-bottom:22px}
+.question-image{display:block;max-width:100%;max-height:200px;width:auto;margin:12px 0 22px;image-rendering:auto}
+.options{display:grid;gap:11px}
+.option{width:100%;text-align:left;display:flex;align-items:center;gap:13px;line-height:1.6;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:white;font-size:15px;opacity:1!important}
+.option:hover:not(:disabled){border-color:#94BAFF;background:#FAFCFF}
+.letter{border:1px solid #CFD7E5;min-width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:650;align-self:flex-start;margin-top:1px}
+.option.selected{border-color:var(--blue);background:var(--blue-light)}
+.option.selected .letter{background:var(--blue);border-color:var(--blue);color:white}
+.option.correct{border-color:var(--green);background:#F0FBF5}
+.option.correct .letter{background:var(--green);border-color:var(--green);color:white}
+.option.incorrect{border-color:var(--red);background:#FFF3F1}
+.option.incorrect .letter{background:var(--red);border-color:var(--red);color:white}
+.choice-content{flex:1;white-space:pre-line}
+.choice-mark{font-size:11px;font-weight:700;color:#12834D;white-space:nowrap}
+.incorrect .choice-mark{color:var(--red)}
+.question-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:23px;border-top:1px solid var(--line);padding-top:18px;flex-wrap:wrap}
+.navigation{display:flex;gap:8px}
+.flag-button{border:0;background:#FFF8EC;color:#9A630B;font-size:12px;padding:8px 12px;display:inline-flex;gap:5px;align-items:center;border-radius:8px}
+.flag-button.flagged{background:#FFF0D8;color:#965207;font-weight:750}
+.question-aside{position:sticky;top:105px;padding:22px;max-height:calc(100vh - 125px);overflow-y:auto}
+.aside-title{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:15px}
+.aside-title h2{font-size:16px;margin:0}
+.aside-progress{font-size:12px;color:var(--muted);margin:0 0 6px}
+.progress-track{height:5px;border-radius:10px;background:#EDF0F6;overflow:hidden;margin-bottom:20px}
+.progress-fill{height:100%;background:var(--blue);transition:width .2s}
+.grid-label{font-size:11px;font-weight:700;color:var(--muted);margin:13px 0 9px;text-transform:uppercase;letter-spacing:.04em}
+.question-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(35px,1fr));gap:8px}
+.q-number{height:36px;min-width:0;border:1px solid #CDD6E4;background:white;border-radius:7px;font-size:12px;position:relative;padding:0}
+.q-number.answered{background:var(--blue);border-color:var(--blue);color:white}
+.q-number.partial{background:#EEF4FF;border-color:#8DB6FF;color:#1A5DCA}
+.q-number.flagged{background:var(--orange);border-color:var(--orange);color:white}
+.q-number.correct{background:var(--green);border-color:var(--green);color:white}
+.q-number.incorrect{background:var(--red);border-color:var(--red);color:white}
+.q-number.blank{background:#EEF0F4;border-color:#D4D9E2;color:#727D8D}
+.q-number.current{outline:2px solid #233B60;outline-offset:2px}
+.q-number.partial-score{background:#FFF2DD;border-color:#F79009;color:#915307}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:11px;color:var(--muted);margin-top:23px;padding-top:17px;border-top:1px solid var(--line)}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend i{width:11px;height:11px;border:1px solid #CCD5E3;border-radius:3px;background:white}
+.legend .blue{background:var(--blue);border-color:var(--blue)}
+.legend .orange{background:var(--orange);border-color:var(--orange)}
+.legend .green{background:var(--green);border-color:var(--green)}
+.legend .red{background:var(--red);border-color:var(--red)}
+.legend .gray{background:#D5DAE3;border-color:#D5DAE3}
+.aside-note{font-size:11px;color:var(--muted);margin:17px 0 0}
+.mobile-grid-toggle{display:none}
+.drawer-overlay{position:fixed;inset:0;background:#172B4D66;z-index:49}
+.close-drawer{display:none;border:0;background:#EEF1F6;border-radius:8px;padding:4px 8px}
+.statement{border:1px solid var(--line);padding:15px;border-radius:10px;margin-top:12px}
+.statement.correct{border-color:var(--green);background:#F4FCF7}
+.statement.incorrect{border-color:var(--red);background:#FFF7F6}
+.statement-row{display:flex;gap:16px;align-items:flex-start;justify-content:space-between}
+.statement-text{flex:1}
+.tf-controls{display:flex;gap:6px;flex-shrink:0}
+.tf-choice{font-size:12px;border:1px solid #CFD7E5;background:white;border-radius:8px;padding:7px 11px;opacity:1!important}
+.tf-choice.selected{background:var(--blue);border-color:var(--blue);color:white}
+.tf-choice.right{border-color:var(--green);background:var(--green);color:white}
+.tf-choice.wrong{border-color:var(--red);background:var(--red);color:white}
+.statement-feedback{font-size:13px;margin-top:12px;border-top:1px solid #DAE4DC;padding-top:10px}
+.explanation{padding:17px 19px;background:#EEF7FF;border-radius:10px;margin-top:20px;color:#304C70;font-size:14px}
+.explanation strong{display:block;margin-bottom:5px;color:#174D93}
+.answer-summary{font-size:13px;color:var(--muted);margin-top:16px}
+.edit-details{margin-top:18px;border:1px dashed #D7DFED;border-radius:9px;font-size:12px;padding:11px 13px;background:#FCFDFE;color:var(--muted)}
+.edit-details summary{cursor:pointer;color:#536783;font-weight:650}
+.edit-details p{margin:11px 0 0}
+.original-text{padding:10px;background:#F0F3F8;border-radius:6px;margin-top:10px}
+.review-alert{font-size:12px;padding:10px 13px;background:#FFF5DF;color:#87580B;border-radius:8px;margin-bottom:16px}
+.result-wrap{max-width:950px;margin:auto;padding:35px 28px}
+.breadcrumb{font-size:13px;color:var(--muted);margin-bottom:23px}
+.result-card{padding:35px;text-align:center}
+.result-card h1{font-size:26px;margin:12px 0 7px}
+.result-card>p{color:var(--muted);font-size:13px}
+.result-main{display:flex;align-items:center;justify-content:center;gap:40px;margin:30px 0}
+.result-ring{background:#E9EFF8;width:142px;height:142px;padding:10px}
+.result-ring strong{font-size:28px}
+.big-score{font-size:64px;line-height:1;font-weight:800;letter-spacing:-.06em;color:var(--blue)}
+.big-score small{font-size:24px;color:#97A4BA;letter-spacing:0}
+.score-caption{font-size:12px;color:var(--muted);margin-top:10px}
+.result-stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:28px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.stat{padding:18px 10px;border-right:1px solid var(--line)}
+.stat:last-child{border:0}
+.stat strong{display:block;font-size:23px}
+.stat span{font-size:12px;color:var(--muted)}
+.green-text{color:#14864F}
+.red-text{color:var(--red)}
+.result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:27px}
+.result-detail{margin-top:20px;padding:23px;font-size:13px;color:var(--muted)}
+.result-detail h2{font-size:16px;color:var(--ink)}
+.result-detail p:last-child{margin-bottom:0}
+.modal-backdrop{position:fixed;inset:0;background:#172B4D77;z-index:100;display:grid;place-items:center;padding:20px}
+.modal{background:white;width:100%;max-width:520px;border-radius:18px;box-shadow:0 20px 100px #172B4D33;max-height:calc(100dvh - 40px);max-height:calc(100vh - 40px);overflow:auto}
+.modal-head{display:flex;justify-content:space-between;align-items:center;padding:23px 25px 0;gap:12px}
+.modal-head h2{font-size:21px;margin:0}
+.icon-button{border:0;background:#F0F3F8;border-radius:8px;width:32px;height:32px;display:grid;place-items:center}
+.modal-body{padding:20px 25px 25px}
+.modal-description{color:var(--muted);font-size:13px;margin-bottom:18px}
+.field{margin:18px 0}
+.field label{font-size:13px;display:block;font-weight:650;margin-bottom:8px}
+.field select{width:100%;padding:11px}
+.mode-buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mode-button{text-align:left;border:1px solid var(--line);padding:13px;background:white}
+.mode-button.active{border-color:var(--blue);background:var(--blue-light)}
+.mode-button strong{display:block;font-size:14px}
+.mode-button small{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:25px}
+.modal-note{padding:12px 14px;background:#F4F7FC;border-radius:9px;color:var(--muted);font-size:12px}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:#172B4D;color:white;border-radius:10px;box-shadow:var(--shadow);padding:12px 20px;max-width:calc(100% - 32px);z-index:200;font-size:13px;text-align:center}
+.skip-link{position:fixed;top:-100px;left:15px;z-index:300;background:white;padding:10px;border-radius:8px}
+.skip-link:focus{top:10px}
+
+@media(min-width:1100px){.exam-card.comprehensive{grid-column:1/-1;display:grid;grid-template-columns:54px 1.4fr 1fr auto;gap:18px;align-items:center}
+.comprehensive .card-top{margin:0}
+.comprehensive .card-top .pill{display:none}
+.comprehensive h3{margin-bottom:4px}
+.comprehensive .description{min-height:0;margin:0}
+.comprehensive .meta{padding:0;margin:0}
+.comprehensive .card-bottom{border:0;padding:0;gap:20px}
+}
+
+@media(max-width:1000px){.hero{gap:24px}
+.hero h1{font-size:35px}
+.overview{gap:15px;padding:20px}
+.overview .ring{width:92px;height:92px}
+.exam-cards{gap:14px}
+.exam-card{padding:19px}
+.question-card{padding:22px}
+.question-aside{padding:18px}
+.wrap{padding:0 24px}
+}
+
+@media(max-width:760px){.wrap{padding:0 16px}
+.brand-row{min-height:68px}
+.brand strong{font-size:17px}
+.logo{width:37px;height:37px}
+.header-note{font-size:11px}
+.header-note .desktop-only{display:none}
+.hero{padding:30px 0 26px;grid-template-columns:1fr;gap:22px}
+.hero h1{font-size:34px}
+.hero p{font-size:14px}
+.overview{padding:18px 22px;justify-content:space-between;flex-direction:row-reverse;gap:15px}
+.overview .ring{width:85px;height:85px;padding:7px}
+.overview .ring strong{font-size:27px}
+.overview h2{margin-bottom:6px}
+.overview p{font-size:12px}
+.toolbar{gap:13px}
+.tabs{max-width:100%;overflow:auto}
+.tab{padding:8px 13px;white-space:nowrap}
+.filter{width:100%;justify-content:space-between}
+.filter select{flex:1;min-width:0;max-width:280px}
+.exam-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+.exam-card.comprehensive{grid-column:1/-1}
+.exam-card .description{min-height:42px}
+.section-heading h2{font-size:19px}
+.section-heading .pill{font-size:10px}
+.exam-topbar .wrap{min-height:75px;grid-template-columns:minmax(0,1fr) auto auto;gap:12px}
+.exam-title{font-size:13px;max-width:250px}
+.exam-subtitle{font-size:10px}
+.timer{font-size:19px}
+.timer-label{font-size:8px;letter-spacing:.03em}
+.top-actions .btn{padding:8px 10px;font-size:12px}
+.top-actions .home-review{display:none}
+.exam-layout{display:block;padding-top:18px;padding-bottom:85px}
+.question-card{padding:20px;margin-bottom:14px}
+.question-text{font-size:15px}
+.question-aside{display:none;position:fixed;z-index:50;bottom:0;top:auto;left:0;right:0;border-radius:20px 20px 0 0;max-height:76vh;overflow-y:auto;padding:22px 22px calc(22px + env(safe-area-inset-bottom))}
+.question-aside.drawer-open{display:block}
+.close-drawer{display:block}
+.question-grid{grid-template-columns:repeat(auto-fill,minmax(36px,1fr))}
+.mobile-grid-toggle{display:flex;position:fixed;bottom:calc(18px + env(safe-area-inset-bottom));right:18px;z-index:30;box-shadow:0 5px 25px #1E6BFF44}
+.statement-row{display:block}
+.tf-controls{margin-top:12px;justify-content:flex-end}
+.tf-choice{padding:8px 18px}
+.result-wrap{padding:24px 16px}
+.result-card{padding:24px 18px}
+.result-card h1{font-size:23px}
+.result-main{gap:26px}
+.result-ring{background:#E9EFF8;width:120px;height:120px}
+.big-score{font-size:53px}
+.stat{padding:14px 6px}
+.stat strong{font-size:20px}
+.stat span{font-size:10px}
+.question-actions{gap:12px}
+.navigation .btn{padding:9px 11px}
+.question-heading{gap:7px}
+.pill{font-size:10px}
+.toast{bottom:85px}
+.choice-mark{white-space:normal;max-width:62px;text-align:right}
+}
+
+@media(max-width:440px){.exam-cards{grid-template-columns:1fr}
+.exam-card .description{min-height:0}
+.hero h1{font-size:31px}
+.hero-chips .pill{font-size:10px}
+.exam-tools{gap:8px}
+.exam-title{max-width:145px}
+.timer{font-size:17px}
+.timer-label{display:none}
+.top-actions .btn{padding:8px}
+.exam-topbar .wrap{gap:9px}
+.question-card{padding:17px}
+.option{padding:12px;gap:10px;font-size:14px}
+.letter{min-width:28px;height:28px}
+.question-actions{align-items:stretch}
+.flag-button{width:100%;justify-content:center;order:2}
+.navigation{width:100%;justify-content:space-between}
+.result-stats{grid-template-columns:repeat(2,1fr)}
+.stat:nth-child(2){border-right:0}
+.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+.result-main{gap:21px}
+.result-ring{background:#E9EFF8;width:105px;height:105px}
+.big-score{font-size:46px}
+.modal-head{padding:20px 18px 0}
+.modal-body{padding:18px}
+.header-note{max-width:95px;text-align:right}
+.result-actions .btn{flex:1}
+.history-table th,.history-table td{padding:13px 15px}
+.overview h2{font-size:15px}
+}
+
+@media(max-height:500px) and (orientation:landscape){.exam-topbar .wrap{min-height:56px}
+.question-aside{max-height:85vh}
+.modal{max-height:calc(100vh - 24px)}
+.modal-backdrop{padding:12px}
+.question-card{scroll-margin-top:73px}
+html{scroll-padding-top:78px}
+}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+*{transition:none!important}
+}
+
+
+@media(min-width:1100px){.exam-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+.exam-card.comprehensive{grid-template-columns:54px minmax(0,1fr) 180px 320px}
+.comprehensive .card-bottom{gap:12px}
+}
+
+@media(max-width:440px){.tabs .tab{padding:8px 11px}
+.overview{padding:18px 16px}
+.overview h2{font-size:14px}
+.overview .ring{width:76px;height:76px}
+.overview p{font-size:11px}
+.hero h1{font-size:29px}
+.section-heading>.pill{font-size:9px;padding:5px 7px}
+}
+
+
+/* Thời gian tùy chỉnh và bảng tư liệu đáp ứng màn hình nhỏ. */
+.custom-duration{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}
+.custom-duration label{width:100%;margin-bottom:0}
+.custom-duration input{width:140px;min-width:0;padding:10px 12px;border:1px solid var(--line);border-radius:9px;color:var(--ink);font:inherit}
+.custom-duration input[aria-invalid="true"]{border-color:var(--red)}
+.custom-duration span{font-size:13px;color:var(--muted)}
+.field-error{color:var(--red);font-size:12px;margin:8px 0 0}
+.reference-links{font-size:12px;color:var(--muted);margin-top:15px;line-height:1.8;overflow-wrap:anywhere}
+.reference-links a{text-decoration:underline}
+.source-table-wrap{overflow-x:auto;margin:0 0 24px;border:1px solid var(--line);border-radius:10px}
+.source-table{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed}
+.source-table caption{padding:10px;font-size:12px;color:var(--muted);text-align:left;background:#F6F8FC}
+.source-table th{background:#EEF4FF;text-align:left;font-size:12px}
+.source-table th,.source-table td{padding:12px;vertical-align:top;white-space:pre-line;overflow-wrap:anywhere;border-bottom:1px solid var(--line)}
+.source-table th:first-child,.source-table td:first-child{width:27%;border-right:1px solid var(--line)}
+.source-table tr:last-child td{border-bottom:0}
+.overview .ring{flex-shrink:0}
+.card-bottom>span{overflow-wrap:anywhere}
+.exam-title{max-width:100%}
+
+@media(max-width:760px){.exam-title{max-width:100%}
+.exam-subtitle{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.overview{gap:12px}
+.overview p{font-size:12px}
+}
+
+@media(max-width:440px){.overview p{font-size:11px}
+.hero h1{font-size:29px}
+.source-table{font-size:12px}
+.source-table td,.source-table th{padding:10px 8px}
+.source-table th:first-child,.source-table td:first-child{width:31%}
+.header-note{font-size:10px}
+}
+
+
+main:focus{outline:none}
+.meta span{white-space:nowrap}
+
+
+/* Cỡ chữ biểu mẫu 16px hạn chế tự phóng to khi nhập trên điện thoại. */
+@media(max-width:760px){.field select,.custom-duration input{font-size:16px}
+}
+
+
+/* Ô trả lời ngắn, có chuẩn hóa định dạng và chấm tự động. */
+.short-label{display:block;font-size:14px;font-weight:650;margin-bottom:10px}
+.short-row{display:flex;align-items:stretch;gap:12px;flex-wrap:wrap}
+.short-input{flex:1;min-width:140px;max-width:100%;width:220px;padding:13px 15px;border:1px solid #CCD7E7;border-radius:10px;font:inherit;font-size:18px;font-variant-numeric:tabular-nums;color:var(--ink);background:white}
+.short-input:focus{outline:2px solid #BAD1FF;border-color:var(--blue)}
+.short-input[aria-invalid="true"]{border-color:var(--red)}
+.short-input.right{border-color:var(--green);background:#F0FBF5}
+.short-input.wrong{border-color:var(--red);background:#FFF4F2}
+.short-hint{font-size:12px;color:var(--muted);margin:9px 0 0}
+.sources-panel{padding:16px 19px;margin-top:18px;font-size:12px;color:var(--muted)}
+.sources-panel summary{cursor:pointer;color:var(--ink);font-weight:650;display:list-item}
+.sources-panel summary svg{margin-right:6px}
+.sources-panel p{margin:14px 0}
+.source-list{display:grid;gap:8px}
+.source-list a{overflow-wrap:anywhere}
+.overview h2{font-size:15px}
+.overview p{font-size:12px}
+.card-bottom>span{overflow-wrap:anywhere}
+.comprehensive .card-bottom>span{max-width:170px}
+
+@media(max-width:440px){.short-input{width:100%;min-width:0;flex-basis:100%;font-size:18px}
+.short-row .btn{width:100%}
+.overview .ring{width:77px;height:77px}
+.overview h2{font-size:13px}
+.overview p{font-size:10px}
+.overview .ring strong{font-size:24px}
+.hero h1{font-size:28px}
+.header-note{max-width:90px}
+}
+
+
+/* Mục lục chương/bài và thẻ phần nhỏ để ôn từng lượt. */
+.chapter-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.chapter-card{padding:24px;display:flex;flex-direction:column;min-width:0}
+.chapter-card h3{font-size:19px}
+.chapter-card .description{font-size:13px;color:var(--muted);margin-bottom:20px}
+.chapter-card .meta{margin-top:auto;flex-wrap:wrap}
+.book-credit{color:var(--muted);font-size:12px;margin:-5px 0 15px}
+.book-credit a{color:#496C9C}
+.part-size-filter{margin-left:auto}
+.lesson-block{margin:25px 0 30px}
+.lesson-heading{display:flex;justify-content:space-between;gap:18px;align-items:center;margin-bottom:15px}
+.lesson-heading h3{font-size:18px;margin:4px 0 5px}
+.lesson-heading p{font-size:12px;color:var(--muted);margin:0}
+.lesson-number{font-size:10px;font-weight:750;letter-spacing:.12em;color:var(--blue)}
+.part-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,235px),1fr));gap:15px}
+.part-card{padding:20px;min-width:0;display:flex;flex-direction:column;align-items:flex-start}
+.part-card h4{font-size:19px;margin:12px 0 6px}
+.part-badge{font-size:10px;font-weight:750;color:var(--blue);background:var(--blue-light);padding:4px 8px;border-radius:6px;letter-spacing:.03em}
+.part-summary{font-size:12px;color:var(--muted);margin-bottom:10px}
+.part-source{font-size:11px;color:var(--muted);margin-bottom:18px}
+.part-source summary{cursor:pointer}
+.part-source span{display:block;margin-top:6px;overflow-wrap:anywhere}
+.part-card>.btn{margin-top:auto;width:100%}
+.full-exam{margin-top:24px;padding:20px;display:flex;align-items:center;justify-content:space-between;gap:20px;background:#F9FBFF}
+.full-exam strong{font-size:14px}
+.full-exam p{font-size:12px;color:var(--muted);margin:4px 0 0}
+.full-exam .btn{flex-shrink:0}
+.question-source{line-height:1.7}
+.toolbar>.filter select{max-width:310px}
+
+@media(max-width:760px){.chapter-cards{grid-template-columns:1fr}
+.part-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+.part-size-filter{margin-left:0}
+.full-exam{align-items:stretch;flex-direction:column}
+.section-heading{flex-wrap:wrap}
+.lesson-heading{align-items:flex-start}
+.lesson-heading .text-button{font-size:11px;flex-shrink:0}
+.toolbar>.filter select{max-width:100%}
+}
+
+@media(max-width:440px){.part-cards{grid-template-columns:1fr}
+.chapter-card{padding:21px}
+.chapter-card .meta{gap:13px}
+.lesson-heading h3{font-size:16px}
+.lesson-heading .text-button{max-width:77px}
+.hero h1{font-size:28px}
+.header-note{max-width:85px}
+}
+
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Đến nội dung chính</a>
+<header id="header"></header>
+<main id="main" tabindex="-1"></main>
+<footer id="footer" class="footer">Trạm ôn tập <span>Sinh học 12</span> · Sinh học 12 · Năm học 2026–2027.</footer>
+<div id="modal-root"></div>
+<div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+<script>
+/* DỮ LIỆU ĐỀ: answer là chỉ số 0–3 của phương án đúng trước khi đảo.
+   Câu đúng–sai có statements[].answer là true/false.
+   Các trường original… và editNote lưu nội dung trước khi biên tập. */
+const QUESTIONS = [
+  {
+    "id": "bio-q1",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 1,
+    "needReview": false,
+    "prompt": "Loại nucleotide nào sau đây không phải là đơn phân cấu tạo nên phân tử DNA?",
+    "options": [
+      "Cytosine.",
+      "Uracil.",
+      "Adenine.",
+      "Thymine."
+    ],
+    "answer": 1,
+    "explanation": "DNA thông thường được cấu tạo từ bốn loại nucleotide A, T, G, C. Uracil (U) là base đặc trưng của RNA, không phải một trong bốn loại nucleotide chuẩn của DNA.",
+    "sourceIds": [
+      "dna",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q2",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 2,
+    "needReview": false,
+    "prompt": "Chức năng của DNA là",
+    "options": [
+      "xúc tác các phản ứng sinh hoá trong tế bào.",
+      "bảo vệ cơ thể chống lại tác nhân gây bệnh.",
+      "mang, bảo quản và truyền đạt thông tin di truyền.",
+      "nguồn dự trữ các amino acid."
+    ],
+    "answer": 2,
+    "explanation": "Trình tự nucleotide của DNA lưu giữ thông tin di truyền; DNA được bảo quản và tái bản để truyền thông tin qua các thế hệ tế bào và cơ thể.",
+    "sourceIds": [
+      "dna",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q3",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 3,
+    "needReview": false,
+    "prompt": "Trong quá trình tái bản DNA, nucleotide loại Adenine trên mạch khuôn của gene liên kết bổ sung với loại nucleotide nào ở môi trường nội bào?",
+    "options": [
+      "Uracil.",
+      "Cytosine.",
+      "Thymine.",
+      "Guanine."
+    ],
+    "answer": 2,
+    "explanation": "Trong tái bản DNA, A trên mạch khuôn bắt cặp bổ sung với T ở mạch mới; G bắt cặp với C.",
+    "sourceIds": [
+      "dna",
+      "replication",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q4",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 4,
+    "needReview": false,
+    "prompt": "Trong quá trình tái bản DNA, nucleotide loại Guanine trên mạch khuôn của gene liên kết bổ sung với loại nucleotide nào ở môi trường nội bào?",
+    "options": [
+      "Uracil.",
+      "Cytosine.",
+      "Thymine.",
+      "Adenine."
+    ],
+    "answer": 1,
+    "explanation": "Nguyên tắc bổ sung của DNA: G liên kết với C bằng ba liên kết hydrogen; A liên kết với T bằng hai liên kết hydrogen.",
+    "sourceIds": [
+      "dna",
+      "replication",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q5",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 5,
+    "needReview": false,
+    "prompt": "Có 5 phân tử DNA đều tái bản 3 lần đã tạo ra bao nhiêu phân tử DNA con?",
+    "options": [
+      "40.",
+      "15.",
+      "30.",
+      "96."
+    ],
+    "answer": 0,
+    "explanation": "Mỗi lần tái bản làm số phân tử DNA tăng gấp đôi. Sau ba lần tái bản, số phân tử DNA con ở lần cuối là 5 × 2³ = 40.",
+    "sourceIds": [
+      "replication",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q6",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 6,
+    "needReview": false,
+    "prompt": "Một đoạn của phân tử DNA mang thông tin quy định sản phẩm xác định là chuỗi polypeptide hoặc RNA được gọi là",
+    "options": [
+      "mã di truyền.",
+      "codon.",
+      "anticodon.",
+      "gene."
+    ],
+    "answer": 3,
+    "explanation": "Gene là một đoạn DNA mang thông tin quy định một sản phẩm xác định, có thể là chuỗi polypeptide hoặc một phân tử RNA chức năng.",
+    "sourceIds": [
+      "dna",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q7",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 7,
+    "needReview": false,
+    "prompt": "Mỗi gene mã hoá chuỗi polypeptide điển hình (theo chiều mạch khuôn 3’ đến 5’) gồm các vùng theo trình tự là",
+    "options": [
+      "vùng điều hoà, vùng vận hành, vùng kết thúc.",
+      "vùng điều hoà, vùng kết thúc, vùng mã hoá.",
+      "vùng điều hoà, vùng mã hoá, vùng kết thúc.",
+      "vùng mã hoá, vùng điều hoà, vùng kết thúc."
+    ],
+    "answer": 2,
+    "explanation": "Theo chiều đọc mạch khuôn 3′ → 5′, mô hình gene mã hóa polypeptide điển hình gồm vùng điều hòa, vùng mã hóa rồi vùng kết thúc. Vùng vận hành không thay thế vùng mã hóa.",
+    "sourceIds": [
+      "transcription",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q8",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 8,
+    "needReview": false,
+    "prompt": "Xét theo mạch khuôn của gene, vùng kết thúc là vùng",
+    "options": [
+      "nằm ở đầu 5’ của mạch khuôn, mang tín hiệu kết thúc phiên mã.",
+      "nằm ở đầu 3’ của mạch khuôn, mang tín hiệu kết thúc phiên mã.",
+      "chứa trình tự nucleotide mã hoá chuỗi polypeptide hoặc RNA.",
+      "mang tín hiệu khởi động và điều khiển quá trình phiên mã."
+    ],
+    "answer": 0,
+    "explanation": "Vùng kết thúc ở phía đầu 5′ của mạch khuôn và mang tín hiệu kết thúc phiên mã. Cần nêu rõ mạch khuôn vì hai mạch DNA có chiều ngược nhau.",
+    "originalPrompt": "Vùng kết thúc của gene là vùng",
+    "originalOptions": [
+      "nằm ở đầu 5’ của gene, mang tín hiệu kết thúc phiên mã.",
+      "nằm ở đầu 3’ của gene, mang tín hiệu kết thúc phiên mã.",
+      "chứa trình tự nucleotide mã hoá chuỗi polypeptide hoặc RNA.",
+      "mang tín hiệu khởi động và điều khiển quá trình phiên mã."
+    ],
+    "editNote": "Nêu rõ mạch khuôn và sửa cách gọi đầu 5′/3′ trong hai phương án đầu để tránh mơ hồ vì hai mạch DNA có chiều ngược nhau. Đáp án vẫn là vùng cuối phía đầu 5′ của mạch khuôn.",
+    "sourceIds": [
+      "transcription",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q9",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 9,
+    "needReview": false,
+    "prompt": "Vùng mã hoá của gene là vùng",
+    "options": [
+      "nằm ở đầu 5’ của gene, mang tín hiệu kết thúc phiên mã.",
+      "nằm ở đầu 3’ của gene, mang tín hiệu kết thúc phiên mã.",
+      "chứa trình tự nucleotide mã hoá chuỗi polypeptide hoặc RNA.",
+      "mang tín hiệu khởi động và điều khiển quá trình phiên mã."
+    ],
+    "answer": 2,
+    "explanation": "Trong mô hình gene của chương trình phổ thông, vùng mã hóa chứa thông tin quy định trình tự sản phẩm polypeptide hoặc RNA; vùng điều hòa và vùng kết thúc mang các tín hiệu điều khiển phiên mã.",
+    "sourceIds": [
+      "transcription",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q10",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 10,
+    "needReview": false,
+    "prompt": "Phần lớn gene mã hóa protein của sinh vật nhân sơ có",
+    "options": [
+      "vùng mã hoá không liên tục nên gọi là gene phân mãnh.",
+      "vùng mã hoá liên tục nên gọi là gene không phân mãnh.",
+      "vùng mã hoá liên tục nên gọi là gene phân mãnh.",
+      "vùng mã hoá không liên tục nên gọi là gene không phân mãnh."
+    ],
+    "answer": 1,
+    "explanation": "Phần lớn gene mã hóa protein ở sinh vật nhân sơ có vùng mã hóa liên tục, không bị các intron ngắt quãng, nên được gọi là gene không phân mảnh trong mô hình phổ thông. Tránh khẳng định tuyệt đối cho mọi gene nhân sơ.",
+    "originalPrompt": "Gene của sinh vật nhân sơ có",
+    "originalOptions": [
+      "vùng mã hoá không liên tục nên gọi là gene phân mãnh.",
+      "vùng mã hoá liên tục nên gọi là gene không phân mãnh.",
+      "vùng mã hoá liên tục nên gọi là gene phân mãnh.",
+      "vùng mã hoá không liên tục nên gọi là gene không phân mãnh."
+    ],
+    "editNote": "Thêm “Phần lớn gene mã hóa protein” để tránh khẳng định tuyệt đối cho mọi gene nhân sơ; kiến thức gene không phân mảnh được giữ trong phạm vi mô hình phổ thông.",
+    "sourceIds": [
+      "rnaProcessing",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q11",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 11,
+    "needReview": false,
+    "prompt": "Phần lớn gene của sinh vật nhân thực có",
+    "options": [
+      "vùng mã hoá không liên tục nên gọi là gene phân mãnh.",
+      "vùng mã hoá liên tục nên gọi là gene không phân mãnh.",
+      "vùng mã hoá liên tục nên gọi là gene phân mãnh.",
+      "vùng mã hoá không liên tục nên gọi là gene không phân mãnh."
+    ],
+    "answer": 0,
+    "explanation": "Phần lớn gene mã hóa protein ở sinh vật nhân thực có các exon xen kẽ intron, nên vùng mã hóa không liên tục. Intron được loại bỏ khi xử lí tiền mRNA.",
+    "sourceIds": [
+      "rnaProcessing",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q12",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 12,
+    "needReview": false,
+    "prompt": "Một gene có chiều dài 204 nm, trong đó có số nucleotide loại G chiếm 40% tổng số nucleotide của gene. Khi gene tái bản liên tiếp 4 lần đã cần môi trường nội bào cung cấp số nucleotide loại A là:",
+    "options": [
+      "1800.",
+      "7200.",
+      "18000.",
+      "480."
+    ],
+    "answer": 0,
+    "explanation": "Một cặp nucleotide làm DNA dài thêm 0,34 nm. Gene có 204/0,34 = 600 cặp, tức N = 1.200 nucleotide. G = C = 40%N nên A = T = 10%N = 120. Sau 4 lần tái bản, A cần cung cấp = 120 × (2⁴ − 1) = 1.800.",
+    "originalPrompt": "Một gene có 204 nm, trong đó có số nucleotide loại G chiếm 40% tổng số nucleotide của gene. Khi gene tái bản liên tiếp 4 lần đã cần môi trường nội bào cung cấp số nucleotide loại A là:",
+    "editNote": "Bổ sung từ “chiều dài” để làm rõ đại lượng 204 nm; giữ nguyên số liệu và đáp án.",
+    "sourceIds": [
+      "dnaStructure",
+      "replication",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q13",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 13,
+    "needReview": false,
+    "prompt": "Trong quá trình phiên mã tổng hợp mRNA, nucleotide loại Adenine trên mạch khuôn của gene liên kết bổ sung với loại nucleotide nào ở môi trường nội bào?",
+    "options": [
+      "Uracil.",
+      "Cytosine.",
+      "Thymine.",
+      "Guanine."
+    ],
+    "answer": 0,
+    "explanation": "Trong phiên mã, RNA dùng U thay cho T. Vì vậy A trên mạch khuôn DNA bắt cặp với U trong phân tử RNA mới tổng hợp.",
+    "sourceIds": [
+      "dna",
+      "transcription",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q14",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 14,
+    "needReview": false,
+    "prompt": "Trong quá trình phiên mã tổng hợp mRNA, nucleotide loại Thymine trên mạch khuôn của gene liên kết bổ sung với loại nucleotide nào ở môi trường nội bào?",
+    "options": [
+      "Uracil.",
+      "Cytosine.",
+      "Adenine.",
+      "Guanine."
+    ],
+    "answer": 2,
+    "explanation": "T trên mạch khuôn DNA bắt cặp bổ sung với A của RNA. RNA được tổng hợp theo chiều 5′ → 3′.",
+    "sourceIds": [
+      "dna",
+      "transcription",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q15",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 15,
+    "needReview": false,
+    "prompt": "Loại nucleotide nào sau đây không phải là đơn phân cấu tạo nên phân tử RNA?",
+    "options": [
+      "Uracil.",
+      "Guanine.",
+      "Thymine.",
+      "Adenine."
+    ],
+    "answer": 2,
+    "explanation": "RNA chuẩn gồm A, U, G, C. Thymine (T) không thuộc bốn loại nucleotide chuẩn cấu tạo RNA trong mô hình này.",
+    "sourceIds": [
+      "dna",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q16",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 16,
+    "needReview": false,
+    "prompt": "Một đoạn mạch khuôn của gene có trình tự các nucleotide là 3’TACGAATCG5’. Trình tự các nucleotide của mRNA được tổng hợp từ đoạn mạch khuôn trên là:",
+    "options": [
+      "3’AUGCUUAGC5’.",
+      "5’ATGCTTAGC3’.",
+      "5’AUGCUUAGC3’.",
+      "3’ATGCTTAGC5’."
+    ],
+    "answer": 2,
+    "explanation": "Mạch khuôn 3′-TACGAATCG-5′ được đọc theo chiều 3′ → 5′. mRNA bổ sung và ngược chiều là 5′-AUGCUUAGC-3′; RNA chứa U, không chứa T.",
+    "sourceIds": [
+      "transcription",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q17",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 17,
+    "needReview": false,
+    "prompt": "Một đoạn mạch khuôn của gene có trình tự các nucleotide là 3’TCAGAATCG5’. Trình tự các nucleotide của mRNA được tổng hợp từ đoạn mạch khuôn trên là:",
+    "options": [
+      "3’AUGCUUAGC5’.",
+      "5’AGTCTTAGC3’.",
+      "3’ATGCTTAGC5’.",
+      "5’AGUCUUAGC3’."
+    ],
+    "answer": 3,
+    "explanation": "Đọc mạch khuôn 3′-TCAGAATCG-5′ và lấy bổ sung T–A, C–G, A–U, G–C, thu được mRNA 5′-AGUCUUAGC-3′.",
+    "sourceIds": [
+      "transcription",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q18",
+    "chapter": 1,
+    "type": "tf",
+    "number": 18,
+    "needReview": false,
+    "prompt": "Trong các phát biểu sau đây, phát biểu nào là đúng hay sai về quá trình dịch mã?",
+    "statements": [
+      {
+        "text": "Ribosome dịch chuyển trên mRNA theo chiều 3’ → 5’.",
+        "answer": false,
+        "explanation": "Ribosome đọc và dịch chuyển dọc mRNA theo chiều 5′ → 3′, không phải 3′ → 5′."
+      },
+      {
+        "text": "Trong cùng thời điểm, trên mỗi mRNA thường có một số ribosome hoạt động được gọi là polyribosome.",
+        "answer": true,
+        "explanation": "Nhiều ribosome cùng dịch mã một mRNA tạo thành polysome, còn gọi là polyribosome."
+      },
+      {
+        "text": "Nguyên tắc bổ sung giữa codon và anticodon thể hiện trên toàn bộ các nucleotide của mRNA.",
+        "answer": false,
+        "explanation": "Chỉ các codon được dịch trong vùng mã hóa bắt cặp với anticodon; các vùng không dịch mã không được đọc thành amino acid, và codon kết thúc được nhận biết bởi yếu tố giải phóng, không có tRNA tương ứng."
+      },
+      {
+        "text": "Có sự tham gia trực tiếp của DNA, mRNA, tRNA và ribosome.",
+        "answer": false,
+        "explanation": "DNA không tham gia trực tiếp vào bộ máy dịch mã. Dịch mã trực tiếp sử dụng mRNA, tRNA, ribosome và các yếu tố, nguyên liệu khác."
+      }
+    ],
+    "sourceIds": [
+      "translation",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q19",
+    "chapter": 1,
+    "type": "tf",
+    "number": 19,
+    "needReview": false,
+    "prompt": "Trong các phát biểu sau đây, phát biểu nào là đúng hay sai về quá trình dịch mã?",
+    "statements": [
+      {
+        "text": "Ribosome dịch chuyển trên mRNA theo chiều 5’ → 3’.",
+        "answer": true,
+        "explanation": "Ribosome đọc mRNA theo chiều 5′ → 3′ trong quá trình kéo dài chuỗi polypeptide."
+      },
+      {
+        "text": "Trong cùng thời điểm, trên mỗi mRNA thường có một số ribosome hoạt động được gọi là polyribosome.",
+        "answer": true,
+        "explanation": "Polyribosome là tập hợp nhiều ribosome đang dịch mã trên cùng một phân tử mRNA."
+      },
+      {
+        "text": "Nguyên tắc bổ sung giữa codon và anticodon thể hiện trên toàn bộ các nucleotide của mRNA",
+        "answer": false,
+        "explanation": "Không phải toàn bộ nucleotide của mRNA đều bắt cặp codon–anticodon: có vùng không dịch mã và codon kết thúc không có tRNA tương ứng."
+      },
+      {
+        "text": "Có sự tham gia trực tiếp của mRNA, tRNA và ribosome.",
+        "answer": true,
+        "explanation": "mRNA làm khuôn, tRNA mang amino acid, ribosome là nơi diễn ra sự lắp ráp chuỗi polypeptide."
+      }
+    ],
+    "sourceIds": [
+      "translation",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q20",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 20,
+    "needReview": false,
+    "prompt": "Thành phần nào sau đây không thuộc operon Lac?",
+    "options": [
+      "Gene điều hòa (lacI).",
+      "Các gene cấu trúc lacZ, lacY, lacA.",
+      "Vùng promoter (P).",
+      "Vùng operator (O)."
+    ],
+    "answer": 0,
+    "explanation": "Theo mô hình operon lac ở chương trình phổ thông, operon gồm promoter, operator và ba gene cấu trúc lacZ, lacY, lacA. Gene điều hòa lacI có promoter riêng và không thuộc operon này.",
+    "sourceIds": [
+      "lac",
+      "lacI",
+      "sgk"
+    ],
+    "lesson": "b3"
+  },
+  {
+    "id": "bio-q21",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 21,
+    "needReview": false,
+    "prompt": "Trong mô hình cấu trúc operon Lac ở vi khuẩn E.coli, vùng promoter (P)",
+    "options": [
+      "là nơi enzyme RNA polymerase khởi động quá trình phiên mã các gene cấu trúc.",
+      "mang thông tin quy định cấu trúc protein ức chế.",
+      "là nơi liên kết với protein ức chế ngăn cản quá trình phiên mã.",
+      "là nơi mã hoá các enzyme giúp vi khuẩn chuyển hoá và sử dụng đường lactose."
+    ],
+    "answer": 0,
+    "explanation": "Promoter là trình tự DNA để RNA polymerase nhận biết và khởi đầu phiên mã các gene cấu trúc. Vùng này không mã hóa protein ức chế.",
+    "sourceIds": [
+      "transcription",
+      "lac",
+      "sgk"
+    ],
+    "lesson": "b3"
+  },
+  {
+    "id": "bio-q22",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 22,
+    "needReview": false,
+    "prompt": "Trong mô hình cấu trúc operon Lac ở vi khuẩn E.coli, vùng operator (O).",
+    "options": [
+      "là nơi enzyme RNA polymerase khởi động quá trình phiên mã các gene cấu trúc.",
+      "mang thông tin quy định cấu trúc protein ức chế.",
+      "là nơi liên kết với protein ức chế ngăn cản quá trình phiên mã.",
+      "là nơi mã hoá các enzyme giúp vi khuẩn chuyển hoá và sử dụng đường lactose."
+    ],
+    "answer": 2,
+    "explanation": "Operator là vùng DNA được protein ức chế lac gắn vào; sự gắn này cản trở phiên mã các gene cấu trúc.",
+    "sourceIds": [
+      "transcription",
+      "lac",
+      "lacI",
+      "sgk"
+    ],
+    "lesson": "b3"
+  },
+  {
+    "id": "bio-q23",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 23,
+    "needReview": false,
+    "prompt": "Trong cơ chế điều hòa hoạt động của operon Lac ở vi khuẩn E.coli, khi gene cấu trúc lacZ và gene cấu trúc lacY đều phiên mã 6 lần thì gene cấu trúc lacA phiên mã mấy lần?",
+    "options": [
+      "6.",
+      "12.",
+      "3.",
+      "1."
+    ],
+    "answer": 0,
+    "explanation": "Ba gene lacZ, lacY, lacA cùng thuộc một đơn vị phiên mã, được phiên mã chung thành mRNA đa cistron. Nếu lacZ và lacY cùng được phiên mã 6 lần thì lacA cũng 6 lần trong mô hình bình thường.",
+    "sourceIds": [
+      "lac",
+      "sgk"
+    ],
+    "lesson": "b3"
+  },
+  {
+    "id": "bio-q24",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 24,
+    "needReview": false,
+    "prompt": "Trong cơ chế điều hòa hoạt động của operon Lac ở vi khuẩn E.coli, khi gene cấu trúc lacA và gene cấu trúc lacY đều phiên mã 8 lần thì gene cấu trúc lacZ phiên mã mấy lần?",
+    "options": [
+      "4.",
+      "16.",
+      "8.",
+      "1."
+    ],
+    "answer": 2,
+    "explanation": "Trong operon lac bình thường, lacZ, lacY, lacA được phiên mã chung. Khi lacA và lacY được phiên mã 8 lần thì lacZ cũng được phiên mã 8 lần.",
+    "sourceIds": [
+      "lac",
+      "sgk"
+    ],
+    "lesson": "b3"
+  },
+  {
+    "id": "bio-q25",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 25,
+    "needReview": false,
+    "prompt": "Một gene bị đột biến điểm đã làm cho gene đột biến kém gene ban đầu một liên kết hydrogen. Đột biến gene thuộc dạng",
+    "options": [
+      "Thêm 1 cặp nucleotide.",
+      "Mất 1 cặp nucleotide.",
+      "Thay 1 cặp G-C bằng 1 cặp A-T.",
+      "Thay 1 cặp A-T bằng 1 cặp G-C."
+    ],
+    "answer": 2,
+    "explanation": "Một cặp G–C có 3 liên kết hydrogen, còn A–T có 2. Thay một cặp G–C bằng A–T làm giảm đúng 1 liên kết hydrogen, không làm đổi số cặp nucleotide.",
+    "sourceIds": [
+      "dnaStructure",
+      "pointMutation",
+      "sgk"
+    ],
+    "lesson": "b4"
+  },
+  {
+    "id": "bio-q26",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 26,
+    "needReview": false,
+    "prompt": "Một gene bị đột biến điểm đã làm cho gene đột biến hơn gene ban đầu một liên kết hydrogen. Đột biến gene thuộc dạng",
+    "options": [
+      "Thêm 1 cặp nucleotide.",
+      "Mất 1 cặp nucleotide.",
+      "Thay 1 cặp G-C bằng 1 cặp A-T.",
+      "Thay 1 cặp A-T bằng 1 cặp G-C."
+    ],
+    "answer": 3,
+    "explanation": "Thay một cặp A–T (2 liên kết hydrogen) bằng G–C (3 liên kết hydrogen) làm tăng đúng 1 liên kết hydrogen.",
+    "sourceIds": [
+      "dnaStructure",
+      "pointMutation",
+      "sgk"
+    ],
+    "lesson": "b4"
+  },
+  {
+    "id": "bio-q27",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 27,
+    "needReview": false,
+    "prompt": "Một gen bị đột biến điểm đã làm cho gene đột biến hơn gene ban đầu hai liên kết hydrogen. Đột biến gene thuộc dạng",
+    "options": [
+      "Thêm 1 cặp nucleotide A-T.",
+      "Thêm 1 cặp nucleotide G-C.",
+      "Thay 1 cặp G-C bằng 1 cặp A-T.",
+      "Thay 1 cặp A-T bằng 1 cặp G-C."
+    ],
+    "answer": 0,
+    "explanation": "Thêm một cặp A–T làm tăng 2 liên kết hydrogen; thêm G–C tăng 3, còn thay thế hai loại cặp chỉ làm tăng hoặc giảm 1.",
+    "sourceIds": [
+      "dnaStructure",
+      "pointMutation",
+      "sgk"
+    ],
+    "lesson": "b4"
+  },
+  {
+    "id": "bio-q28",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 28,
+    "needReview": false,
+    "prompt": "Một gene bị đột biến điểm đã làm cho gene đột biến kém gene ban đầu ba liên kết hydrogen. Đột biến gene thuộc dạng",
+    "options": [
+      "Mất 1 cặp nucleotide A-T.",
+      "Mất 1 cặp nucleotide G-C.",
+      "Thay 1 cặp G-C bằng 1 cặp A-T.",
+      "Thay 1 cặp A-T bằng 1 cặp G-C."
+    ],
+    "answer": 1,
+    "explanation": "Mất một cặp G–C làm gene mất 3 liên kết hydrogen. Mất A–T chỉ làm giảm 2 liên kết hydrogen.",
+    "sourceIds": [
+      "dnaStructure",
+      "pointMutation",
+      "sgk"
+    ],
+    "lesson": "b4"
+  },
+  {
+    "id": "bio-q29",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 29,
+    "needReview": false,
+    "prompt": "Khi nói về đột biến gene, phát biểu nào sau đây không đúng?",
+    "options": [
+      "Đột biến gene có thể xảy ra ở tế bào sinh dưỡng và tế bào sinh dục.",
+      "Đột biến gene có thể gây hại nhưng cũng có thể vô hại hoặc có lợi cho thể đột biến.",
+      "Đột biến điểm là những biến đổi liên quan đến một số cặp nucleotide trong gene.",
+      "Đột biến gene là những biến đổi trong cấu trúc của gene."
+    ],
+    "answer": 2,
+    "explanation": "Theo quy ước của chương trình phổ thông, đột biến điểm liên quan đến một cặp nucleotide, không phải nhiều cặp. Đột biến gene nói chung có thể liên quan đến một hoặc một số cặp nucleotide.",
+    "sourceIds": [
+      "pointMutation",
+      "sgk"
+    ],
+    "lesson": "b4"
+  },
+  {
+    "id": "bio-q30",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 30,
+    "needReview": false,
+    "prompt": "Khi nói về đột biến gene, phát biểu nào sau đây không đúng?",
+    "options": [
+      "Đột biến gene chỉ xảy ra ở tế bào sinh dưỡng.",
+      "Đột biến gene có thể gây hại nhưng cũng có thể vô hại hoặc có lợi cho thể đột biến.",
+      "Đột biến điểm là những biến đổi liên quan đến một cặp nucleotide trong gene.",
+      "Đột biến gene là những biến đổi trong cấu trúc của gene."
+    ],
+    "answer": 0,
+    "explanation": "Đột biến gene có thể xuất hiện ở cả tế bào sinh dưỡng và tế bào sinh dục; không chỉ xảy ra ở tế bào sinh dưỡng.",
+    "sourceIds": [
+      "pointMutation",
+      "sgk"
+    ],
+    "lesson": "b4"
+  },
+  {
+    "id": "bio-q31",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 31,
+    "needReview": false,
+    "prompt": "Khi nói về đột biến gene, phát biểu nào sau đây không đúng?",
+    "options": [
+      "Đột biến gene có thể xảy ra ở tế bào sinh dưỡng và tế bào sinh dục.",
+      "Tất cả đột biến gene đều có hại cho thể đột biến.",
+      "Đột biến điểm là những biến đổi liên quan đến một cặp nucleotide trong gene.",
+      "Đột biến gene là những biến đổi trong cấu trúc của gene."
+    ],
+    "answer": 1,
+    "explanation": "Đột biến gene không phải luôn có hại: có thể có hại, trung tính hoặc có lợi, tùy chức năng gene, môi trường và tổ hợp gene.",
+    "sourceIds": [
+      "pointMutation",
+      "sgk"
+    ],
+    "lesson": "b4"
+  },
+  {
+    "id": "bio-q32",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 32,
+    "needReview": false,
+    "prompt": "Khi nói về đột biến gene, phát biểu nào sau đây không đúng?",
+    "options": [
+      "Đột biến gene có thể xảy ra ở tế bào sinh dưỡng và tế bào sinh dục.",
+      "Đột biến gene có thể gây hại nhưng cũng có thể vô hại hoặc có lợi cho thể đột biến.",
+      "Đột biến điểm là những biến đổi liên quan đến một cặp nucleotide trong gene.",
+      "Đột biến gene là những biến đổi vị trí của gene trên NST."
+    ],
+    "answer": 3,
+    "explanation": "Đột biến gene là thay đổi trình tự nucleotide trong gene. Biến đổi vị trí gene trên nhiễm sắc thể thuộc các biến đổi cấu trúc nhiễm sắc thể, không phải định nghĩa đột biến gene.",
+    "sourceIds": [
+      "pointMutation",
+      "sgk"
+    ],
+    "lesson": "b4"
+  },
+  {
+    "id": "bio-q33",
+    "chapter": 1,
+    "type": "tf",
+    "number": 33,
+    "needReview": false,
+    "prompt": "Trong các phát biểu sau đây, phát biểu nào là đúng hay sai về đột biến gene?",
+    "statements": [
+      {
+        "text": "Mức độ gây hại của allele đột biến phụ thuộc vào môi trường và tùy tổ hợp gene.",
+        "answer": true,
+        "explanation": "Tác động của allele đột biến phụ thuộc cả môi trường sống và tổ hợp các gene cùng có mặt trong cơ thể."
+      },
+      {
+        "text": "Thể đột biến là những cá thể mang gene đột biến đã biểu hiện ra kiểu hình.",
+        "answer": true,
+        "explanation": "Trong cách dùng của chương trình phổ thông, thể đột biến là cá thể mang đột biến đã biểu hiện ra kiểu hình."
+      },
+      {
+        "text": "Đột biến gene làm xuất hiện các allele khác nhau trong quần thể.",
+        "answer": true,
+        "explanation": "Đột biến gene tạo ra biến đổi trình tự DNA, có thể hình thành allele mới và bổ sung nguồn biến dị di truyền."
+      },
+      {
+        "text": "Gene đột biến luôn được biểu hiện thành kiểu hình.",
+        "answer": false,
+        "explanation": "Một allele đột biến lặn có thể chưa biểu hiện ở thể dị hợp; mức độ biểu hiện còn phụ thuộc bối cảnh gene và môi trường."
+      }
+    ],
+    "sourceIds": [
+      "pointMutation",
+      "sgk"
+    ],
+    "lesson": "b4"
+  },
+  {
+    "id": "bio-q34",
+    "chapter": 1,
+    "type": "tf",
+    "number": 34,
+    "needReview": false,
+    "prompt": "Trong các phát biểu sau đây, phát biểu nào là đúng hay sai về đột biến gene?",
+    "statements": [
+      {
+        "text": "Mức độ gây hại của allele đột biến chỉ phụ thuộc vào môi trường.",
+        "answer": false,
+        "explanation": "Mức độ gây hại không chỉ phụ thuộc môi trường mà còn phụ thuộc tổ hợp gene và chức năng bị biến đổi."
+      },
+      {
+        "text": "Thể đột biến là những cá thể mang gene đột biến đã biểu hiện ra kiểu hình.",
+        "answer": true,
+        "explanation": "Theo quy ước phổ thông, cá thể mang đột biến đã biểu hiện ra kiểu hình được gọi là thể đột biến."
+      },
+      {
+        "text": "Đột biến gene làm xuất hiện các allele khác nhau trong quần thể.",
+        "answer": true,
+        "explanation": "Đột biến gene là nguồn hình thành allele mới trong quần thể."
+      },
+      {
+        "text": "Đột biến điểm là những biến đổi liên quan đến một số cặp nucleotide trong gene.",
+        "answer": false,
+        "explanation": "Đột biến điểm liên quan đến một cặp nucleotide theo định nghĩa trong chương trình phổ thông, không phải nhiều cặp."
+      }
+    ],
+    "sourceIds": [
+      "pointMutation",
+      "sgk"
+    ],
+    "lesson": "b4"
+  },
+  {
+    "id": "bio-q35",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 35,
+    "needReview": false,
+    "prompt": "Bộ ba mã gốc trên gene 3’CAT5’ mã hóa amino acid valin, tRNA vận chuyển amino acid này có anticodon là",
+    "options": [
+      "3’GUA5’.",
+      "5’AUG3’.",
+      "5’GUA3’.",
+      "3’CAU5’."
+    ],
+    "answer": 3,
+    "explanation": "Mạch khuôn 3′-CAT-5′ tạo codon mRNA 5′-GUA-3′ (valine). Anticodon bắt cặp bổ sung, ngược chiều với codon là 3′-CAU-5′; cũng có thể viết tương đương 5′-UAC-3′.",
+    "sourceIds": [
+      "code",
+      "translation",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q36",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 36,
+    "needReview": false,
+    "prompt": "Gene B có 600 nucleotide loại A và có G = 1,5A. Gene B bị đột biến dạng thêm một cặp \nG-C trở thành allele b. Tổng số liên kết hydrogen của allele b là",
+    "options": [
+      "3897.",
+      "3903.",
+      "3902.",
+      "3603."
+    ],
+    "answer": 1,
+    "explanation": "Gene B có A = T = 600, G = C = 1,5 × 600 = 900. H = 2A + 3G = 1.200 + 2.700 = 3.900. Thêm một cặp G–C làm H tăng 3, thành 3.903.",
+    "sourceIds": [
+      "dnaStructure",
+      "sgk"
+    ],
+    "lesson": "b4"
+  },
+  {
+    "id": "bio-q37",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 37,
+    "needReview": false,
+    "prompt": "Gene B có 900 cặp nucleotide và có số nucleotide loại A chiếm 20% tổng số nucleotide của gene. Số nucleotide loại G của gene B là",
+    "options": [
+      "270.",
+      "180.",
+      "540.",
+      "360."
+    ],
+    "answer": 2,
+    "explanation": "Gene có 900 cặp nên N = 1.800 nucleotide. A = T = 20%N, do đó G = C = 30%N = 540 nucleotide.",
+    "sourceIds": [
+      "dnaStructure",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q38",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 38,
+    "needReview": false,
+    "prompt": "Gene B có 600 nucleotide loại A và có G = 1,5A. Gene B bị đột biến dạng mất một cặp A-T trở thành allele b. Tổng số liên kết hydrogen của allele b là",
+    "options": [
+      "3898.",
+      "3602.",
+      "3902.",
+      "3598."
+    ],
+    "answer": 0,
+    "explanation": "Gene B có A = 600, G = 900 nên H = 2 × 600 + 3 × 900 = 3.900. Mất một cặp A–T làm H giảm 2, còn 3.898.",
+    "sourceIds": [
+      "dnaStructure",
+      "sgk"
+    ],
+    "lesson": "b4"
+  },
+  {
+    "id": "bio-q39",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 39,
+    "needReview": false,
+    "prompt": "Gene B có 480 nucleotide loại G và có A = 30% tổng số nucleotide của gene . Gene B bị đột biến dạng thay thế một cặp A-T bằng một cặp G-C trở thành allele b. Tổng số liên kết hydrogen của allele b là",
+    "options": [
+      "3121.",
+      "2881.",
+      "3119.",
+      "2879."
+    ],
+    "answer": 1,
+    "explanation": "G = 480 và A = T = 30%N nên G = C = 20%N. Suy ra N = 480/0,2 = 2.400 và A = 720. H ban đầu = 2 × 720 + 3 × 480 = 2.880; thay A–T bằng G–C làm tăng 1, được 2.881.",
+    "sourceIds": [
+      "dnaStructure",
+      "sgk"
+    ],
+    "lesson": "b4"
+  },
+  {
+    "id": "bio-q40",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 40,
+    "needReview": false,
+    "prompt": "Một gene có 900 cặp nucleotide, trong đó có số nucleotide loại G chiếm 20% tổng số nucleotide của gene. Khi gene nhân đôi liên tiếp 3 lần đã cần môi trường nội bào cung cấp số nucleotide loại A là:",
+    "options": [
+      "1890.",
+      "1620.",
+      "2520.",
+      "3780."
+    ],
+    "answer": 3,
+    "explanation": "N = 2 × 900 = 1.800. G = C = 20%N nên A = T = 30%N = 540. Sau 3 lần tái bản, số A môi trường cung cấp = 540 × (2³ − 1) = 3.780.",
+    "sourceIds": [
+      "dnaStructure",
+      "replication",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q41",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 41,
+    "needReview": false,
+    "prompt": "Trên một mạch của phân tử DNA có tỉ lệ các loại nucleotide là (A+G)/(T+C) = 50%. Tỉ lệ này ở mạch bổ sung của phân tử DNA nói trên là:",
+    "options": [
+      "0,5.",
+      "2,0.",
+      "0,25.",
+      "5,0."
+    ],
+    "answer": 1,
+    "explanation": "Do A₁ = T₂, G₁ = C₂, T₁ = A₂ và C₁ = G₂, tỉ lệ (A₂+G₂)/(T₂+C₂) là nghịch đảo của tỉ lệ trên mạch 1. Kết quả = 1/0,5 = 2,0.",
+    "originalPrompt": "Trên một mạch của phân tử DNA có tỉ lệ các loại nucleotide là A+G / T+C = 50%. Tỉ lệ này ở mạch bổ sung của phân tử DNA nói trên là:",
+    "editNote": "Bổ sung ngoặc để biểu diễn rõ tỉ số tổng số nucleotide, tránh cách đọc sai thứ tự phép tính.",
+    "sourceIds": [
+      "dnaStructure",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q42",
+    "chapter": 2,
+    "type": "mcq",
+    "number": 42,
+    "needReview": false,
+    "prompt": "Thành phần cấu tạo chủ yếu của nhiễm sắc thể ở sinh vật nhân thực là:",
+    "options": [
+      "RNA mạch đơn và protein histon.",
+      "RNA mạch kép và protein histon.",
+      "DNA mạch đơn và protein histon.",
+      "DNA mạch kép và protein histon."
+    ],
+    "answer": 3,
+    "explanation": "Nhiễm sắc thể của sinh vật nhân thực chủ yếu gồm DNA mạch kép và protein; histone là nhóm protein chính giúp đóng gói DNA thành nucleosome.",
+    "sourceIds": [
+      "chromatin",
+      "sgk"
+    ],
+    "lesson": "b7"
+  },
+  {
+    "id": "bio-q43",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 43,
+    "needReview": false,
+    "prompt": "Đơn vị cấu tạo của protein là:",
+    "options": [
+      "Protein histon.",
+      "Amino acid.",
+      "Nucleotide.",
+      "Nucleosome."
+    ],
+    "answer": 1,
+    "explanation": "Protein là polymer được tạo bởi các amino acid nối với nhau bằng liên kết peptide.",
+    "sourceIds": [
+      "translation",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q44",
+    "chapter": 2,
+    "type": "mcq",
+    "number": 44,
+    "needReview": false,
+    "prompt": "Đơn vị cấu trúc cơ bản của nhiễm sắc thể ở sinh vật nhân thực là:",
+    "options": [
+      "Protein histon.",
+      "Amino acid.",
+      "Nucleotide.",
+      "Nucleosome."
+    ],
+    "answer": 3,
+    "explanation": "Nucleosome là đơn vị đóng gói cơ bản của chất nhiễm sắc: một đoạn DNA quấn quanh lõi gồm tám protein histone.",
+    "sourceIds": [
+      "chromatin",
+      "sgk"
+    ],
+    "lesson": "b7"
+  },
+  {
+    "id": "bio-q45",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 45,
+    "needReview": false,
+    "prompt": "Đơn vị cấu tạo cơ bản của DNA là:",
+    "options": [
+      "Protein histon.",
+      "Amino acid.",
+      "Nucleotide.",
+      "Nucleosome."
+    ],
+    "answer": 2,
+    "explanation": "DNA là chuỗi polynucleotide; mỗi nucleotide gồm đường deoxyribose, nhóm phosphate và một base nitrogen.",
+    "sourceIds": [
+      "dna",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q46",
+    "chapter": 2,
+    "type": "mcq",
+    "number": 46,
+    "needReview": false,
+    "prompt": "Trong pha S của chu kì tế bào bình thường, NST có hoạt động chính nào sau đây?",
+    "options": [
+      "Phân li.",
+      "Nhân đôi.",
+      "Bắt đầu đóng xoắn.",
+      "Đóng xoắn cực đại."
+    ],
+    "answer": 1,
+    "explanation": "Ở pha S, DNA được tái bản; mỗi nhiễm sắc thể đơn tạo thành nhiễm sắc thể kép gồm hai chromatid chị em. Số nhiễm sắc thể tính theo tâm động chưa tăng trong pha này.",
+    "sourceIds": [
+      "chromatin",
+      "sgk"
+    ],
+    "lesson": "b7"
+  },
+  {
+    "id": "bio-q47",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 47,
+    "needReview": false,
+    "prompt": "Cừu chuyển gene sản sinh protein người trong sữa là thành tựu của",
+    "options": [
+      "cấy truyền phôi.",
+      "công nghệ tế bào.",
+      "phương pháp gây đột biến.",
+      "công nghệ gene."
+    ],
+    "answer": 3,
+    "explanation": "Chuyển gene người vào cừu để cừu tổng hợp protein người trong sữa là ứng dụng công nghệ gene, không đơn thuần là cấy truyền phôi.",
+    "sourceIds": [
+      "biotech",
+      "sgk"
+    ],
+    "lesson": "b5"
+  },
+  {
+    "id": "bio-q48",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 48,
+    "needReview": false,
+    "prompt": "Dạng đột biến gene nào sau đây không làm thay đổi số lượng nucleotide của gene?",
+    "options": [
+      "Thay thế một cặp nucleotide.",
+      "Thêm một cặp G-C.",
+      "Thêm một cặp A-T.",
+      "Mất một cặp nucleotide."
+    ],
+    "answer": 0,
+    "explanation": "Thay thế một cặp nucleotide bằng một cặp khác không làm thay đổi tổng số nucleotide; thêm hoặc mất một cặp làm số nucleotide tăng hoặc giảm hai.",
+    "sourceIds": [
+      "pointMutation",
+      "sgk"
+    ],
+    "lesson": "b4"
+  },
+  {
+    "id": "bio-q49",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 49,
+    "needReview": false,
+    "prompt": "Giống cây bông được chuyển gene kháng sâu hại từ vi khuẩn là thành tựu của",
+    "options": [
+      "nhân bản vô tính.",
+      "công nghệ tế bào.",
+      "phương pháp gây đột biến.",
+      "công nghệ gene."
+    ],
+    "answer": 3,
+    "explanation": "Bông Bt mang gene từ vi khuẩn Bacillus thuringiensis để tạo protein chống một số sâu hại là sinh vật chuyển gene, sản phẩm của công nghệ gene.",
+    "sourceIds": [
+      "biotech",
+      "sgk"
+    ],
+    "lesson": "b5"
+  },
+  {
+    "id": "bio-q50",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 50,
+    "needReview": false,
+    "prompt": "Nhóm có nhiều ribosome cùng dịch mã trên một mRNA được gọi là",
+    "options": [
+      "polyribosome.",
+      "nucleosome.",
+      "protein.",
+      "DNA."
+    ],
+    "answer": 0,
+    "explanation": "Polyribosome (polysome) là tập hợp nhiều ribosome cùng dịch mã một phân tử mRNA, giúp tạo nhiều chuỗi polypeptide từ cùng bản phiên mã.",
+    "sourceIds": [
+      "translation",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q51",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 51,
+    "needReview": false,
+    "prompt": "Tác nhân gây đột biến gene nào sau đây là tác nhân hoá học?",
+    "options": [
+      "Virus.",
+      "Tia tử ngoại.",
+      "5-bromouracil.",
+      "Tia phóng xạ."
+    ],
+    "answer": 2,
+    "explanation": "5-bromouracil là chất tương tự base thymine, thuộc tác nhân hóa học có thể gây thay thế cặp nucleotide. Tia tử ngoại và tia phóng xạ là tác nhân vật lí; virus là tác nhân sinh học.",
+    "sourceIds": [
+      "mutagen",
+      "sgk"
+    ],
+    "lesson": "b4"
+  },
+  {
+    "id": "bio-q52",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 52,
+    "needReview": false,
+    "prompt": "Một đột biến điểm làm biến đổi bộ ba 3’TAC5’ trên một mạch của gene ban đầu thành bộ ba 3’TGC5’ của gene đột biến. Theo lí thuyết, số liên kết hydrogen của gene đột biến thay đổi như thế nào so với gene ban đầu?",
+    "options": [
+      "Giảm đi 1.",
+      "Tăng thêm 1.",
+      "Không thay đổi.",
+      "Tăng thêm 2."
+    ],
+    "answer": 1,
+    "explanation": "Trên mạch đã cho, A được thay bằng G nên một cặp A–T (hai liên kết hydrogen) trở thành cặp G–C (ba liên kết hydrogen). Tổng số liên kết hydrogen tăng một.",
+    "sourceIds": [
+      "pointMutation",
+      "sgk"
+    ],
+    "lesson": "b4"
+  },
+  {
+    "id": "bio-q53",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 53,
+    "needReview": false,
+    "prompt": "Trong kĩ thuật chuyển gene có bước nào sau đây?",
+    "options": [
+      "Xử lí mẫu vật bằng tác nhân đột biến.",
+      "Tạo các dòng thuần chủng khác nhau.",
+      "Lai các dòng thuần chủng khác nhau.",
+      "Đưa DNA tái tổ hợp vào tế bào nhận."
+    ],
+    "answer": 3,
+    "explanation": "Kĩ thuật chuyển gene có bước đưa DNA tái tổ hợp vào tế bào nhận để gene được duy trì và/hoặc biểu hiện; các phương án còn lại không phải bước đặc trưng của kĩ thuật này.",
+    "sourceIds": [
+      "biotech",
+      "sgk"
+    ],
+    "lesson": "b5"
+  },
+  {
+    "id": "bio-q54",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 54,
+    "needReview": false,
+    "prompt": "Thông tin di truyền trên DNA được truyền đạt từ thế hệ tế bào này sang thế hệ tế bào khác qua quá trình",
+    "options": [
+      "dịch mã.",
+      "phiên mã.",
+      "tái bản DNA.",
+      "phiên mã ngược."
+    ],
+    "answer": 2,
+    "explanation": "DNA được tái bản trước phân bào để thông tin di truyền được truyền cho các tế bào con. Phiên mã tạo RNA và dịch mã tạo protein, không thay thế vai trò truyền DNA qua các thế hệ tế bào.",
+    "sourceIds": [
+      "replication",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q55",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 55,
+    "needReview": false,
+    "prompt": "Trong kĩ thuật tạo DNA tái tổ hợp, các nhà khoa học đã sử dụng enzyme cắt giới hạn",
+    "options": [
+      "ligase.",
+      "restritase.",
+      "DNA polymerase.",
+      "RNA polymerase."
+    ],
+    "answer": 1,
+    "explanation": "Enzyme cắt giới hạn (restriction endonuclease, thường gọi restrictase) nhận biết trình tự đặc hiệu và cắt DNA. Ligase nối các đoạn DNA.",
+    "sourceIds": [
+      "biotech",
+      "sgk"
+    ],
+    "lesson": "b5"
+  },
+  {
+    "id": "bio-q56",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 56,
+    "needReview": false,
+    "prompt": "Các bước trong kĩ thuật tạo DNA tái tổ hợp gồm\n(1) Cắt plasmid (vector chuyển gene) và gene cần chuyển.\n(2) Tách plasmid (vector chuyển gene) và DNA mang gene cần chuyển.\n(3) Nối gene cần chuyển với plasmid (vector chuyển gene) tạo DNA tái tổ hợp.\n(4) Đưa DNA tái tổ hợp vào tế bào nhận (vi khuẩn E. coli).\n     Trình tự các bước thực hiện đúng là",
+    "options": [
+      "2 → 1 → 3 → 4.",
+      "2 → 1 → 4 → 3.",
+      "1 → 2 → 3 → 4.",
+      "1 → 3 → 4 → 2."
+    ],
+    "answer": 0,
+    "explanation": "Trước hết tách DNA mang gene và plasmid (2), sau đó cắt chúng (1), nối gene vào plasmid để tạo DNA tái tổ hợp (3), rồi đưa DNA tái tổ hợp vào tế bào nhận (4).",
+    "sourceIds": [
+      "biotech",
+      "sgk"
+    ],
+    "lesson": "b5"
+  },
+  {
+    "id": "bio-q57",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 57,
+    "needReview": false,
+    "prompt": "Trong tạo giống biến đổi gene, biện pháp nào sau đây không được dùng làm biến đổi hệ gene của sinh vật?",
+    "options": [
+      "Đưa thêm một gene lạ vào hệ gene.",
+      "Loại bỏ một gene nào đó trong hệ gene.",
+      "Làm biến đổi một gene có sẵn trong hệ gene.",
+      "Chia cắt phôi và cấy truyền phôi."
+    ],
+    "answer": 3,
+    "explanation": "Chia cắt và cấy truyền phôi chủ yếu nhân và chuyển phôi, không trực tiếp thêm, loại bỏ hoặc sửa trình tự gene. Ba cách còn lại đều có thể biến đổi hệ gene.",
+    "sourceIds": [
+      "biotech",
+      "sgk"
+    ],
+    "lesson": "b5"
+  },
+  {
+    "id": "bio-q58",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 58,
+    "needReview": false,
+    "prompt": "Anticodon nào sau đây bổ sung với codon 5’AGC3’?",
+    "options": [
+      "3’TCG5’.",
+      "3’UCG5’.",
+      "5’UCG3’.",
+      "5’TCG3’."
+    ],
+    "answer": 1,
+    "explanation": "Codon và anticodon bắt cặp bổ sung, ngược chiều. Codon 5′AGC3′ bắt cặp với anticodon 3′UCG5′; tRNA chứa U, không chứa T.",
+    "sourceIds": [
+      "code",
+      "translation",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q59",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 59,
+    "needReview": false,
+    "prompt": "Mã di truyền mang tính thoái hoá, nghĩa là",
+    "options": [
+      "một bộ ba chỉ mã hóa cho một loại amino acid.",
+      "có một số bộ ba không mã hóa amino acid.",
+      "một bộ ba có thể mã hóa cho nhiều loại amino acid.",
+      "nhiều bộ ba khác nhau cùng mã hoá cho một loại amino acid."
+    ],
+    "answer": 3,
+    "explanation": "Tính thoái hóa thể hiện ở việc nhiều codon khác nhau có thể cùng mã hóa một amino acid. Một codon có nghĩa trong mã chuẩn không đồng thời mã hóa nhiều amino acid.",
+    "sourceIds": [
+      "code",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q60",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 60,
+    "needReview": false,
+    "prompt": "Mã di truyền mang tính đặc hiệu, nghĩa là",
+    "options": [
+      "mỗi codon mã hóa amino acid chỉ xác định một loại amino acid.",
+      "có một số bộ ba không mã hóa amino acid.",
+      "một bộ ba có thể mã hóa cho nhiều loại amino acid.",
+      "nhiều bộ ba khác nhau cùng mã hoá cho một loại amino acid."
+    ],
+    "answer": 0,
+    "explanation": "Tính đặc hiệu của mã di truyền được hiểu là mỗi codon có nghĩa xác định một loại amino acid trong mã di truyền chuẩn; các codon kết thúc không mã hóa amino acid. Phát biểu xét các codon mã hóa amino acid; các bộ ba kết thúc là tín hiệu kết thúc dịch mã.",
+    "originalOptions": [
+      "một bộ ba chỉ mã hóa cho một loại amino acid.",
+      "có một số bộ ba không mã hóa amino acid.",
+      "một bộ ba có thể mã hóa cho nhiều loại amino acid.",
+      "nhiều bộ ba khác nhau cùng mã hoá cho một loại amino acid."
+    ],
+    "editNote": "Làm rõ phạm vi codon mã hóa amino acid trong phương án A; ba codon kết thúc không mã hóa amino acid.",
+    "sourceIds": [
+      "code",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q61",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 61,
+    "needReview": false,
+    "prompt": "Codon nào sau đây quy định tín hiệu khởi đầu quá trình dịch mã?",
+    "options": [
+      "5’AUG3’.",
+      "3’CAU5’.",
+      "5’UGG3’.",
+      "5’UAG3’."
+    ],
+    "answer": 0,
+    "explanation": "Trong mã di truyền chuẩn được học ở phổ thông, AUG viết theo chiều 5′→3′ là codon mở đầu; nó mã hóa methionine (formylmethionine khi mở đầu ở vi khuẩn).",
+    "sourceIds": [
+      "code",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q62",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 62,
+    "needReview": false,
+    "prompt": "Codon nào sau đây quy định tín hiệu kết thúc quá trình dịch mã?",
+    "options": [
+      "5’AUG3’.",
+      "3’CAU5’.",
+      "5’UGG3’.",
+      "5’UAG3’."
+    ],
+    "answer": 3,
+    "explanation": "Ba codon kết thúc của mã di truyền chuẩn là 5′UAA3′, 5′UAG3′ và 5′UGA3′. Trong các lựa chọn, chỉ 5′UAG3′ là codon kết thúc.",
+    "sourceIds": [
+      "code",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q63",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 63,
+    "needReview": false,
+    "prompt": "Trong quá trình tái bản DNA, vai trò của enzyme ligase là",
+    "options": [
+      "nối các đoạn Okazaki thành mạch đơn hoàn chỉnh.",
+      "tổng hợp mạch mới theo nguyên tắc bổ sung với mạch khuôn DNA.",
+      "tháo xoắn và làm tách hai mạch của phân tử DNA.",
+      "bẻ gãy các liên kết hydrogen giữa hai mạch của phân tử DNA."
+    ],
+    "answer": 0,
+    "explanation": "DNA ligase tạo liên kết phosphodiester để nối các đoạn DNA, trong đó có việc nối các đoạn Okazaki trên mạch được tổng hợp gián đoạn sau khi các đoạn mồi đã được thay thế.",
+    "sourceIds": [
+      "replication",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q64",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 64,
+    "needReview": false,
+    "prompt": "Trong quá trình tái bản DNA, vai trò của enzyme DNA polimerase là",
+    "options": [
+      "nối các đoạn Okazaki thành mạch DNA hoàn chỉnh.",
+      "tổng hợp mạch mới theo nguyên tắc bổ sung với mạch khuôn DNA.",
+      "tháo xoắn và làm tách hai mạch của phân tử DNA.",
+      "bẻ gãy các liên kết hydrogen giữa hai mạch của phân tử DNA."
+    ],
+    "answer": 1,
+    "explanation": "DNA polymerase xúc tác kéo dài mạch DNA mới theo chiều 5′→3′ dựa trên mạch khuôn và nguyên tắc bổ sung. Ligase thực hiện việc nối các đoạn.",
+    "sourceIds": [
+      "replication",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q65",
+    "chapter": 1,
+    "type": "tf",
+    "number": 65,
+    "needReview": false,
+    "prompt": "Trong các phát biểu sau đây, phát biểu nào sau đây là đúng hay sai về mã di truyền?",
+    "statements": [
+      {
+        "text": "Mã di truyền mang tính thoái hoá, tức là 1 bộ ba có thể mã hoá cho nhiều loại amino acid.",
+        "answer": false,
+        "explanation": "Tính thoái hóa là nhiều codon có thể cùng mã hóa một amino acid, không phải một codon mã hóa nhiều amino acid."
+      },
+      {
+        "text": "Với 3 loại nucleotide A, U, G (Hệ gene trong nhân) có thể tạo ra 27 loại codon mã hóa các amino acid.",
+        "answer": false,
+        "explanation": "Ba loại nucleotide tạo được 3³=27 bộ ba. Tuy nhiên UAA, UAG và UGA là ba codon kết thúc, nên chỉ còn 24 codon có nghĩa mã hóa amino acid trong mã chuẩn của hệ gene nhân."
+      },
+      {
+        "text": "Ở sinh vật nhân thực, codon 3’AUG5’ (Hệ gene trong nhân) có chức năng khởi đầu dịch mã và mã hóa amino acid methionine.",
+        "answer": false,
+        "explanation": "Codon mở đầu phải là 5′AUG3′. Chuỗi viết 3′AUG5′ khi đọc lại theo chiều 5′→3′ là GUA, không phải AUG."
+      },
+      {
+        "text": "Codon 5’UAA3’ quy định tín hiệu kết thúc quá trình dịch mã.",
+        "answer": true,
+        "explanation": "UAA viết theo chiều 5′→3′ là một trong ba codon kết thúc của mã di truyền chuẩn; nó không mã hóa amino acid."
+      }
+    ],
+    "sourceIds": [
+      "code",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q66",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 66,
+    "needReview": false,
+    "prompt": "Trong cơ chế điều hòa biểu hiện gene của operon Lac, sự kiện nào sau đây diễn ra cả khi môi trường có lactose và khi môi trường không có lactose?",
+    "options": [
+      "Gene điều hòa (lacI) tổng hợp protein ức chế.",
+      "Một số phân tử lactose liên kết với protein ức chế.",
+      "Các gene cấu trúc lacZ, lacY, lacA được phiên mã mạnh.",
+      "Enzyme RNA polymerase liên tục phiên mã các gene cấu trúc với mức cao."
+    ],
+    "answer": 0,
+    "explanation": "Gene lacI có promoter riêng và được biểu hiện nền để tạo protein ức chế cả khi có và khi không có lactose. Khi không có chất cảm ứng, protein ức chế làm giảm mạnh phiên mã các gene cấu trúc; phiên mã nền rất thấp vẫn có thể xảy ra.",
+    "originalPrompt": "Trong cơ chế điều hòa biểu hiện gene của operon Lac, sự kiện nào sau đây diễn ra cả khi môi trường có lactose và khi môi trường không có lactose?",
+    "originalOptions": [
+      "Gene điều hòa (lacI) tổng hợp protein ức chế.",
+      "Một số phân tử lactose liên kết với protein ức chế.",
+      "Các gene cấu trúc lacZ, lacY, lacA phiên mã tạo ra các phân tử mRNA tương ứng.",
+      "Enzyme RNA polymerase liên kết với vùng promoter của operon Lac và tiến hành phiên mã"
+    ],
+    "editNote": "Làm rõ phương án C và D bằng mức phiên mã mạnh/cao để không bỏ qua hiện tượng phiên mã nền rất thấp của operon Lac khi không có chất cảm ứng; gene lacI vẫn biểu hiện ở cả hai điều kiện.",
+    "sourceIds": [
+      "lac",
+      "lacI",
+      "sgk"
+    ],
+    "lesson": "b3"
+  },
+  {
+    "id": "bio-q67",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 67,
+    "needReview": false,
+    "prompt": "Plasmid điển hình ở vi khuẩn là:",
+    "options": [
+      "Một bào quan có trong tế bào chất của tế bào động vật.",
+      "Một cấu trúc di truyền trong ti thể và lục lạp ở tế bào thực vật.",
+      "Một phân tử DNA dạng vòng, mạch kép, có trong tế bào chất của vi khuẩn",
+      "Một phân tử RNA có khả năng tự nhân đôi độc lập."
+    ],
+    "answer": 2,
+    "explanation": "Plasmid điển hình ở vi khuẩn là phân tử DNA mạch kép dạng vòng, nằm ngoài nhiễm sắc thể và có khả năng tái bản độc lập. Một số plasmid có dạng thẳng, nên câu hỏi giới hạn ở dạng điển hình.",
+    "originalPrompt": "Plasmid là:",
+    "originalOptions": [
+      "Một bào quan có trong tế bào chất của tế bào động vật.",
+      "Một cấu trúc di truyền trong ti thể và lục lạp ở tế bào thực vật.",
+      "Một phân tử DNA dạng vòng, mạch kép, có trong tế bào chất của vi khuẩn",
+      "Một phân tử DNA có khả năng tự nhân đôi độc lập."
+    ],
+    "editNote": "Bổ sung nhãn A bị thiếu trong tài liệu. Giới hạn ở plasmid điển hình và sửa D từ DNA thành RNA vì mô tả DNA tái bản độc lập trong bản gốc cũng đúng với plasmid; sau sửa chỉ còn C đúng.",
+    "sourceIds": [
+      "biotech",
+      "sgk"
+    ],
+    "lesson": "b5"
+  },
+  {
+    "id": "bio-q68",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 68,
+    "needReview": false,
+    "prompt": "Một phân tử DNA ở vi khuẩn có tỉ lệ (A + T)/(G + C) = 1/4. Theo lí thuyết, tỉ lệ nucleotide loại A của phân tử DNA này là",
+    "options": [
+      "25%.",
+      "10%.",
+      "40%.",
+      "75%."
+    ],
+    "answer": 1,
+    "explanation": "Đặt A=T=x, G=C=y. Khi đó (A+T)/(G+C)=x/y=1/4; A+T chiếm 1/5 tổng số nucleotide, nên A chiếm một nửa của 1/5, bằng 10%.",
+    "sourceIds": [
+      "dnaStructure",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q69",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 69,
+    "needReview": false,
+    "prompt": "Một phân tử DNA ở vi khuẩn có tỉ lệ (A + T)/(G + C) = 2/3. Theo lí thuyết, tỉ lệ nucleotide loại G của phân tử DNA này là",
+    "options": [
+      "20%.",
+      "25%.",
+      "30%.",
+      "50%."
+    ],
+    "answer": 2,
+    "explanation": "Vì A=T và G=C, tỉ lệ (A+T):(G+C)=2:3 cho G+C chiếm 3/5=60% tổng số nucleotide. Do đó G chiếm 30%.",
+    "sourceIds": [
+      "dnaStructure",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q70",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 70,
+    "needReview": false,
+    "prompt": "Trong cơ thể thực vật, nguyên tố dinh dưỡng khoáng thiết yếu nào sau đây là thành phần của nucleic acid?",
+    "options": [
+      "P.",
+      "Mg.",
+      "Cl.",
+      "Zn."
+    ],
+    "answer": 0,
+    "explanation": "Phosphorus (P) có mặt trong các nhóm phosphate của bộ khung đường–phosphate của DNA và RNA.",
+    "sourceIds": [
+      "dna",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q71",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 71,
+    "needReview": false,
+    "prompt": "Bộ ba mã gốc 3’CAT5’ trên mạch khuôn của gene mã hoá amino acid valine, tRNA vận chuyển amino acid này có anticodon là",
+    "options": [
+      "5’CAU3’.",
+      "3’CAU5’.",
+      "5’GUA3’.",
+      "3’GUA5’."
+    ],
+    "answer": 1,
+    "explanation": "Mạch khuôn 3′CAT5′ được phiên mã thành codon 5′GUA3′. Anticodon bổ sung và ngược chiều với codon này là 3′CAU5′.",
+    "sourceIds": [
+      "code",
+      "translation",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q72",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 72,
+    "needReview": false,
+    "prompt": "Bộ ba mã gốc 3’CGT5’ trên mạch khuôn của gene mã hoá amino acid alanine, tRNA vận chuyển amino acid này có anticodon là",
+    "options": [
+      "5’GCA3’.",
+      "3’GCA5’.",
+      "5’CGU3’.",
+      "3’CGU5’."
+    ],
+    "answer": 3,
+    "explanation": "Mạch khuôn 3′CGT5′ cho codon 5′GCA3′ mã hóa alanine. Anticodon bổ sung là 3′CGU5′, tương đương cách viết 5′UGC3′.",
+    "sourceIds": [
+      "code",
+      "translation",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q73",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 73,
+    "needReview": false,
+    "prompt": "Trong quá trình dịch mã, phân tử tRNA có anticodon 3’CUG5’ sẽ vận chuyển amino acid được mã hoá bởi bộ ba mã gốc nào trên mạch khuôn của gene?",
+    "options": [
+      "5’GTC3’.",
+      "3’CTG5’.",
+      "5’CTG3’.",
+      "3’GAC5’."
+    ],
+    "answer": 1,
+    "explanation": "Anticodon 3′CUG5′ bắt cặp với codon 5′GAC3′. Codon này được phiên mã từ bộ ba trên mạch khuôn 3′CTG5′.",
+    "sourceIds": [
+      "code",
+      "translation",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q74",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 74,
+    "needReview": false,
+    "prompt": "Đột biến điểm làm thay thế một nucleotide ở vị trí bất kì của bộ ba mã gốc nào sau đây trên mạch khuôn của gene đều không xuất hiện codon kết thúc?",
+    "options": [
+      "3’GGG5’.",
+      "3’ACC5’.",
+      "3’ACA5’.",
+      "3’AAT5’."
+    ],
+    "answer": 0,
+    "explanation": "Các codon kết thúc UAA, UAG, UGA tương ứng với bộ ba mạch khuôn 3′ATT5′, 3′ATC5′, 3′ACT5′. Không bộ ba nào trong ba bộ ba này chỉ khác 3′GGG5′ một nucleotide. Các lựa chọn còn lại đều có thể trở thành một bộ ba kết thúc sau một lần thay thế.",
+    "sourceIds": [
+      "code",
+      "sgk"
+    ],
+    "lesson": "b4"
+  },
+  {
+    "id": "bio-q75",
+    "chapter": 2,
+    "type": "mcq",
+    "number": 75,
+    "needReview": false,
+    "prompt": "Theo lí thuyết, phép lai nào sau đây cho đời con gồm toàn kiểu gene đồng hợp trội?",
+    "options": [
+      "AA x aa.",
+      "AA x Aa.",
+      "aa x aa.",
+      "AA x AA."
+    ],
+    "answer": 3,
+    "explanation": "AA × AA chỉ tạo giao tử A ở cả hai bên, nên toàn bộ đời con là AA, đồng hợp trội.",
+    "sourceIds": [
+      "mendel",
+      "sgk"
+    ],
+    "lesson": "b8"
+  },
+  {
+    "id": "bio-q76",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 76,
+    "needReview": false,
+    "prompt": "Trong cơ chế điều hoà biểu hiện của operon Lac ở vi khuẩn E. coli, đột biến xảy ra ở vị trí nào sau đây của operon có thể làm cho các gene cấu trúc lacZ, lacY, lacA phiên mã ngay cả khi môi trường không có lactose?",
+    "options": [
+      "Gene cấu trúc lacZ.",
+      "Gene cấu trúc lacY.",
+      "Gene cấu trúc lacA.",
+      "Vùng operator (O)."
+    ],
+    "answer": 3,
+    "explanation": "Đột biến operator làm protein ức chế không gắn được có thể khiến các gene cấu trúc được phiên mã ngay cả khi không có lactose. Các gene cấu trúc riêng lẻ không trực tiếp đóng vai trò vị trí gắn của protein ức chế.",
+    "sourceIds": [
+      "lac",
+      "sgk"
+    ],
+    "lesson": "b3"
+  },
+  {
+    "id": "bio-q77",
+    "chapter": 1,
+    "type": "mcq",
+    "number": 77,
+    "needReview": false,
+    "prompt": "Giả sử trên mạch 1 của 1 phân tử DNA trong nhân ở tế bào nhân thực chỉ có 3 loại nucleotide là A, G và C. Trên mạch 2 của phân tử DNA này không có nucleotide nào?",
+    "options": [
+      "T.",
+      "C.",
+      "A.",
+      "G."
+    ],
+    "answer": 2,
+    "explanation": "Mạch 1 có A, G, C và không có T. Do A chỉ bắt cặp với T, mạch bổ sung không có A; nó có các nucleotide bổ sung tương ứng là T, C, G.",
+    "sourceIds": [
+      "dna",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q78",
+    "chapter": 2,
+    "type": "mcq",
+    "number": 78,
+    "needReview": false,
+    "prompt": "Nhân tố di truyền được gọi theo Mendel, ngày nay theo di truyền học hiện đại gọi là",
+    "options": [
+      "kiểu gene.",
+      "kiểu hình.",
+      "nucleotide.",
+      "gene."
+    ],
+    "answer": 3,
+    "explanation": "Nhân tố di truyền Mendel đề xuất để giải thích sự di truyền tính trạng được gọi là gene trong di truyền học hiện đại; các dạng khác nhau của một gene được gọi là allele.",
+    "sourceIds": [
+      "mendel",
+      "sgk"
+    ],
+    "lesson": "b8"
+  },
+  {
+    "id": "bio-q79",
+    "chapter": 2,
+    "type": "mcq",
+    "number": 79,
+    "needReview": false,
+    "prompt": "Ở cà chua, allele D quy định quả đỏ trội hoàn toàn so với allele d quy định quả vàng. Cho biết quá trình giảm phân không xảy ra đột biến. Theo lí thuyết, những phép lai nào sau đây cho đời con có cả cây quả đỏ và cây quả vàng?",
+    "options": [
+      "DD x Dd và Dd x Dd",
+      "DD x Dd và Dd x dd",
+      "Dd x Dd và Dd x dd",
+      "DD x dd và DD x Dd"
+    ],
+    "answer": 2,
+    "explanation": "Dd × Dd cho 3 cây quả đỏ : 1 cây quả vàng; Dd × dd cho 1 đỏ : 1 vàng. Các phép lai có một bên DD không tạo được kiểu gene dd.",
+    "sourceIds": [
+      "mendel",
+      "sgk"
+    ],
+    "lesson": "b8"
+  },
+  {
+    "id": "bio-q80",
+    "chapter": 2,
+    "type": "mcq",
+    "number": 80,
+    "needReview": false,
+    "prompt": "Đối với các loài sinh sản hữu tính, bố hoặc mẹ di truyền nguyên vẹn cho con",
+    "options": [
+      "kiểu gene.",
+      "tính trạng.",
+      "allele.",
+      "kiểu hình."
+    ],
+    "answer": 2,
+    "explanation": "Bố mẹ truyền các allele qua giao tử cho con. Kiểu gene và kiểu hình của cá thể con hình thành từ sự tổ hợp allele, đồng thời kiểu hình còn chịu ảnh hưởng của môi trường.",
+    "sourceIds": [
+      "mendel",
+      "sgk"
+    ],
+    "lesson": "b8"
+  },
+  {
+    "id": "bio-q81",
+    "chapter": 2,
+    "type": "mcq",
+    "number": 81,
+    "needReview": false,
+    "prompt": "Ở cà chua, allele D quy định quả đỏ trội hoàn toàn so với allele d quy định quả vàng. Cho biết quá trình giảm phân không xảy ra đột biến. Theo lý thuyết, những phép lai nào sau đây cho đời con có 100% cây quả đỏ ?",
+    "options": [
+      "DD x Dd và Dd x Dd",
+      "DD x Dd và Dd x dd",
+      "Dd x Dd và Dd x dd",
+      "DD x dd và DD x Dd"
+    ],
+    "answer": 3,
+    "explanation": "DD × dd cho toàn Dd; DD × Dd cho 1/2 DD và 1/2 Dd. Cả hai phép lai đều cho toàn cây có ít nhất một allele D nên đều có quả đỏ.",
+    "sourceIds": [
+      "mendel",
+      "sgk"
+    ],
+    "lesson": "b8"
+  },
+  {
+    "id": "bio-q82",
+    "chapter": 2,
+    "type": "mcq",
+    "number": 82,
+    "needReview": false,
+    "prompt": "Theo lí thuyết, phép lai nào sau đây cho toàn bộ đời con có cùng một kiểu gene dị hợp tử?",
+    "options": [
+      "Bb x bb.",
+      "BB x bb.",
+      "Bb x Bb.",
+      "BB x BB."
+    ],
+    "answer": 1,
+    "explanation": "BB chỉ tạo giao tử B, bb chỉ tạo giao tử b, nên BB × bb cho toàn bộ đời con mang cùng kiểu gene dị hợp Bb. Bb × bb và Bb × Bb còn tạo kiểu gene đồng hợp.",
+    "originalPrompt": "Theo lí thuyết, phép lai nào sau đây cho đời con chỉ có 1 kiểu gene dị hợp tử?",
+    "originalOptions": [
+      "Bb x bb.",
+      "BB x bb.",
+      "Bb x Bb.",
+      "BB x BB."
+    ],
+    "editNote": "Làm rõ yêu cầu toàn bộ đời con cùng kiểu gene dị hợp. Câu gốc có thể bị hiểu là chỉ đếm số loại kiểu gene dị hợp trong đời con, khi đó nhiều phương án cùng thỏa mãn.",
+    "sourceIds": [
+      "mendel",
+      "sgk"
+    ],
+    "lesson": "b8"
+  },
+  {
+    "id": "bio-q83",
+    "chapter": 2,
+    "type": "mcq",
+    "number": 83,
+    "needReview": false,
+    "prompt": "Khi nói về nhiễm sắc thể ở tế bào nhân thực, phát biểu nào sau đây đúng?",
+    "options": [
+      "Nhiễm sắc thể là vật chất di truyền ở cấp độ phân tử.",
+      "Thành phần hoá học chủ yếu của nhiễm sắc thể là RNA và protein.",
+      "Đơn vị cấu trúc cơ bản của nhiễm sắc thể là nucleotide.",
+      "Cấu trúc cuộn xoắn nhiều bậc đảm bảo cho sự phân li, tổ hợp các nhiễm sắc thể trong quá trình phân bào."
+    ],
+    "answer": 3,
+    "explanation": "DNA liên kết với protein và được đóng gói thành chất nhiễm sắc. Sự tổ chức, co xoắn phù hợp của nhiễm sắc thể giúp bảo vệ DNA và hỗ trợ phân li, tổ hợp trong phân bào; nhiễm sắc thể là cấu trúc di truyền ở cấp độ tế bào.",
+    "sourceIds": [
+      "chromatin",
+      "sgk"
+    ],
+    "lesson": "b7"
+  },
+  {
+    "id": "bio-q84",
+    "chapter": 2,
+    "type": "tf",
+    "number": 84,
+    "needReview": false,
+    "prompt": "Khi nói về nhiễm sắc thể ở tế bào nhân thực, phát biểu nào sau đây là đúng hay sai?",
+    "originalStatements": [
+      "Nhiễm sắc thể là vật chất di truyền ở cấp độ tế bào.",
+      "Thành phần hoá học chủ yếu của nhiễm sắc thể là DNA và protein.",
+      "Đơn vị cấu trúc cơ bản của nhiễm sắc thể là nucleosome.",
+      "Cấu trúc cuộn xoắn nhiều bậc tạo điều kiện cho sự nhân đôi nhiễm sắc thể."
+    ],
+    "editNote": "Làm rõ ý d bằng mức đóng xoắn cực đại, tránh đánh đồng mọi mức tổ chức chất nhiễm sắc với trạng thái thuận lợi cho tái bản. Các ý còn lại giữ nguyên.",
+    "statements": [
+      {
+        "text": "Nhiễm sắc thể là vật chất di truyền ở cấp độ tế bào.",
+        "answer": true,
+        "explanation": "Nhiễm sắc thể là cấu trúc mang gene và tổ chức vật chất di truyền ở cấp độ tế bào; DNA là vật chất di truyền ở cấp độ phân tử."
+      },
+      {
+        "text": "Thành phần hoá học chủ yếu của nhiễm sắc thể là DNA và protein.",
+        "answer": true,
+        "explanation": "Thành phần hóa học chủ yếu của nhiễm sắc thể nhân thực là DNA và protein, đặc biệt là các histone."
+      },
+      {
+        "text": "Đơn vị cấu trúc cơ bản của nhiễm sắc thể là nucleosome.",
+        "answer": true,
+        "explanation": "Nucleosome gồm DNA quấn quanh lõi histone, là đơn vị đóng gói cơ bản của chất nhiễm sắc ở sinh vật nhân thực."
+      },
+      {
+        "text": "Cấu trúc đóng xoắn cực đại của nhiễm sắc thể tạo điều kiện thuận lợi cho sự nhân đôi DNA.",
+        "answer": false,
+        "explanation": "Đóng xoắn cực đại không thuận lợi cho tái bản DNA. Để tái bản, DNA phải được làm dễ tiếp cận và hai mạch phải được tháo xoắn, tách nhau tại chạc tái bản; co xoắn cao chủ yếu phù hợp với phân li nhiễm sắc thể."
+      }
+    ],
+    "sourceIds": [
+      "chromatin",
+      "sgk"
+    ],
+    "lesson": "b7"
+  },
+  {
+    "id": "bio-q85",
+    "chapter": 1,
+    "number": 85,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Nếu mạch làm khuôn của gene chứa bộ ba 3’ATG5’ thì bộ ba tương ứng trên phân tử mRNA được phiên mã từ gene này là",
+    "options": [
+      "5’UAC3’.",
+      "3’UAC5’.",
+      "5’TAC3’.",
+      "3’TAC5’."
+    ],
+    "answer": 0,
+    "explanation": "RNA được tổng hợp bổ sung, ngược chiều mạch khuôn: DNA 3′-ATG-5′ → mRNA 5′-UAC-3′; RNA dùng U thay cho T.",
+    "sourceIds": [
+      "transcription",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q86",
+    "chapter": 1,
+    "number": 86,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Ở người, gene BRCA mã hoá cho các protein có vai trò ngăn cản sự phân chia bất thường của các tế bào tuyến vú và buồng trứng. Nếu sự biểu hiện của gene này bị rối loạn sẽ tăng nguy cơ mắc bệnh",
+    "options": [
+      "ung thư phổi.",
+      "ung thư vú và ung thư buồng trứng.",
+      "ung thư đại trực tràng.",
+      "ung thư gan."
+    ],
+    "answer": 1,
+    "explanation": "BRCA1 và BRCA2 là các gene ức chế khối u, mã hóa protein tham gia sửa chữa DNA. Những biến đổi gây mất chức năng có thể làm tăng nguy cơ ung thư vú và ung thư buồng trứng; không có nghĩa người mang biến đổi chắc chắn mắc ung thư.",
+    "sourceIds": [
+      "brca",
+      "sgk"
+    ],
+    "lesson": "b3"
+  },
+  {
+    "id": "bio-q87",
+    "chapter": 1,
+    "number": 87,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Nếu mạch 1 của gene có 3 loại nucleotide A, T, G thì trên mạch 2 của gene này không có loại nucleotide nào sau đây?",
+    "options": [
+      "T.",
+      "G.",
+      "A.",
+      "C."
+    ],
+    "answer": 1,
+    "explanation": "Theo nguyên tắc bổ sung A–T, G–C: mạch có A, T, G bổ sung với mạch có T, A, C; do mạch 1 không có C nên mạch 2 không có G.",
+    "sourceIds": [
+      "dna",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q88",
+    "chapter": 1,
+    "number": 88,
+    "needReview": false,
+    "type": "tf",
+    "prompt": "Phát biểu sau đây là đúng hay sai khi nói về mã di truyền?",
+    "statements": [
+      {
+        "text": "Tính thoái hóa của mã di truyền có nghĩa là mỗi codon có thể mã hóa cho nhiều loại amino acid.",
+        "answer": false,
+        "explanation": "Tính thoái hóa là nhiều codon khác nhau cùng mã hóa một amino acid; không phải một codon mã hóa nhiều amino acid."
+      },
+      {
+        "text": "Ở sinh vật nhân thực, codon 5’AUG3’(Hệ gene trong nhân) có chức năng khởi đầu dịch mã và mã hóa amino acid methionine",
+        "answer": true,
+        "explanation": "Trong mã di truyền chuẩn của hệ gene nhân, codon khởi đầu thường là 5′-AUG-3′, mã hóa methionine."
+      },
+      {
+        "text": "Codon 5’UAG3’ quy định tín hiệu kết thúc quá trình dịch mã.",
+        "answer": true,
+        "explanation": "5′-UAG-3′ là một trong ba codon kết thúc chuẩn, cùng với UAA và UGA."
+      },
+      {
+        "text": "Với 3 loại nucleotide A, U, G (Hệ gene trong nhân) có thể tạo ra 24 loại codon mã hóa các amino acid.",
+        "answer": true,
+        "explanation": "Ba loại A, U, G tạo 3³=27 bộ ba. Cả ba bộ ba kết thúc UAA, UAG, UGA đều nằm trong tập này nên có 27−3=24 codon mã hóa amino acid."
+      }
+    ],
+    "sourceIds": [
+      "code",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q89",
+    "chapter": 1,
+    "number": 89,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Cho biết các codon mã hóa các amino acid tương ứng như sau: GGG - Gly; CCC - Pro; GCU - Ala; CGA - Arg; UCG - Ser; AGC - Ser. Một đoạn mạch khuôn của một gene ở vi khuẩn có trình tự các nucleotide là 5'CGAAGCGGGCCC3'. Nếu đoạn mạch khuôn này mang thông tin mã hóa cho đoạn polypeptide có 4 amino acid thì trình tự của 4 amino acid đó là:",
+    "options": [
+      "Ala-Ser-Pro-Gly",
+      "Gly-Pro-Ala-Ser",
+      "Arg-Ser-Gly-Pro",
+      "Pro-Gly-Ser-Ala"
+    ],
+    "answer": 1,
+    "explanation": "Đọc mạch khuôn theo chiều 3′→5′ rồi lấy bổ sung: 5′-CGAAGCGGGCCC-3′ → mRNA 5′-GGG CCC GCU UCG-3′. Dịch mã được Gly–Pro–Ala–Ser.",
+    "sourceIds": [
+      "code",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q90",
+    "chapter": 1,
+    "number": 90,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Trong cơ chế điều hoà biểu hiện của operon Lac ở vi khuẩn E. coli, gene cấu trúc lacA quy định enzyme transacetylase có chức năng",
+    "options": [
+      "tổng hợp protein ức chế.",
+      "vận chuyển lactose vào tế bào.",
+      "phân giải lactose.",
+      "acetyl hóa một số β-galactoside không được chuyển hóa, góp phần hạn chế sự tích lũy của chúng."
+    ],
+    "answer": 3,
+    "explanation": "lacA mã hóa thiogalactoside transacetylase, có thể acetyl hóa một số β-galactoside không được chuyển hóa. Chức năng này được liên hệ với việc hạn chế tích lũy các chất tương tự đường; không nên hiểu là enzyme khử mọi chất độc. lacI mã hóa protein ức chế, lacY mã hóa permease và lacZ mã hóa β-galactosidase.",
+    "originalPrompt": "Trong cơ chế điều hoà biểu hiện của operon Lac ở vi khuẩn E. coli, gene cấu trúc lacA quy định enzyme transacetylase có chức năng",
+    "originalOptions": [
+      "tổng hợp protein ức chế.",
+      "vận chuyển lactose vào tế bào.",
+      "phân giải lactose.",
+      "khử các chất độc vào tế bào."
+    ],
+    "editNote": "Làm rõ phương án về chức năng transacetylase; câu gốc “khử các chất độc vào tế bào” quá bao quát, không diễn đạt chính xác phản ứng enzyme.",
+    "sourceIds": [
+      "lacA",
+      "sgk"
+    ],
+    "lesson": "b3"
+  },
+  {
+    "id": "bio-q91",
+    "chapter": 1,
+    "number": 91,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Loại nucleic acid nào sau đây là thành phần cấu tạo của ribosome?",
+    "options": [
+      "DNA.",
+      "mRNA.",
+      "tRNA.",
+      "rRNA."
+    ],
+    "answer": 3,
+    "explanation": "Ribosome gồm rRNA và protein. rRNA vừa tham gia cấu trúc vừa giữ vai trò xúc tác hình thành liên kết peptide.",
+    "sourceIds": [
+      "translation",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q92",
+    "chapter": 1,
+    "number": 92,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Điều hoà hoạt động của gene thực chất là điều hoà lượng",
+    "options": [
+      "sản phẩm của gene.",
+      "nucleotide (A, U, G, C) tham gia tổng hợp RNA.",
+      "nucleotide (A, T, G, C) tham gia tổng hợp DNA.",
+      "glucose tham gia tổng hợp tinh bột."
+    ],
+    "answer": 0,
+    "explanation": "Điều hòa hoạt động gene là điều chỉnh lượng sản phẩm của gene, có thể là RNA hoặc protein, phù hợp với nhu cầu của tế bào.",
+    "sourceIds": [
+      "lac",
+      "sgk"
+    ],
+    "lesson": "b3"
+  },
+  {
+    "id": "bio-q93",
+    "chapter": 1,
+    "number": 93,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Sự điều hòa biểu hiện gene ở vi khuẩn E. coli diễn ra chủ yếu ở giai đoạn nào?",
+    "options": [
+      "Trước phiên mã.",
+      "Phiên mã.",
+      "Sau dịch mã.",
+      "Dịch mã."
+    ],
+    "answer": 1,
+    "explanation": "Ở vi khuẩn, điều hòa biểu hiện gene diễn ra chủ yếu ở mức phiên mã, đặc biệt là điều khiển sự khởi đầu phiên mã.",
+    "sourceIds": [
+      "lac",
+      "sgk"
+    ],
+    "lesson": "b3"
+  },
+  {
+    "id": "bio-q94",
+    "chapter": 2,
+    "number": 94,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Mendel phát hiện ra quy luật di truyền khi nghiên cứu đối tượng nào sau đây?",
+    "options": [
+      "Lúa nước.",
+      "Chuột bạch.",
+      "Đậu Hà Lan.",
+      "Ruồi giấm."
+    ],
+    "answer": 2,
+    "explanation": "Mendel nghiên cứu đậu Hà Lan (Pisum sativum), theo dõi các cặp tính trạng tương phản và kết quả lai qua các thế hệ.",
+    "sourceIds": [
+      "mendel",
+      "sgk"
+    ],
+    "lesson": "b8"
+  },
+  {
+    "id": "bio-q95",
+    "chapter": 1,
+    "number": 95,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Loại nucleic acid nào sau đây được sử dụng làm khuôn cho cơ chế dịch mã tổng hợp protein?",
+    "options": [
+      "DNA.",
+      "mRNA.",
+      "tRNA.",
+      "rRNA."
+    ],
+    "answer": 1,
+    "explanation": "mRNA mang trình tự codon làm khuôn để ribosome tổng hợp chuỗi polypeptide. tRNA vận chuyển amino acid, rRNA cấu tạo ribosome.",
+    "sourceIds": [
+      "translation",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q96",
+    "chapter": 1,
+    "number": 96,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Trên một mạch của phân tử DNA có tỉ lệ các loại nucleotide là (A+G)/(T+C) = 25%. Tỉ lệ này ở mạch bổ sung của phân tử DNA nói trên là:",
+    "options": [
+      "0,25.",
+      "0,75.",
+      "2,0.",
+      "4,0."
+    ],
+    "answer": 3,
+    "explanation": "Hai mạch bổ sung có A₁=T₂, G₁=C₂, T₁=A₂, C₁=G₂. Vì vậy tỉ lệ (A+G)/(T+C) ở mạch 2 bằng nghịch đảo của mạch 1: 1/0,25 = 4,0.",
+    "originalPrompt": "Trên một mạch của phân tử DNA có tỉ lệ các loại nucleotide là A+G / T+C = 25%. Tỉ lệ này ở mạch bổ sung của phân tử DNA nói trên là:",
+    "editNote": "Thêm ngoặc để biểu diễn đúng tỉ số (A+G)/(T+C); không thay đổi dữ kiện hay đáp án.",
+    "sourceIds": [
+      "dnaStructure",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q97",
+    "chapter": 1,
+    "number": 97,
+    "needReview": false,
+    "type": "tf",
+    "prompt": "Phát biểu sau đây là đúng hay sai khi nói về mã di truyền?",
+    "statements": [
+      {
+        "text": "Tính thoái hóa của mã di truyền tức là nhiều bộ ba khác nhau cùng xác định 1 loại amino acid.",
+        "answer": true,
+        "explanation": "Nhiều bộ ba khác nhau cùng xác định một loại amino acid là tính thoái hóa của mã di truyền."
+      },
+      {
+        "text": "Ở sinh vật nhân thực, codon 3’AUG5’(Hệ gene trong nhân) có chức năng khởi đầu dịch mã và mã hóa amino acid methionine",
+        "answer": false,
+        "explanation": "Codon phải được đọc theo chiều 5′→3′. Trình tự 3′-AUG-5′ tương ứng 5′-GUA-3′, không phải codon khởi đầu AUG."
+      },
+      {
+        "text": "Codon 5’UAA3’ quy định tín hiệu kết thúc quá trình dịch mã.",
+        "answer": true,
+        "explanation": "5′-UAA-3′ là codon kết thúc trong mã di truyền chuẩn."
+      },
+      {
+        "text": "Với 3 loại nucleotide A, U, C (Hệ gene trong nhân) có thể tạo ra 26 loại codon mã hóa các amino acid.",
+        "answer": true,
+        "explanation": "Với A, U, C có 3³=27 bộ ba; chỉ UAA là bộ ba kết thúc tạo được, còn UAG và UGA cần G. Vậy có 26 codon mã hóa amino acid."
+      }
+    ],
+    "sourceIds": [
+      "code",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q98",
+    "chapter": 1,
+    "number": 98,
+    "needReview": false,
+    "type": "tf",
+    "prompt": "Phát biểu nào sau đây là đúng hay sai khi nói về operon Lac ở vi khuẩn E. coli?",
+    "statements": [
+      {
+        "text": "Vùng operator (O) là nơi enzyme RNA polymerase khởi động quá trình phiên mã các gene cấu trúc.",
+        "answer": false,
+        "explanation": "RNA polymerase khởi đầu phiên mã tại promoter (P), không phải operator (O)."
+      },
+      {
+        "text": "Vùng promoter (P) là nơi liên kết với protein ức chế ngăn cản quá trình phiên mã.",
+        "answer": false,
+        "explanation": "Protein ức chế liên kết với operator (O); promoter là vùng gắn và khởi đầu phiên mã của RNA polymerase."
+      },
+      {
+        "text": "Khi môi trường không có lactose thì gene điều hoà (lacI) vẫn có thể phiên mã.",
+        "answer": true,
+        "explanation": "lacI có promoter riêng, có thể được phiên mã và tạo protein ức chế ngay cả khi không có lactose."
+      },
+      {
+        "text": "Khi môi trường có lactose, gene cấu trúc lacY quy định enzyme permease có chức năng vận chuyển lactose vào tế bào.",
+        "answer": true,
+        "explanation": "lacY mã hóa lactose permease, protein vận chuyển giúp lactose đi qua màng vào tế bào."
+      }
+    ],
+    "sourceIds": [
+      "lac",
+      "lacI",
+      "sgk"
+    ],
+    "lesson": "b3"
+  },
+  {
+    "id": "bio-q99",
+    "chapter": 2,
+    "number": 99,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Phát biểu nào sau đây là không đúng khi nói về cấu trúc siêu hiển vi của NST ở kì trung gian?",
+    "options": [
+      "Mỗi sợi cơ bản là một chuỗi nucleosome; lõi mỗi nucleosome gồm 8 phân tử histone thuộc 4 loại, có đoạn DNA khoảng 146–147 cặp nucleotide quấn quanh.",
+      "Vùng nguyên nhiễm sắc là vùng có các nucleosome nằm cách xa nhau, thường chứa các gene đang hoạt động.",
+      "Vùng dị nhiễm sắc là vùng đóng gói chặt; các gene trong vùng này thường ít hoặc không hoạt động phiên mã.",
+      "Vùng nguyên nhiễm sắc là vùng có các nucleosome nằm sát nhau, thường chứa các gene bị bất hoạt."
+    ],
+    "answer": 3,
+    "explanation": "Nguyên nhiễm sắc đóng gói lỏng hơn và thường chứa các gene đang hoạt động; dị nhiễm sắc đóng gói chặt hơn, thường ít hoạt động phiên mã. Theo mô hình SGK, lõi nucleosome có 8 histone và khoảng 146–147 cặp nucleotide DNA quấn quanh.",
+    "originalPrompt": "Phát biểu nào sau đây là không đúng khi nói về cấu trúc siêu hiển vi của NST ở kì trung gian?",
+    "originalOptions": [
+      "Mỗi NST là một chuỗi nucleosome. Mỗi nucleosome gồm 8 phân tử protein histone thuộc 4 loại khác nhau, bên ngoài quấn quanh bởi một đoạn DNA gồm 146 cặp nucleotide.",
+      "Vùng nguyên nhiễm sắc là vùng có các nucleosome nằm cách xa nhau, thường chứa các gene đang hoạt động.",
+      "Vùng dị nhiễm sắc là vùng có các nucleosome nằm sát nhau, vùng này hoặc không chứa gene hoặc chứa các gene bị bất hoạt.",
+      "Vùng nguyên nhiễm sắc là vùng có các nucleosome nằm sát nhau, thường chứa các gene bị bất hoạt."
+    ],
+    "editNote": "Làm rõ phương án về dị nhiễm sắc, tránh khẳng định tuyệt đối rằng vùng này không chứa gene hoặc mọi gene đều bất hoạt. Đáp án về nguyên nhiễm sắc vẫn không thay đổi. Làm rõ phương án về sợi cơ bản thay vì đồng nhất một NST với một chuỗi, vì số chromatid thay đổi trong chu kì tế bào; độ dài DNA lõi nucleosome ghi xấp xỉ 146–147 cặp nucleotide.",
+    "sourceIds": [
+      "chromatin",
+      "sgk"
+    ],
+    "lesson": "b7"
+  },
+  {
+    "id": "bio-q100",
+    "chapter": 1,
+    "number": 100,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Nếu mạch 1 của gene có 3 loại nucleotide A, T, C thì trên mạch 2 của gene này không có loại nucleotide nào sau đây?",
+    "options": [
+      "T.",
+      "G.",
+      "A.",
+      "C."
+    ],
+    "answer": 3,
+    "explanation": "Mạch 1 có A, T, C thì mạch 2 có T, A, G. Không có G ở mạch 1 nên mạch 2 không có C.",
+    "sourceIds": [
+      "dna",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q101",
+    "chapter": 1,
+    "number": 101,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Cho biết các codon mã hóa các amino acid tương ứng như sau: GGG - Gly; CCC - Pro; GCU - Ala; CGA - Arg; UCG - Ser; AGC - Ser. Một đoạn mạch khuôn của một gene ở vi khuẩn có trình tự các nucleotide là 3'CCCGGGAGCCGA5'. Nếu đoạn mạch khuôn này mang thông tin mã hóa cho đoạn polypeptide có 4 amino acid thì trình tự của 4 amino acid đó là:",
+    "options": [
+      "Ser-Arg-Gly-Pro",
+      "Ser-Ala-Pro-Gly",
+      "Gly-Pro-Ala-Ser",
+      "Gly-Pro-Ser-Ala"
+    ],
+    "answer": 3,
+    "explanation": "Mạch khuôn 3′-CCC GGG AGC CGA-5′ cho mRNA 5′-GGG CCC UCG GCU-3′. Các amino acid tương ứng là Gly–Pro–Ser–Ala.",
+    "sourceIds": [
+      "code",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q102",
+    "chapter": 1,
+    "number": 102,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Một phân tử  tRNA có 90 nucleotide có số bộ 3 đối mã (anticodon) là:",
+    "options": [
+      "30.",
+      "3.",
+      "64.",
+      "1."
+    ],
+    "answer": 3,
+    "explanation": "Một phân tử tRNA điển hình có một bộ ba đối mã (anticodon), dù toàn bộ phân tử gồm nhiều nucleotide. Không lấy 90 chia 3 để tính số anticodon.",
+    "sourceIds": [
+      "translation",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q103",
+    "chapter": 1,
+    "number": 103,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Nếu mạch làm khuôn của gene chứa bộ ba 3’TAC5’ thì bộ ba tương ứng trên phân tử mRNA được phiên mã từ gene này là",
+    "options": [
+      "3’ATG5’.",
+      "5’AUG3’.",
+      "5’ATG3’.",
+      "3’AUG5’."
+    ],
+    "answer": 1,
+    "explanation": "Mạch khuôn DNA 3′-TAC-5′ cho mRNA bổ sung 5′-AUG-3′.",
+    "sourceIds": [
+      "transcription",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q104",
+    "chapter": 1,
+    "number": 104,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Cho biết các codon mã hóa các amino acid tương ứng như sau: GGG - Gly; CCC - Pro; GCU - Ala; CGA - Arg; UCG - Ser; AGC - Ser. Một đoạn mạch khuôn của một gene ở vi khuẩn có trình tự các nucleotide là 5'CGAAGCCCCGGG3'. Nếu đoạn mạch khuôn này mang thông tin mã hóa cho đoạn polypeptide có 4 amino acid thì trình tự của 4 amino acid đó là:",
+    "options": [
+      "Ala-Ser-Gly-Pro.",
+      "Pro-Gly-Ala-Ser.",
+      "Pro-Gly-Ser-Ala.",
+      "Arg-Ser-Pro-Gly."
+    ],
+    "answer": 1,
+    "explanation": "Đảo chiều mạch khuôn rồi lấy bổ sung: DNA 5′-CGAAGCCCCGGG-3′ → mRNA 5′-CCC GGG GCU UCG-3′. Đoạn amino acid là Pro–Gly–Ala–Ser.",
+    "sourceIds": [
+      "code",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q105",
+    "chapter": 1,
+    "number": 105,
+    "needReview": false,
+    "type": "short",
+    "prompt": "Cho các bước tạo động vật chuyển gene:  \n1. Tiêm dung dịch chứa gene cần chuyển vào hợp tử ở giai đoạn nhân non.  \n2. Cho trứng thụ tinh invitro.  \n3. Cấy phôi đã được chuyển gene vào tử cung của con vật khác để nó mang thai và sinh đẻ bình thường.\n4. Lấy trứng ra khỏi con vật.                   \nHãy viết liền các số tương ứng với 4 bước theo trình tự đúng của quy trình tạo động vật chuyển gene.",
+    "short": {
+      "answer": "4213",
+      "format": "sequence"
+    },
+    "explanation": "Trình tự đúng là 4 → 2 → 1 → 3: lấy trứng, thụ tinh trong ống nghiệm tạo hợp tử, tiêm DNA mang gene cần chuyển vào giai đoạn tiền nhân, rồi cấy phôi vào tử cung con vật nhận. Viết liền thành 4213.",
+    "sourceIds": [
+      "transgenicAnimal",
+      "sgk"
+    ],
+    "lesson": "b5"
+  },
+  {
+    "id": "bio-q106",
+    "chapter": 1,
+    "number": 106,
+    "needReview": false,
+    "type": "tf",
+    "prompt": "Phát biểu nào sau đây là đúng hay sai khi nói về operon Lac ở vi khuẩn E. coli?",
+    "statements": [
+      {
+        "text": "Gene điều hoà (lacI) nằm trong thành phần của operon Lac.",
+        "answer": false,
+        "explanation": "Theo mô hình operon lac trong SGK, operon gồm promoter, operator và các gene cấu trúc lacZ, lacY, lacA; gene điều hòa lacI có đơn vị phiên mã riêng, không nằm trong operon này."
+      },
+      {
+        "text": "Vùng promoter (P) là nơi enzyme RNA polymerase khởi động quá trình phiên mã các gene cấu trúc.",
+        "answer": true,
+        "explanation": "Promoter là vùng RNA polymerase nhận biết để khởi đầu phiên mã các gene cấu trúc."
+      },
+      {
+        "text": "Khi môi trường không có lactose thì gene điều hoà (lacI) vẫn có thể phiên mã.",
+        "answer": true,
+        "explanation": "lacI có cơ chế phiên mã riêng và vẫn có thể tạo protein ức chế khi thiếu lactose."
+      },
+      {
+        "text": "Khi môi trường có lactose, gene cấu trúc lacZ quy định enzyme β-galactosidase có chức năng phân giải lactose.",
+        "answer": true,
+        "explanation": "lacZ mã hóa β-galactosidase, enzyme xúc tác thủy phân lactose. Điều kiện biểu hiện mạnh còn phụ thuộc nguồn glucose và các yếu tố điều hòa khác."
+      }
+    ],
+    "sourceIds": [
+      "lac",
+      "lacI",
+      "sgk"
+    ],
+    "lesson": "b3"
+  },
+  {
+    "id": "bio-q107",
+    "chapter": 1,
+    "number": 107,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Trong tế bào, nucleotide loại uracil là đơn phân cấu tạo nên phân tử nào sau đây?",
+    "options": [
+      "Protein.",
+      "DNA.",
+      "mRNA.",
+      "Lipit."
+    ],
+    "answer": 2,
+    "explanation": "Uracil là một base đặc trưng trong các RNA như mRNA, tRNA và rRNA; trong bốn phương án chỉ mRNA là RNA.",
+    "sourceIds": [
+      "dna",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q108",
+    "chapter": 1,
+    "number": 108,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Quá trình tổng hợp phân tử RNA dựa trên mạch khuôn của gene được gọi là quá trình",
+    "options": [
+      "dịch mã.",
+      "tái bản DNA.",
+      "phiên mã.",
+      "điều hoà biểu hiện gene."
+    ],
+    "answer": 2,
+    "explanation": "Phiên mã là tổng hợp RNA dựa trên mạch khuôn DNA của gene. Dịch mã là tổng hợp polypeptide dựa trên mRNA.",
+    "sourceIds": [
+      "transcription",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q109",
+    "chapter": 1,
+    "number": 109,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Ở tế bào nhân thực, quá trình nào sau đây chỉ xảy ra ở tế bào chất?",
+    "options": [
+      "dịch mã.",
+      "tái bản DNA.",
+      "phiên mã tổng hợp mRNA .",
+      "phiên mã tổng hợp tRNA ."
+    ],
+    "answer": 0,
+    "explanation": "Dịch mã diễn ra trên ribosome trong tế bào chất, kể cả ribosome tự do, gắn lưới nội chất và trong bào quan. DNA nhân được tái bản và phiên mã trong nhân; vì vậy các phương án còn lại không phải quá trình chỉ xảy ra ở tế bào chất.",
+    "sourceIds": [
+      "translation",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q110",
+    "chapter": 1,
+    "number": 110,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Amino acid là nguyên liệu để tổng hợp phân tử nào sau đây?",
+    "options": [
+      "DNA.",
+      "Protein.",
+      "tRNA.",
+      "mRNA."
+    ],
+    "answer": 1,
+    "explanation": "Amino acid là đơn phân cấu tạo protein, được liên kết với nhau bằng liên kết peptide trong quá trình dịch mã.",
+    "sourceIds": [
+      "translation",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q111",
+    "chapter": 1,
+    "number": 111,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Nếu mạch làm khuôn của gene chứa bộ ba 3’CAT5’ thì bộ ba tương ứng trên phân tử mRNA được phiên mã từ gene này là",
+    "options": [
+      "5’GTA3’.",
+      "3’GUA5’.",
+      "5’GUA3’.",
+      "3’GTA5’."
+    ],
+    "answer": 2,
+    "explanation": "DNA khuôn 3′-CAT-5′ cho mRNA bổ sung, ngược chiều là 5′-GUA-3′.",
+    "sourceIds": [
+      "transcription",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q112",
+    "chapter": 1,
+    "number": 112,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Nếu mạch 1 của gene có 3 loại nucleotide T, G, C thì trên mạch 2 của gene này không có loại nucleotide nào sau đây?",
+    "options": [
+      "T.",
+      "G.",
+      "A.",
+      "C."
+    ],
+    "answer": 0,
+    "explanation": "Mạch 1 chỉ có T, G, C nên mạch 2 có A, C, G. Do mạch 1 không có A, mạch 2 không có T.",
+    "sourceIds": [
+      "dna",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q113",
+    "chapter": 1,
+    "number": 113,
+    "needReview": false,
+    "type": "tf",
+    "prompt": "Phát biểu sau đây là đúng hay sai khi nói về mã di truyền?",
+    "statements": [
+      {
+        "text": "Mã di truyền có tính đặc hiệu: mỗi codon mã hóa amino acid chỉ xác định một loại amino acid.",
+        "answer": true,
+        "explanation": "Mỗi codon mã hóa chỉ xác định một amino acid trong cùng một hệ mã; đây là tính đặc hiệu. Ba codon kết thúc là các tín hiệu dừng, không mã hóa amino acid."
+      },
+      {
+        "text": "Ở sinh vật nhân thực, codon 5’AUG3’(Hệ gene trong nhân) có chức năng khởi đầu dịch mã và mã hóa amino acid methionine",
+        "answer": true,
+        "explanation": "5′-AUG-3′ thường là codon khởi đầu trong hệ gene nhân và mã hóa methionine."
+      },
+      {
+        "text": "Codon 3’UAG5’ quy định tín hiệu kết thúc quá trình dịch mã.",
+        "answer": false,
+        "explanation": "Phải đọc codon 5′→3′: 3′-UAG-5′ tương ứng 5′-GAU-3′, mã hóa aspartate, không phải tín hiệu kết thúc."
+      },
+      {
+        "text": "Với 3 loại nucleotide A, U, G (Hệ gene trong nhân) có thể tạo ra 27 loại codon mã hóa các amino acid.",
+        "answer": false,
+        "explanation": "A, U, G tạo 27 bộ ba nhưng có ba bộ ba kết thúc UAA, UAG, UGA; chỉ 24 bộ ba mã hóa amino acid."
+      }
+    ],
+    "originalStatements": [
+      "Mã di truyền có tính đặc hiệu, nghĩa là một bộ ba chỉ mã hoá cho một amino acid.",
+      "Ở sinh vật nhân thực, codon 5’AUG3’(Hệ gene trong nhân) có chức năng khởi đầu dịch mã và mã hóa amino acid methionine",
+      "Codon 3’UAG5’ quy định tín hiệu kết thúc quá trình dịch mã.",
+      "Với 3 loại nucleotide A, U, G (Hệ gene trong nhân) có thể tạo ra 27 loại codon mã hóa các amino acid."
+    ],
+    "editNote": "Làm rõ phạm vi codon mã hóa amino acid ở ý a; ba bộ ba kết thúc không mã hóa amino acid.",
+    "sourceIds": [
+      "code",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q114",
+    "chapter": 1,
+    "number": 114,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Thành phần nào sau đây không tham gia trực tiếp trong quá trình dịch mã?",
+    "options": [
+      "gene.",
+      "tARN.",
+      "mRNA.",
+      "Ribosome."
+    ],
+    "answer": 0,
+    "explanation": "Gene là đoạn DNA, không trực tiếp tham gia dịch mã. mRNA là khuôn, tRNA vận chuyển amino acid và ribosome thực hiện quá trình dịch mã.",
+    "sourceIds": [
+      "translation",
+      "sgk"
+    ],
+    "lesson": "b2"
+  },
+  {
+    "id": "bio-q115",
+    "chapter": 2,
+    "number": 115,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Trong chu kì sống của loài sinh sản hữu tính, từ hợp tử phát triển thành cơ thể rồi tạo hợp tử của thế hệ sau, bộ NST đặc trưng được duy trì ổn định nhờ sự phối hợp đầy đủ của các cơ chế nào?",
+    "options": [
+      "nguyên phân, giảm phân và thụ tinh.",
+      "giảm phân và thụ tinh.",
+      "nguyên phân và giảm phân.",
+      "nguyên phân và thụ tinh."
+    ],
+    "answer": 0,
+    "explanation": "Giảm phân tạo giao tử giảm bộ NST từ 2n xuống n; thụ tinh khôi phục 2n ở hợp tử; nguyên phân duy trì bộ NST trong quá trình phát triển cơ thể. Ba cơ chế phối hợp trong chu kì sống sinh sản hữu tính.",
+    "originalPrompt": "Bộ NST đặc trưng cho loài sinh sản hữu tính được duy trì ổn định qua các thế hệ bằng sự kết hợp giữa các cơ chế:",
+    "originalOptions": [
+      "nguyên phân, giảm phân và thụ tinh.",
+      "giảm phân và thụ tinh.",
+      "nguyên phân và giảm phân.",
+      "nguyên phân và thụ tinh."
+    ],
+    "editNote": "Làm rõ xét toàn bộ chu kì sống, gồm phát triển cơ thể, tạo giao tử và thụ tinh, để phân biệt vai trò đầy đủ của ba cơ chế với chỉ giảm phân và thụ tinh.",
+    "sourceIds": [
+      "chromatin",
+      "sgk"
+    ],
+    "lesson": "b7"
+  },
+  {
+    "id": "bio-q116",
+    "chapter": 2,
+    "number": 116,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Theo lí thuyết, phép lai nào sau đây cho đời con có 3 loại kiểu gene?",
+    "options": [
+      "AA x aa.",
+      "AA x Aa.",
+      "Aa x Aa.",
+      "Aa x aa."
+    ],
+    "answer": 2,
+    "explanation": "Aa × Aa cho đời con 1 AA : 2 Aa : 1 aa, gồm ba loại kiểu gene.",
+    "sourceIds": [
+      "mendel",
+      "sgk"
+    ],
+    "lesson": "b8"
+  },
+  {
+    "id": "bio-q117",
+    "chapter": 2,
+    "number": 117,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Ở 1 loài thực vật, allele B quy định hoa tím trội hoàn toàn so với allele b quy định hoa trắng. Theo lí thuyết, phép lai nào sau đây cho đời con có 2 loại kiểu hình?",
+    "options": [
+      "bb x bb.",
+      "BB x bb.",
+      "Bb x Bb.",
+      "BB x Bb."
+    ],
+    "answer": 2,
+    "explanation": "Bb × Bb cho 1 BB : 2 Bb : 1 bb, tương ứng 3 hoa tím : 1 hoa trắng. Các phép lai còn lại trong đề chỉ cho một kiểu hình khi trội hoàn toàn.",
+    "sourceIds": [
+      "mendel",
+      "sgk"
+    ],
+    "lesson": "b8"
+  },
+  {
+    "id": "bio-q118",
+    "chapter": 2,
+    "number": 118,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Ở đậu Hà Lan, allele D quy định hạt vàng trội hoàn toàn so với allele d quy định hạt xanh. Cho giao phấn giữa cây hạt vàng thuần chủng với cây hạt xanh được F1 . Cho cây F1  tự thụ phấn thì ở F2  có tỉ lệ kiểu gene và ti lệ kiểu hình lần lượt là:",
+    "options": [
+      "3 : 1  và  1 : 2 : 1.",
+      "1 : 2 : 1  và  3 : 1.",
+      "3 : 1  và  1 : 1.",
+      "1 : 2 : 1  và  1 : 1."
+    ],
+    "answer": 1,
+    "explanation": "P: DD × dd → F1 toàn Dd. F1 tự thụ: Dd × Dd → F2 có kiểu gene 1 DD : 2 Dd : 1 dd, kiểu hình 3 hạt vàng : 1 hạt xanh.",
+    "sourceIds": [
+      "mendel",
+      "sgk"
+    ],
+    "lesson": "b8"
+  },
+  {
+    "id": "bio-q119",
+    "chapter": 2,
+    "number": 119,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Ở đậu Hà Lan, allele A quy định hoa đỏ trội hoàn toàn so với allele a quy định hoa trắng. Cho cây hoa đỏ thuần chủng lai với cây hoa trắng (P), thu được F1. Cho cây F1 tự thụ phấn, thu được F2. Theo lí thuyết, trong số các cây hoa đỏ ở F2, cây không thuần chủng chiếm tỉ lệ:",
+    "options": [
+      "1/4",
+      "3/4",
+      "2/3",
+      "1/3"
+    ],
+    "answer": 2,
+    "explanation": "AA × aa → F1 toàn Aa; F2 có 1 AA : 2 Aa : 1 aa. Trong nhóm hoa đỏ (AA và Aa), cây không thuần chủng Aa chiếm 2/(1+2)=2/3.",
+    "sourceIds": [
+      "mendel",
+      "sgk"
+    ],
+    "lesson": "b8"
+  },
+  {
+    "id": "bio-q120",
+    "chapter": 2,
+    "number": 120,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Ở đậu Hà Lan, allele B quy định thân cao trội hoàn toàn so với allele b quy định thân thấp. Cho cây thân cao giao phấn với cây thân cao (p), thu được F1 gồm 75% cây thân cao và 25% cây thân thấp. Theo lí thuyết, trong tổng số cây thân cao ở F1, cây thân cao thuần chủng chiếm tỉ lệ:",
+    "options": [
+      "2/3.",
+      "1/4.",
+      "3/4.",
+      "1/3."
+    ],
+    "answer": 3,
+    "explanation": "Tỉ lệ 3 cao : 1 thấp cho thấy P là Bb × Bb. F1 có 1 BB : 2 Bb : 1 bb. Trong số cây thân cao, BB chiếm 1/(1+2)=1/3.",
+    "sourceIds": [
+      "mendel",
+      "sgk"
+    ],
+    "lesson": "b8"
+  },
+  {
+    "id": "bio-q121",
+    "chapter": 4,
+    "number": 121,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Một quần thể thực vật, ở thế hệ xuất phát (P) gồm 300 cá thể có kiểu gene AA và 100 cá thể có kiểu gene aa. Cho tự thụ phấn qua nhiều thế hệ, theo lí thuyết, tỉ lệ kiểu gene ở thế hệ F3 là",
+    "options": [
+      "50% AA : 50% aa",
+      "75% AA : 25% aa",
+      "25% AA : 75% aa",
+      "25% AA : 50% Aa : 25% aa"
+    ],
+    "answer": 1,
+    "explanation": "P có 300/400=75% AA và 100/400=25% aa, không có dị hợp. Tự thụ phấn của các cá thể đồng hợp vẫn tạo đúng kiểu gene đó; nếu sức sống và sinh sản như nhau, F3 vẫn 75% AA : 25% aa.",
+    "sourceIds": [
+      "mendel",
+      "sgk"
+    ],
+    "lesson": "b18"
+  },
+  {
+    "id": "bio-q122",
+    "chapter": 2,
+    "number": 122,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Theo lí thuyết, phép lai nào sau đây cho đời con gồm toàn kiểu gene đồng hợp lặn?",
+    "options": [
+      "aa x aa.",
+      "AA x Aa.",
+      "Aa x Aa.",
+      "Aa x aa."
+    ],
+    "answer": 0,
+    "explanation": "aa × aa chỉ tạo giao tử a ở cả hai bên nên đời con toàn aa, đồng hợp lặn.",
+    "sourceIds": [
+      "mendel",
+      "sgk"
+    ],
+    "lesson": "b8"
+  },
+  {
+    "id": "bio-q123",
+    "chapter": 1,
+    "number": 123,
+    "needReview": false,
+    "type": "tf",
+    "prompt": "Một gene dài 4080 Å và có số nucleotide loại A chiếm 30% tổng số nucleotide của gene. Mạch 1 của gene có 200 nucleotide loại T và số nucleotide loại C chiếm 15% tổng số nucleotide của mạch. Phát biểu nào sau đây là đúng hay sai?",
+    "statements": [
+      {
+        "text": "Mạch 1 của gene có A/G = 15/26.",
+        "answer": false,
+        "explanation": "L=4080 Å, mỗi cặp nucleotide dài 3,4 Å nên mỗi mạch có 1200 nucleotide. Toàn gene A=T=720, G=C=480. T₁=200, C₁=180 nên A₁=520, G₁=300. A₁/G₁=520/300=26/15, không phải 15/26."
+      },
+      {
+        "text": "Mạch 1 của gene có (T+C)/(A+G) = 19/41.",
+        "answer": true,
+        "explanation": "Từ T₁=200, C₁=180, A₁=520, G₁=300: (T₁+C₁)/(A₁+G₁)=380/820=19/41."
+      },
+      {
+        "text": "Mạch 2 của gene có A/C = 2/3.",
+        "answer": true,
+        "explanation": "Mạch 2 bổ sung mạch 1 nên A₂=T₁=200 và C₂=G₁=300. A₂/C₂=200/300=2/3."
+      },
+      {
+        "text": "Mạch 2 của gene có (A+C)/(T+G) = 5/7.",
+        "answer": true,
+        "explanation": "Mạch 2 có A₂=200, C₂=300, T₂=520, G₂=180. (A₂+C₂)/(T₂+G₂)=500/700=5/7."
+      }
+    ],
+    "originalPrompt": "Một gene dài 4080 A0 và có số nucleotide loại A chiếm 30% tổng số nucleotide của gene. Mạch 1 của gene có 200 nucleotide loại T và số nucleotide loại C chiếm 15% tổng số nucleotide của mạch. Phát biểu nào sau đây là đúng hay sai?",
+    "editNote": "Chuẩn hóa ký hiệu đơn vị angstrom từ “A0” trong đề thành Å (1 nm = 10 Å); các dữ kiện khác và các nhận định giữ nguyên.",
+    "sourceIds": [
+      "dnaStructure",
+      "sgk"
+    ],
+    "lesson": "b1"
+  },
+  {
+    "id": "bio-q124",
+    "chapter": 1,
+    "number": 124,
+    "needReview": false,
+    "type": "mcq",
+    "prompt": "Allele B dài 221 nm và có 1669 liên kết hydrogen, allele B bị đột biến thành allele b. Từ một tế bào chứa cặp gene Bb qua hai lần nguyên phân bình thường, môi trường nội bào đã cung cấp cho quá trình tái bản của cặp gene này 1689 nucleotide loại A và 2211 nucleotide loại G. Dạng đột biến đã xảy ra với allele B là",
+    "options": [
+      "Thay thế 1 cặp A – T bằng 1 cặp G – C.",
+      "Thay thế 1 cặp G – C bằng 1 cặp A – T.",
+      "Mất 1 cặp G – C.",
+      "Mất 1 cặp A – T."
+    ],
+    "answer": 1,
+    "explanation": "B có 221/0,34=650 cặp nucleotide. Đặt A+G=650 và 2A+3G=1669, suy ra A_B=281, G_B=369. Hai lần nguyên phân cần môi trường cung cấp 2²−1=3 lần lượng nucleotide của cặp Bb: A_B+A_b=1689/3=563; G_B+G_b=2211/3=737. Vì vậy A_b=282, G_b=368: allele b tăng 1 cặp A–T và giảm 1 cặp G–C, tức thay G–C bằng A–T.",
+    "sourceIds": [
+      "dnaStructure",
+      "replication",
+      "pointMutation",
+      "sgk"
+    ],
+    "lesson": "b4"
+  },
+  {
+    "id": "bio-q125",
+    "chapter": 1,
+    "number": 125,
+    "needReview": false,
+    "type": "short",
+    "prompt": "Trong các thành tựu sau đây, công nghệ gene đã đạt được bao nhiêu thành tựu?\n1.  Tạo ra chủng vi khuẩn E. coli có khả năng sản xuất insulin của người.\n2.  Tạo ra giống bông chuyển gene Bt có khả năng kháng sâu bệnh.                       \n3.  Tạo giống lợn có thịt siêu nạc bằng chọn lọc đột biến tự nhiên, như ví dụ trong SGK.                                          \n4.  Tạo giống lúa vàng có thêm gene tổng hợp nên tiền chất của vitamin A.    \n    5. Tạo dòng vi khuẩn xử lí tràn dầu bằng công nghệ DNA tái tổ hợp.\n    6. Tạo nên các loại cải súp lơ trắng và súp lơ xanh bằng chọn giống truyền thống.\n    7. Cá hồi chuyển gene có thêm gene quy định hormone sinh trưởng có tốc độ sinh trưởng cao hơn nhiều so với cá hồi bình thường.",
+    "short": {
+      "answer": "5",
+      "format": "number"
+    },
+    "explanation": "Theo phân loại trong SGK, các thành tựu công nghệ gene là (1), (2), (4), (5), (7), nên có 5 thành tựu. Mục (3) là chọn lọc đột biến tự nhiên để tạo giống lợn siêu nạc; mục (6) là chọn giống các dạng súp lơ, không phải chuyển gene. Đề đã làm rõ phương pháp ở mục (3), (5), (6). Lợn chuyển gene hormone sinh trưởng có tồn tại trong nghiên cứu, nhưng đó là một ví dụ khác, không được tự thay thế ví dụ chọn giống của SGK.",
+    "originalPrompt": "Trong các thành tựu sau đây, công nghệ gene đã đạt được bao nhiêu thành tựu?\n1.  Tạo ra chủng vi khuẩn E. coli có khả năng sản xuất insulin của người.\n2.  Tạo ra giống bông chuyển gene Bt có khả năng kháng sâu bệnh.                       \n3.  Tạo ra giống lợn có thịt siêu nạc.                                          \n4.  Tạo giống lúa vàng có thêm gene tổng hợp nên tiền chất của vitamin A.    \n    5. Tạo dòng vi khuẩn xử lí tràn dầu.\n    6. Tạo nên các loại cải súp lơ trắng và súp lơ xanh.\n    7. Cá hồi chuyển gene có thêm gene quy định hormone sinh trưởng có tốc độ sinh trưởng cao hơn nhiều so với cá hồi bình thường.",
+    "editNote": "Làm rõ phương pháp ở mục (3), (5), (6) để bám SGK và chấm một đáp án: SGK Bài 4 nêu lợn siêu nạc và súp lơ là sản phẩm chọn lọc đột biến; mục (5) được xác định là vi khuẩn tạo bằng DNA tái tổ hợp. Giữ bản gốc để đối chiếu. Không suy ra mọi giống lợn siêu nạc hay mọi vi khuẩn xử lí dầu đều là chuyển gene.",
+    "sourceIds": [
+      "biotech",
+      "salmon",
+      "goldenRice",
+      "oilBacteria",
+      "sgk"
+    ],
+    "lesson": "b5"
+  },
+  {
+    "id": "bio-q126",
+    "chapter": 1,
+    "number": 126,
+    "needReview": false,
+    "type": "tf",
+    "prompt": "Một quần thể thực vật giao phấn ngẫu nhiên, xét 3 cặp gene A, a; B, b; D, d phân li độc lập, mỗi gene quy định một tính trạng và các allele trội là trội hoàn toàn. Cho biết không xảy ra đột biến NST, các allele đột biến đều không ảnh hưởng đến sức sống và khả năng sinh sản của thể đột biến. Theo lí thuyết, phát biểu nào sau đây là đúng hay sai?",
+    "statements": [
+      {
+        "text": "Nếu A, B, D là các alelle đột biến thì các thể đột biến có tối đa 26 loại kiểu gene.",
+        "answer": true,
+        "explanation": "Ba cặp gene có tối đa 3³=27 kiểu gene. Nếu A, B, D là allele đột biến trội, chỉ aabbdd không biểu hiện đột biến; số kiểu gene thể đột biến là 27−1=26."
+      },
+      {
+        "text": "Nếu a, b, d là các alelle đột biến thì các thể đột biến có tối đa 19 loại kiểu gene.",
+        "answer": true,
+        "explanation": "Nếu a, b, d là allele đột biến lặn, kiểu hình không đột biến có A–B–D–: 2³=8 kiểu gene. Có ít nhất một tính trạng đột biến là 27−8=19 kiểu gene."
+      },
+      {
+        "text": "Nếu A, B, D là các alelle đột biến thì các thể đột biến về cả 3 gene có tối đa 6 loại kiểu gene.",
+        "answer": false,
+        "explanation": "Đột biến trội biểu hiện ở cả ba gene có dạng A–B–D–, mỗi locus có 2 kiểu gene. Tổng là 2³=8, không phải 6."
+      },
+      {
+        "text": "Nếu A, B, d là các alelle đột biến thì các thể đột biến về cả 3 gene có tối đa 4 loại kiểu gene.",
+        "answer": true,
+        "explanation": "Đột biến về cả ba gene khi A, B là trội và d là lặn có dạng A–B–dd. Số kiểu gene là 2×2×1=4."
+      }
+    ],
+    "sourceIds": [
+      "pointMutation",
+      "mendel",
+      "sgk"
+    ],
+    "lesson": "b4"
+  }
+];
+
+/* Chủ đề do biên soạn phân nhóm; giữ nguyên số câu và thứ tự các phần của tài liệu. */
+const FIGURES = {};
+const CHAPTERS = {
+  "1": {
+    "name": "Di truyền phân tử",
+    "label": "Chương 1",
+    "description": "Bài 1 · Bài 2 · Bài 3 · Bài 4 · Bài 5"
+  },
+  "2": {
+    "name": "Di truyền nhiễm sắc thể",
+    "label": "Chương 2",
+    "description": "Bài 7 · Bài 8"
+  },
+  "4": {
+    "name": "Di truyền quần thể",
+    "label": "Chương 4",
+    "description": "Bài 18"
+  }
+};
+const LESSONS = {
+  "b1": {
+    "id": "b1",
+    "number": 1,
+    "name": "DNA và cơ chế tái bản DNA",
+    "questionNumbers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      12,
+      37,
+      40,
+      41,
+      45,
+      54,
+      63,
+      64,
+      68,
+      69,
+      70,
+      77,
+      87,
+      96,
+      100,
+      112,
+      123
+    ],
+    "chapter": 1
+  },
+  "b2": {
+    "id": "b2",
+    "number": 2,
+    "name": "Gene, hệ gene và quá trình truyền đạt thông tin di truyền",
+    "questionNumbers": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      35,
+      43,
+      50,
+      58,
+      59,
+      60,
+      61,
+      62,
+      65,
+      71,
+      72,
+      73,
+      85,
+      88,
+      89,
+      91,
+      95,
+      97,
+      101,
+      102,
+      103,
+      104,
+      107,
+      108,
+      109,
+      110,
+      111,
+      113,
+      114
+    ],
+    "chapter": 1
+  },
+  "b3": {
+    "id": "b3",
+    "number": 3,
+    "name": "Điều hòa biểu hiện gene",
+    "questionNumbers": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      66,
+      76,
+      86,
+      90,
+      92,
+      93,
+      98,
+      106
+    ],
+    "chapter": 1
+  },
+  "b4": {
+    "id": "b4",
+    "number": 4,
+    "name": "Đột biến gene",
+    "questionNumbers": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      36,
+      38,
+      39,
+      48,
+      51,
+      52,
+      74,
+      124,
+      126
+    ],
+    "chapter": 1
+  },
+  "b5": {
+    "id": "b5",
+    "number": 5,
+    "name": "Công nghệ gene",
+    "questionNumbers": [
+      47,
+      49,
+      53,
+      55,
+      56,
+      57,
+      67,
+      105,
+      125
+    ],
+    "chapter": 1
+  },
+  "b7": {
+    "id": "b7",
+    "number": 7,
+    "name": "Cấu trúc và chức năng của nhiễm sắc thể",
+    "questionNumbers": [
+      42,
+      44,
+      46,
+      83,
+      84,
+      99,
+      115
+    ],
+    "chapter": 2
+  },
+  "b8": {
+    "id": "b8",
+    "number": 8,
+    "name": "Học thuyết di truyền Mendel",
+    "questionNumbers": [
+      75,
+      78,
+      79,
+      80,
+      81,
+      82,
+      94,
+      116,
+      117,
+      118,
+      119,
+      120,
+      122
+    ],
+    "chapter": 2
+  },
+  "b18": {
+    "id": "b18",
+    "number": 18,
+    "name": "Di truyền học quần thể",
+    "questionNumbers": [
+      121
+    ],
+    "chapter": 4
+  }
+};
+const BOOK_INFO = {
+  "bookTitle": "Sinh học 12 – Kết nối tri thức với cuộc sống",
+  "sourceUrl": "https://taphuan.nxbgd.vn/tap-huan/doc-sach/sgk-sinh-hoc-12.4701665546#page=0",
+  "tocSourceUrl": "https://sachdientu.nxbgd.vn/thu-vien-so/doc-sach/sgv-sinh-hoc.4496239849",
+  "sgkReadableMirrorUrl": "https://thxuanhong.olm.vn/index.php/thu-vien-so/doc-sach/sach.4492210557.4492210557",
+  "sourceStatus": "Đường dẫn tập huấn do người dùng cung cấp trả lỗi dịch vụ 502/503 khi kiểm tra. Đã đối chiếu mục lục SGV trên tên miền NXBGD và toàn văn SGK qua thư viện OLM của trường học.",
+  "mappingNote": "Câu đề cương được gán theo nội dung trọng tâm vào một bài để tránh trùng lặp; không khẳng định đây là câu nguyên bản trong SGK. Chỉ hiển thị các bài có câu trong đề. Câu 74/126 gán vào Bài 4 do trọng tâm đột biến gene và thể đột biến; Câu 86 vào Bài 3 vì trọng tâm rối loạn biểu hiện gene; Câu 121 thuộc Chương IV, Bài 18.",
+  "titleNote": "Tên Bài 2 lấy theo tiêu đề trên trang nội dung SGK: Gene, hệ gene và quá trình truyền đạt thông tin di truyền. Mục lục điện tử/SGV có thể hiển thị hoán đổi trật tự các cụm từ."
+};
+const SOURCES = {
+  "dna": {
+    "title": "OpenStax Biology 2e – Nucleic Acids",
+    "url": "https://openstax.org/books/biology-2e/pages/3-5-nucleic-acids",
+    "note": "Đơn phân nucleic acid, DNA và RNA, các base A/T/G/C/U, hai mạch DNA bổ sung và ngược chiều.",
+    "suggestedQuestions": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      13,
+      14,
+      15,
+      45,
+      70,
+      77,
+      87,
+      100,
+      107,
+      112
+    ],
+    "id": "dna",
+    "checkedAt": "2026-10-26"
+  },
+  "dnaStructure": {
+    "title": "OpenStax Biology 2e – DNA Structure and Sequencing",
+    "url": "https://openstax.org/books/biology-2e/pages/14-2-dna-structure-and-sequencing",
+    "note": "DNA mạch kép có A=T, G=C; mỗi cặp base kế tiếp cách 0,34 nm, cơ sở tính chiều dài và thành phần nucleotide.",
+    "suggestedQuestions": [
+      12,
+      25,
+      26,
+      27,
+      28,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      68,
+      69,
+      96,
+      123,
+      124
+    ],
+    "id": "dnaStructure",
+    "checkedAt": "2026-10-26"
+  },
+  "replication": {
+    "title": "OpenStax Biology 2e – DNA Replication in Prokaryotes",
+    "url": "https://openstax.org/books/biology-2e/pages/14-4-dna-replication-in-prokaryotes",
+    "note": "Tái bản bán bảo toàn, tổng hợp mạch mới 5′→3′; DNA polymerase kéo dài mạch, ligase nối các đoạn DNA. Công thức đếm số bản sao là suy luận từ cơ chế này.",
+    "suggestedQuestions": [
+      3,
+      4,
+      5,
+      12,
+      40,
+      54,
+      63,
+      64,
+      124
+    ],
+    "id": "replication",
+    "checkedAt": "2026-10-26"
+  },
+  "transcription": {
+    "title": "OpenStax Biology 2e – Prokaryotic Transcription",
+    "url": "https://openstax.org/books/biology-2e/pages/15-2-prokaryotic-transcription",
+    "note": "RNA được tổng hợp 5′→3′ trên mạch khuôn DNA bổ sung; promoter khởi đầu và tín hiệu kết thúc phiên mã.",
+    "suggestedQuestions": [
+      7,
+      8,
+      9,
+      13,
+      14,
+      16,
+      17,
+      21,
+      22,
+      85,
+      103,
+      108,
+      111
+    ],
+    "id": "transcription",
+    "checkedAt": "2026-10-26"
+  },
+  "code": {
+    "title": "OpenStax Biology 2e – The Genetic Code",
+    "url": "https://openstax.org/books/biology-2e/pages/15-1-the-genetic-code",
+    "note": "Codon đọc theo chiều 5′→3′; AUG mở đầu, UAA/UAG/UGA kết thúc. Từ 3 nucleotide có 27 bộ ba nhưng phải trừ các bộ ba kết thúc khi đếm bộ ba mã hóa amino acid.",
+    "suggestedQuestions": [
+      35,
+      58,
+      59,
+      60,
+      61,
+      62,
+      65,
+      71,
+      72,
+      73,
+      74,
+      88,
+      89,
+      97,
+      101,
+      104,
+      113
+    ],
+    "id": "code",
+    "checkedAt": "2026-10-26"
+  },
+  "translation": {
+    "title": "OpenStax Biology 2e – Ribosomes and Protein Synthesis",
+    "url": "https://openstax.org/books/biology-2e/pages/15-5-ribosomes-and-protein-synthesis",
+    "note": "mRNA, tRNA, ribosome, amino acid và polysome tham gia dịch mã; anticodon bắt cặp ngược chiều với codon, codon kết thúc được nhận biết bởi yếu tố giải phóng.",
+    "suggestedQuestions": [
+      18,
+      19,
+      35,
+      43,
+      50,
+      58,
+      71,
+      72,
+      73,
+      91,
+      95,
+      102,
+      109,
+      110,
+      114
+    ],
+    "id": "translation",
+    "checkedAt": "2026-10-26"
+  },
+  "lac": {
+    "title": "OpenStax Biology 2e – Prokaryotic Gene Regulation",
+    "url": "https://openstax.org/books/biology-2e/pages/16-2-prokaryotic-gene-regulation",
+    "note": "Operon lac gồm promoter, operator và lacZ/lacY/lacA, phiên mã chung một mRNA; allolactose làm bất hoạt chất ức chế. Có phiên mã nền rất thấp khi không có lactose, nên không tuyệt đối hóa cơ chế tắt/mở.",
+    "suggestedQuestions": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      66,
+      76,
+      92,
+      93,
+      98,
+      106
+    ],
+    "id": "lac",
+    "checkedAt": "2026-10-26"
+  },
+  "lacI": {
+    "title": "NCBI Bookshelf – Genetics, Inducible Operon",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK564361/",
+    "note": "Gene lacI có promoter độc lập, không thuộc operon lacZYA. Phân biệt protein ức chế, operator và promoter.",
+    "suggestedQuestions": [
+      20,
+      22,
+      66,
+      98,
+      106
+    ],
+    "id": "lacI",
+    "checkedAt": "2026-10-26"
+  },
+  "lacA": {
+    "title": "Primary research – Structure of the lac operon galactoside acetyltransferase",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/11937062/",
+    "note": "LacA mã hóa galactoside acetyltransferase; có thể hỗ trợ giải độc bằng acetyl hóa pyranoside không chuyển hóa, hạn chế chúng trở lại tế bào. Không nên hiểu là khử mọi độc chất.",
+    "suggestedQuestions": [
+      90
+    ],
+    "id": "lacA",
+    "checkedAt": "2026-10-26"
+  },
+  "pointMutation": {
+    "title": "NHGRI – Point Mutation",
+    "url": "https://www.genome.gov/genetics-glossary/Point-Mutation",
+    "note": "Đột biến điểm là thêm, mất hoặc thay đổi một cặp base; tác động có thể lành tính hoặc ảnh hưởng biểu hiện gene/protein. Phù hợp cách định nghĩa được dùng trong đề.",
+    "suggestedQuestions": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      48,
+      52,
+      124,
+      126
+    ],
+    "id": "pointMutation",
+    "checkedAt": "2026-10-26"
+  },
+  "mutagen": {
+    "title": "NCBI Bookshelf, Genomes – Mutation, Repair and Recombination",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK21114/",
+    "note": "5-bromouracil là chất tương tự base có thể tham gia DNA và gây đột biến; phân biệt tác nhân hóa học với bức xạ hay virus.",
+    "suggestedQuestions": [
+      51
+    ],
+    "id": "mutagen",
+    "checkedAt": "2026-10-26"
+  },
+  "chromatin": {
+    "title": "NCBI Bookshelf, Molecular Biology of the Cell – Chromosomal DNA and Its Packaging",
+    "url": "https://www.ncbi.nlm.nih.gov/books/NBK26834/",
+    "note": "Lõi nucleosome gồm 8 histone thuộc 4 loại, quấn khoảng 146 cặp base DNA; phân biệt chromatin đóng gói với vùng hoạt động và sự tiếp cận DNA.",
+    "suggestedQuestions": [
+      42,
+      44,
+      46,
+      83,
+      84,
+      99,
+      115
+    ],
+    "id": "chromatin",
+    "checkedAt": "2026-10-26"
+  },
+  "mendel": {
+    "title": "OpenStax Biology 2e – Laws of Inheritance",
+    "url": "https://openstax.org/books/biology-2e/pages/12-3-laws-of-inheritance",
+    "note": "Phân li allele, lai một cặp tính trạng và phân li độc lập. Tỉ lệ 1:2:1 kiểu gene, 3:1 kiểu hình và các tỉ lệ có điều kiện được suy ra bằng tổ hợp giao tử.",
+    "suggestedQuestions": [
+      75,
+      78,
+      79,
+      80,
+      81,
+      82,
+      94,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      126
+    ],
+    "id": "mendel",
+    "checkedAt": "2026-10-26"
+  },
+  "biotech": {
+    "title": "OpenStax Biology 2e – Biotechnology",
+    "url": "https://openstax.org/books/biology-2e/pages/17-1-biotechnology",
+    "note": "DNA tái tổ hợp, plasmid, enzyme cắt/nối; E. coli sản xuất insulin và cây chuyển gene Bt là ứng dụng công nghệ gene. Phân biệt với nhân bản/cấy truyền phôi.",
+    "suggestedQuestions": [
+      47,
+      49,
+      53,
+      55,
+      56,
+      57,
+      67,
+      125
+    ],
+    "id": "biotech",
+    "checkedAt": "2026-10-26"
+  },
+  "brca": {
+    "title": "National Cancer Institute – BRCA Gene Changes",
+    "url": "https://www.cancer.gov/about-cancer/causes-prevention/genetics/brca-fact-sheet",
+    "note": "BRCA1/BRCA2 mã hóa protein hỗ trợ sửa chữa DNA; biến đổi có hại làm tăng rõ nguy cơ ung thư vú và buồng trứng. Câu hỏi là kiến thức sinh học, không phải tư vấn nguy cơ cá nhân.",
+    "suggestedQuestions": [
+      86
+    ],
+    "id": "brca",
+    "checkedAt": "2026-10-26"
+  },
+  "transgenicAnimal": {
+    "title": "Primary protocol – Pronuclear Microinjection and Oviduct Transfer Procedures",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3820376/",
+    "note": "Đưa cấu trúc DNA vào tiền nhân của trứng đã thụ tinh rồi chuyển phôi vào con nhận; với các bước trong đề, thứ tự là lấy trứng → thụ tinh → tiêm DNA → cấy phôi.",
+    "suggestedQuestions": [
+      105
+    ],
+    "id": "transgenicAnimal",
+    "checkedAt": "2026-10-26"
+  },
+  "salmon": {
+    "title": "FDA – AquAdvantage Salmon Fact Sheet",
+    "url": "https://www.fda.gov/animal-veterinary/aquadvantage-salmon/aquadvantage-salmon-fact-sheet",
+    "note": "Cá hồi AquAdvantage có cấu trúc DNA tái tổ hợp chứa gene hormone sinh trưởng Chinook, đạt mốc tăng trưởng nhanh hơn cá đối chứng không biến đổi gene.",
+    "suggestedQuestions": [
+      125
+    ],
+    "id": "salmon",
+    "checkedAt": "2026-10-26"
+  },
+  "goldenRice": {
+    "title": "Primary research – Engineering provitamin A biosynthesis into rice endosperm",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/10634784/",
+    "note": "Tổ hợp gene chuyển vào lúa cho phép nội nhũ tổng hợp tiền vitamin A; lúa vàng là ví dụ công nghệ gene.",
+    "suggestedQuestions": [
+      125
+    ],
+    "id": "goldenRice",
+    "checkedAt": "2026-10-26"
+  },
+  "oilBacteria": {
+    "title": "Primary patent – Microorganisms with compatible hydrocarbon-degrading plasmids",
+    "url": "https://patents.google.com/patent/US3813316A/en",
+    "note": "Chakrabarty tạo dòng Pseudomonas mang nhiều con đường phân giải hydrocarbon bằng phối hợp plasmid. Không suy ra mọi vi khuẩn xử lí dầu đều là chuyển gene.",
+    "suggestedQuestions": [
+      125
+    ],
+    "id": "oilBacteria",
+    "checkedAt": "2026-10-26"
+  },
+  "rnaProcessing": {
+    "id": "rnaProcessing",
+    "title": "OpenStax Biology 2e – RNA Processing in Eukaryotes",
+    "url": "https://openstax.org/books/biology-2e/pages/15-4-rna-processing-in-eukaryotes",
+    "note": "Exon, intron và quá trình cắt nối RNA ở sinh vật nhân thực.",
+    "suggestedQuestions": [
+      10,
+      11
+    ],
+    "checkedAt": "2026-10-26"
+  },
+  "sgk": {
+    "title": "SGK Sinh học 12 – Thư viện trường/OLM, đối chiếu nội dung",
+    "url": "https://thxuanhong.olm.vn/index.php/thu-vien-so/doc-sach/sach.4492210557.4492210557",
+    "suggestedQuestions": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126
+    ]
+  },
+  "sgvToc": {
+    "title": "NXBGD – SGV Sinh học 12, đối chiếu mục lục chương/bài",
+    "url": "https://sachdientu.nxbgd.vn/thu-vien-so/doc-sach/sgv-sinh-hoc.4496239849",
+    "suggestedQuestions": []
+  }
+};
+const TYPES = {mcq:'A/B/C/D', tf:'Đúng–sai', short:'Trả lời ngắn'};
+const PARTS = {mcq:'PHẦN I', tf:'PHẦN II', short:'PHẦN III'};
+const LETTERS = ['A','B','C','D'];
+const HISTORY_KEY = 'sinhhoc12-gk1-2026-history-v1';
+const DEFAULT_MINUTES = 45;
+const MAX_MINUTES = 360;
+let state = {screen:'home',filter:'mixed',chapter:'all',partSize:15,session:null};
+let timerId = null, toastId = null, lastFocus = null, drawerFocus = null, historyMemory = [], storageWarning = false;
+const $ = selector => document.querySelector(selector);
+const escapeHTML = value => String(value == null ? '' : value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const icon = (name, size=18) => {
+  const paths = {
+    book:'<path d="M4 4h6a3 3 0 0 1 3 3v14a4 4 0 0 0-4-3H4z"/><path d="M20 4h-4a3 3 0 0 0-3 3v14a4 4 0 0 1 4-3h3z"/>',
+    clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    arrow:'<path d="M5 12h14m-5-5 5 5-5 5"/>',
+    flag:'<path d="M5 21V4m0 0c5-4 9 4 14 0v10c-5 4-9-4-14 0"/>',
+    grid:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
+    check:'<path d="m5 12 4 4L19 6"/>',
+    close:'<path d="m6 6 12 12M6 18 18 6"/>',
+    code:'<path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18"/>',
+    flask:'<path d="M9 3h6m-5 0v6L4 19a1 1 0 0 0 1 2h14a1 1 0 0 0 1-2L14 9V3M7 15h10"/><path d="M10 18h.01M14 17h.01"/>',
+    history:'<path d="M3 11a9 9 0 1 1 2 7M3 4v7h7m2-4v5l3 2"/>',
+    shield:'<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6z"/><path d="m8 12 3 3 5-6"/>',
+    home:'<path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7"/>'
+  };
+  return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.book}</svg>`;
+};
+function toast(message) {
+  clearTimeout(toastId); $('#toast').textContent = message; $('#toast').classList.remove('hidden');
+  toastId = setTimeout(() => $('#toast').classList.add('hidden'), 4500);
+}
+function formatTime(seconds) {
+  seconds = Math.max(0, Math.floor(seconds));
+  return [Math.floor(seconds / 3600), Math.floor(seconds / 60) % 60, seconds % 60].map(n => String(n).padStart(2,'0')).join(':');
+}
+function formatDate(date) { return new Date(date).toLocaleString('vi-VN', {hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit',year:'numeric'}); }
+function getHistory() {
+  try {
+    const data = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+    if (!Array.isArray(data)) return historyMemory;
+    historyMemory = data.filter(x => x && typeof x.title === 'string' && Number.isFinite(x.score) && Number.isFinite(x.elapsed) && Number.isFinite(x.date)).slice(0,100);
+  } catch (e) { storageWarning = true; }
+  return historyMemory;
+}
+function saveHistory(record) {
+  historyMemory = [record, ...getHistory()].slice(0,100);
+  try { localStorage.setItem(HISTORY_KEY, JSON.stringify(historyMemory)); }
+  catch (e) { storageWarning = true; toast('Trình duyệt không cho lưu lịch sử. Kết quả hiện tại vẫn xem được.'); }
+}
+function renderHeader() {
+  $('#header').className = 'site-header';
+  $('#header').innerHTML = `<div class="wrap brand-row"><button class="brand" data-action="home" aria-label="Trang chủ Sinh học 12"><span class="logo">${icon('book',27)}</span><span><strong>Sinh học 12</strong><small>TRẠM ÔN TẬP</small></span></button><div class="header-note">${icon('shield',16)}<span>Giữa học kỳ I<span class="desktop-only"> · Sẵn sàng bứt phá</span></span></div></div>`;
+}
+function historyHTML() {
+  const history = getHistory();
+  if (!history.length) return `<div class="empty">${icon('history',30)}Chưa có bài làm nào. Bắt đầu một đề để ghi lại tiến bộ của bạn.</div>`;
+  return `<table class="history-table"><thead><tr><th>Đề ôn tập</th><th>Chế độ</th><th>Trắc nghiệm / 10</th><th>Đã làm / Giới hạn</th><th>Ngày làm</th></tr></thead><tbody>${history.map(h => `<tr><td>${escapeHTML(h.title)}</td><td>${h.mode === 'practice' ? 'Luyện tập' : 'Thi thử'}</td><td class="score-small">${h.score.toFixed(2)}</td><td>${formatTime(h.elapsed)}${h.duration?' / '+formatTime(h.duration):''}</td><td>${formatDate(h.date)}</td></tr>`).join('')}</tbody></table>`;
+}
+/* Ôn theo chương → bài → phần nhỏ; mọi câu vẫn có thể tìm theo số gốc. */
+function examSpec(chapter,filter,lesson='all',part=0) {
+  const ch=chapter==='all'?null:Number(chapter);
+  const all=QUESTIONS.filter(q=>(!ch||q.chapter===ch)&&(filter==='mixed'||q.type===filter)&&(lesson==='all'||q.lesson===lesson));
+  let title=lesson!=='all'&&LESSONS[lesson]?LESSONS[lesson].name:ch?CHAPTERS[ch].name:'Thi thử toàn bộ đề cương';
+  const size=state.partSize;
+  const list=part>0?all.slice((part-1)*size,part*size):all;
+  if(part>0)title+=' · Phần '+part+' ('+list.length+' câu)';
+  return {chapter:String(chapter),filter,lesson,part,partSize:size,title,list,total:all.length};
+}
+function renderHome() {
+  state.screen='home';clearInterval(timerId);renderHeader();$('#footer').classList.remove('hidden');
+  const counts=Object.keys(TYPES).map(type=>QUESTIONS.filter(q=>q.type===type).length);
+  const selected=state.chapter!=='all'?CHAPTERS[state.chapter]:null;
+  const available=Object.keys(CHAPTERS).filter(id=>examSpec(id,state.filter).list.length);
+  const lessons=selected?Object.keys(LESSONS).filter(id=>String(LESSONS[id].chapter)===state.chapter&&examSpec(state.chapter,state.filter,id).total):[];
+  const chapterCards=available.map(id=>{
+    const ch=CHAPTERS[id],list=examSpec(id,state.filter).list;
+    const lessonCount=Object.values(LESSONS).filter(l=>String(l.chapter)===id&&examSpec(id,state.filter,l.id).total).length;
+    return `<article class="card chapter-card"><div class="card-top"><span class="chapter-icon">${icon('book',25)}</span><span class="pill">${ch.label}</span></div><h3>${escapeHTML(ch.name)}</h3><p class="description">${escapeHTML(ch.description||'Các bài có câu hỏi trong đề cương.')}</p><div class="meta"><span>${icon('book',16)}${lessonCount} bài có câu hỏi</span><span>${list.length} câu</span></div><div class="card-bottom"><span>Ôn từng phần ${state.partSize} câu</span><button class="btn primary" data-action="chapter" data-chapter="${id}">Chọn bài ${icon('arrow',16)}</button></div></article>`;
+  }).join('');
+  const lessonCards=lessons.map(id=>{
+    const lesson=LESSONS[id],spec=examSpec(state.chapter,state.filter,id),parts=Math.ceil(spec.total/state.partSize);
+    return `<section class="lesson-block"><div class="lesson-heading"><div><span class="lesson-number">BÀI ${lesson.number}</span><h3>${escapeHTML(lesson.name)}</h3><p>${spec.total} câu · Chia thành ${parts} phần nhỏ</p></div><button class="text-button" data-action="setup" data-chapter="${state.chapter}" data-lesson="${id}">Ôn cả bài</button></div><div class="part-cards">${Array.from({length:parts},(_,n)=>{
+      const part=n+1,chunk=examSpec(state.chapter,state.filter,id,part);
+      const summary=Object.keys(TYPES).map(type=>{const count=chunk.list.filter(q=>q.type===type).length;return count?`${count} ${TYPES[type]}`:'';}).filter(Boolean).join(' · ');
+      const nums=chunk.list.map(q=>q.number);
+      return `<article class="card part-card"><span class="part-badge">PHẦN ${part} / ${parts}</span><h4>${chunk.list.length} câu ôn tập</h4><p class="part-summary">${summary}</p><details class="part-source"><summary>Số câu trong đề gốc</summary><span>${nums.join(', ')}</span></details><button class="btn primary" data-action="setup" data-chapter="${state.chapter}" data-lesson="${id}" data-part="${part}">Làm phần ${part} ${icon('arrow',15)}</button></article>`;
+    }).join('')}</div></section>`;
+  }).join('');
+  $('#main').innerHTML=`<div class="wrap"><section class="hero"><div><div class="eyebrow">SINH HỌC 12 / GIỮA HỌC KỲ I · 2026–2027</div><h1>Ôn từng phần nhỏ.<br><span>Nắm chắc từng chương.</span></h1><p>Chọn chương, chọn bài, rồi học từng phần ${state.partSize} câu.<br>126 câu được chia nhỏ; bạn không cần làm tất cả trong một lượt.</p><div class="hero-chips"><span class="pill">${icon('book',14)}Theo chương và bài SGK</span><span class="pill">${icon('check',14)}Giải thích & nguồn đối chiếu</span></div></div><div class="overview"><div class="ring"><div class="ring-inner"><strong>${QUESTIONS.length}</strong><small>CÂU TRONG KHO</small></div></div><div><h2>Chia nhỏ để học dễ hơn</h2><p><i class="dot"></i>${counts[0]} câu A/B/C/D</p><p><i class="dot light"></i>${counts[1]} câu đúng–sai · ${counts[1]*4} ý</p><p><i class="dot" style="background:var(--green)"></i>${counts[2]} câu trả lời ngắn</p></div></div></section>
+  <section aria-labelledby="exam-list-title"><div class="section-heading"><div><h2 id="exam-list-title">${selected?escapeHTML(selected.name):'Chọn chương để bắt đầu'}</h2><p>${selected?'Mỗi bài được chia thành các phần nhỏ; số câu gốc được giữ để đối chiếu.':'Chỉ hiện các chương và bài có câu hỏi trong đề cương.'}</p></div>${selected?'<button class="btn" data-action="chapters">← Các chương</button>':''}</div><p class="book-credit">Phân chương, bài theo <a href="${escapeHTML(BOOK_INFO.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHTML(BOOK_INFO.bookTitle)}</a>. <a href="${escapeHTML(BOOK_INFO.tocSourceUrl)}" target="_blank" rel="noopener noreferrer">Mục lục đối chiếu của NXBGD</a>.</p>
+  <div class="toolbar"><div class="tabs" role="group" aria-label="Lọc loại câu hỏi">${[['mixed','Tổng hợp'],['mcq','A/B/C/D'],['tf','Đúng–Sai'],['short','Trả lời ngắn']].map(([key,label])=>`<button class="tab ${state.filter===key?'active':''}" data-action="filter" data-filter="${key}" aria-pressed="${state.filter===key}">${label}</button>`).join('')}</div><label class="filter" for="chapter-filter">Chương <select id="chapter-filter"><option value="all">Tất cả chương</option>${Object.keys(CHAPTERS).map(id=>`<option value="${id}">${escapeHTML(CHAPTERS[id].label+' · '+CHAPTERS[id].name)}</option>`).join('')}</select></label><label class="filter part-size-filter" for="part-size">Mỗi phần <select id="part-size">${[10,15,20].map(n=>`<option value="${n}" ${state.partSize===n?'selected':''}>${n} câu</option>`).join('')}</select></label></div>
+  ${selected?(lessonCards||'<div class="card empty">Chương này không có dạng câu đã chọn. Hãy đổi bộ lọc.</div>'):`<div class="chapter-cards">${chapterCards}</div>`}
+  <div class="full-exam card" ${examSpec(state.chapter,state.filter).total?'':'hidden'}><div><strong>${selected?'Khi đã ôn xong các bài trong chương':'Khi đã ôn xong từng chương'}</strong><p>Bạn có thể làm một lượt tổng hợp để kiểm tra lại kiến thức.</p></div><button class="btn soft" data-action="setup" data-chapter="${state.chapter}">${state.filter!=='mixed'?'Thi thử '+examSpec(state.chapter,state.filter).total+' câu đã lọc':selected?'Thi thử cả chương':'Thi thử toàn bộ 126 câu'}</button></div>
+  <div class="note"><strong>Cách chấm:</strong> A/B/C/D và trả lời ngắn đúng = 1 điểm/câu; mỗi ý đúng–sai đúng = 0,25 điểm. Điểm /10 = điểm đạt ÷ số câu của phần đang làm × 10. Đảo câu chỉ trong từng dạng, giữ A/B/C/D → đúng–sai → trả lời ngắn. Câu biên tập có ghi chú và bản gốc khi xem đáp án.</div>${sourcesPanel()}</section>
+  <section class="history-section" aria-labelledby="history-title"><div class="section-heading"><div><h2 id="history-title">Lịch sử từng phần</h2><p>Tên bài và số phần được lưu cùng điểm, thời gian và ngày làm.</p></div>${getHistory().length?'<button class="text-button" data-action="clear-history">Xóa lịch sử</button>':''}</div><div class="card history-box">${historyHTML()}</div>${storageWarning?'<p class="aside-note">Lưu trữ cục bộ không khả dụng; lịch sử chỉ giữ trong phiên mở trang này.</p>':''}</section></div>`;
+  $('#chapter-filter').value=state.chapter;$('#main').focus({preventScroll:true});
+}
+
+function showModal(title, body) {
+  closeDrawer(); lastFocus=document.activeElement;
+  $('#modal-root').innerHTML=`<div class="modal-backdrop"><section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1"><div class="modal-head"><h2 id="modal-title">${escapeHTML(title)}</h2><button class="icon-button" data-action="close-modal" aria-label="Đóng">${icon('close',18)}</button></div><div class="modal-body">${body}</div></section></div>`;
+  document.body.style.overflow='hidden'; $('.modal').focus();
+}
+function closeModal(restore=true) {
+  $('#modal-root').innerHTML=''; document.body.style.overflow='';
+  if (restore && lastFocus && document.contains(lastFocus)) lastFocus.focus();
+}
+let pendingSpec = null, pendingMode = 'practice';
+function setupExam(chapter,filter=state.filter,lesson='all',part=0) {
+  pendingSpec=examSpec(chapter,filter,lesson,part); pendingMode='practice';
+  if(!pendingSpec.list.length){toast('Không có câu hỏi thuộc lựa chọn này.');return;}
+  showModal('Sẵn sàng làm bài?',`<p class="modal-description">${escapeHTML(pendingSpec.title)}<br>${pendingSpec.list.length} câu · Thời gian tùy chọn · ${filter==='mixed'?'A/B/C/D → Đúng–sai → Trả lời ngắn':TYPES[filter]}</p><div class="field"><label>Chế độ làm bài</label><div class="mode-buttons"><button class="mode-button active" data-action="mode" data-mode="practice" aria-pressed="true"><strong>Luyện tập</strong><small>Giải thích ngay sau khi trả lời. Đáp án đã kiểm tra được khóa.</small></button><button class="mode-button" data-action="mode" data-mode="exam" aria-pressed="false"><strong>Thi thử</strong><small>Tự do sửa câu trả lời. Xem đáp án sau khi nộp.</small></button></div></div><div class="field"><label for="duration-preset">Thời gian làm bài</label><select id="duration-preset" aria-controls="custom-duration-field"><option value="15">15 phút</option><option value="30">30 phút</option><option value="45" selected>45 phút (mặc định)</option><option value="60">60 phút</option><option value="90">90 phút</option><option value="120">120 phút</option><option value="custom">Nhập thời gian khác…</option></select><div id="custom-duration-field" class="custom-duration" hidden><label for="duration-custom">Số phút (1–360)</label><input id="duration-custom" type="number" inputmode="numeric" min="1" max="360" step="1" value="45" aria-describedby="duration-error"><span>phút</span></div><p id="duration-error" class="field-error" role="alert" hidden></p></div><div class="field"><label for="shuffle-mode">Thứ tự câu hỏi & đáp án</label><select id="shuffle-mode"><option value="none">Giữ nguyên thứ tự</option><option value="questions">Đảo câu hỏi</option><option value="options">Đảo đáp án A/B/C/D</option><option value="both">Đảo cả câu hỏi và A/B/C/D</option></select></div><div class="modal-note">${icon('shield',16)} Luôn giữ A/B/C/D trước, đúng–sai sau và trả lời ngắn cuối cùng. Chỉ đảo câu trong từng phần; không đảo các ý a–b–c–d. Hết thời gian bạn chọn sẽ tự nộp; bài đang làm không được lưu khi tải lại hoặc đóng trang.</div><div class="modal-actions"><button class="btn" data-action="close-modal">Để sau</button><button class="btn primary" data-action="start">Bắt đầu làm bài ${icon('arrow',16)}</button></div>`);
+}
+function shuffled(array) {
+  const copy=array.slice();
+  for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]];}
+  return copy;
+}
+function startExam() {
+  const preset=$('#duration-preset').value;
+  const minutes=preset==='custom'?Number($('#duration-custom').value):Number(preset);
+  if(!Number.isInteger(minutes)||minutes<1||minutes>MAX_MINUTES){
+    const error=$('#duration-error');error.textContent='Vui lòng nhập số phút nguyên từ 1 đến '+MAX_MINUTES+'.';error.hidden=false;
+    $('#duration-custom').setAttribute('aria-invalid','true');$('#duration-custom').focus();return;
+  }
+  const durationSeconds=minutes*60,startedAt=Date.now();
+  const shuffle=$('#shuffle-mode').value, spec=pendingSpec;
+  const make=q=>({...q,order:q.type==='mcq'?(shuffle==='options'||shuffle==='both'?shuffled([0,1,2,3]):[0,1,2,3]):null});
+  let sections=Object.keys(TYPES).map(type=>spec.list.filter(q=>q.type===type).map(make));
+  if(shuffle==='questions'||shuffle==='both')sections=sections.map(shuffled);
+  closeModal(false);
+  state.session={spec:{chapter:spec.chapter,filter:spec.filter,title:spec.title,lesson:spec.lesson,part:spec.part,partSize:spec.partSize},mode:pendingMode,shuffle,questions:[].concat(...sections),answers:{},flags:{},checked:{},current:0,view:'single',durationSeconds,startedAt,deadline:startedAt+durationSeconds*1000,submitted:false};
+  state.screen='exam'; renderExam(); window.scrollTo(0,0); updateTimer(); timerId=setInterval(updateTimer,500);
+}
+function countAnswered(q,s=state.session) {
+  const a=s.answers[q.id];
+  if(q.type==='short')return typeof a==='string'&&a.trim()?1:0;
+  return q.type==='mcq'?(Number.isInteger(a)?1:0):(Array.isArray(a)?a.filter(v=>typeof v==='boolean').length:0);
+}
+function isComplete(q,s=state.session) {return countAnswered(q,s)===(q.type==='tf'?4:1);}
+function answerCount(s=state.session) {return s.questions.filter(q=>isComplete(q,s)).length;}
+function pointsFor(q,s=state.session) {
+  const a=s.answers[q.id];
+  if(q.type==='short')return shortIsCorrect(q,a)?1:0;
+  if(q.type==='mcq')return a===q.answer?1:0;
+  return q.statements.reduce((sum,st,i)=>sum+(a && a[i]===st.answer ? 0.25 : 0),0);
+}
+function questionState(q,s=state.session) {
+  const count=countAnswered(q,s);
+  if(s.submitted){if(!count)return 'blank';const points=pointsFor(q,s);return points===1?'correct':points>0?'partial-score':'incorrect';}
+  if(s.flags[q.id])return 'flagged';
+  return isComplete(q,s)?'answered':count?'partial':'';
+}
+function renderExam() {
+  const s=state.session, review=s.submitted;
+  $('#footer').classList.add('hidden'); $('#header').className='exam-topbar';
+  $('#header').innerHTML=`<div class="wrap"><div class="exam-title">${escapeHTML(s.spec.title)}<div class="exam-subtitle">${review?'Xem lại bài làm':s.mode==='practice'?'Luyện tập':'Thi thử'} · ${s.questions.length} câu · ${s.durationSeconds/60} phút</div></div><div class="timer-box"><div class="timer-label">${review?'Thời gian đã làm':'Thời gian còn lại'}</div><div id="timer" class="timer">${review?formatTime(s.elapsed):formatTime(Math.ceil((s.deadline-Date.now())/1000))}</div></div><div class="top-actions">${review?'<button class="btn home-review" data-action="home">Trang chủ</button><button class="btn primary" data-action="result">Kết quả</button>':`<button class="btn primary" data-action="submit">Nộp bài ${icon('check',16)}</button>`}</div></div>`;
+  $('#main').innerHTML=`<div class="wrap exam-layout"><section class="question-column" aria-label="Nội dung bài làm"><div class="exam-tools"><span>${review?'Đối chiếu đáp án và lời giải':'Mỗi câu là một bước tiến bộ.'}</span><div class="tabs" role="group" aria-label="Cách hiển thị câu hỏi"><button class="tab ${s.view==='single'?'active':''}" data-action="view" data-view="single" aria-pressed="${s.view==='single'}">Từng câu</button><button class="tab ${s.view==='all'?'active':''}" data-action="view" data-view="all" aria-pressed="${s.view==='all'}">Tất cả câu</button></div></div><div id="questions-area"></div></section><aside id="question-aside" class="card question-aside" aria-label="Bảng câu hỏi"></aside></div><div id="drawer-overlay" class="drawer-overlay hidden" data-action="close-drawer"></div><button class="btn primary mobile-grid-toggle" data-action="drawer" aria-controls="question-aside" aria-expanded="false">${icon('grid',18)} Bảng câu hỏi <span id="mobile-progress"></span></button>`;
+  renderQuestions();renderGrid();$('#main').focus({preventScroll:true});
+}
+function referenceLinks(q) {
+  const refs=q.sources||((q.sourceIds||[]).map(id=>SOURCES[id]).filter(Boolean));
+  const links=refs.filter(src=>src&&/^https?:\/\//i.test(src.url));
+  return links.length?'<div class="reference-links"><strong>Nguồn đối chiếu:</strong> '+links.map(src=>'<a href="'+escapeHTML(src.url)+'" target="_blank" rel="noopener noreferrer">'+escapeHTML(src.title)+'</a>').join(' · ')+'</div>':'';
+}
+function questionTable(q) {
+  if(!q.table)return '';
+  return '<div class="source-table-wrap"><table class="source-table"><caption>Bảng thông tin trong đề gốc</caption><thead><tr>'+q.table.headers.map(t=>'<th scope="col">'+escapeHTML(t)+'</th>').join('')+'</tr></thead><tbody>'+q.table.rows.map(row=>'<tr>'+row.map(t=>'<td>'+escapeHTML(t)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
+}
+function originalDetails(q) {
+  if(!q.editNote && !q.needReview)return '';
+  return `<details class="edit-details"><summary>${q.editNote?'Đã biên tập · Xem ghi chú & bản gốc':'Cần kiểm tra · Xem lưu ý đáp án'}</summary>${q.editNote?`<p><strong>Điều chỉnh:</strong> ${escapeHTML(q.editNote)}</p><p>Nhãn A/B/C/D trong ghi chú và bản gốc là thứ tự trước khi đảo đáp án.</p>`:''}${q.reviewNote?`<p><strong>Cần kiểm tra:</strong> ${escapeHTML(q.reviewNote)}</p>`:''}${q.originalPrompt?`<div class="original-text"><strong>Câu gốc:</strong> ${escapeHTML(q.originalPrompt)}</div>`:''}${q.originalOptions?`<div class="original-text">${q.originalOptions.map((x,i)=>`${LETTERS[i]}. ${escapeHTML(x)}`).join('\n')}</div>`:''}${q.originalStatements?`<div class="original-text">${q.originalStatements.map((x,i)=>`${'abcd'[i]}. ${escapeHTML(typeof x==='string'?x:x.text)}`).join('\n')}</div>`:''}</details>`;
+}
+
+/* Chuẩn hóa có giới hạn: chấp nhận dấu phân cách của chuỗi thứ tự và số thập phân Việt Nam. */
+function normalizeShort(q,value) {
+  if(value==null)return null;
+  const text=String(value).normalize('NFKC').trim();
+  if(!text)return null;
+  if(q.short.format==='sequence'){
+    if(!/^\d+(?:[\s,;→>–—-]+\d+)*$/.test(text))return null;
+    const compact=text.replace(/[\s,;→>–—-]/g,'');
+    return /^\d+$/.test(compact)?compact:null;
+  }
+  const compact=text.replace(/\s+/g,'').replace(',','.');
+  if(!/^[+-]?(?:\d+(?:\.\d+)?|\.\d+)$/.test(compact))return null;
+  const number=Number(compact);return Number.isFinite(number)?String(number):null;
+}
+function shortIsCorrect(q,value) {
+  const answer=normalizeShort(q,value);
+  return answer!==null&&normalizeShort(q,q.short.answer)===answer;
+}
+function shortHTML(q,i) {
+  const s=state.session,a=s.answers[q.id]||'',feedback=s.submitted||s.mode==='practice'&&s.checked[q.id],invalid=!!a.trim()&&normalizeShort(q,a)===null;
+  const hint=q.short.format==='sequence'?'Viết liền các số theo thứ tự, hoặc dùng khoảng trắng/dấu →.':'Nhập một số, không thêm đơn vị; có thể dùng dấu phẩy thập phân.';
+  const right=shortIsCorrect(q,a);
+  return `<label class="short-label" for="short-${i}">Câu trả lời của bạn</label><div class="short-row"><input id="short-${i}" class="short-input ${feedback?(right?'right':'wrong'):''}" data-short-index="${i}" type="text" inputmode="${q.short.format==='sequence'?'numeric':'decimal'}" autocomplete="off" spellcheck="false" maxlength="50" value="${escapeHTML(a)}" aria-describedby="short-hint-${i} short-error-${i}" aria-invalid="${invalid}" ${feedback?'readonly':''} placeholder="${q.short.format==='sequence'?'Ví dụ: 1234':'Nhập đáp án…'}">${s.mode==='practice'&&!s.submitted?`<button class="btn primary" data-action="check-short" data-index="${i}" ${feedback||!a.trim()||invalid?'disabled':''}>Kiểm tra đáp án</button>`:''}</div><p class="short-hint" id="short-hint-${i}">${hint}${s.mode==='exam'&&!s.submitted?' Đáp án sẽ được chấm khi nộp bài.':''}</p><p class="field-error" id="short-error-${i}" ${invalid?'':'hidden'}>Định dạng chưa hợp lệ. ${hint}</p>${feedback?`<div class="answer-summary">${!a.trim()?'Bạn đã bỏ trống.':right?'✓ Câu trả lời đúng.':'Câu trả lời chưa đúng.'} Đáp án: <strong>${escapeHTML(q.short.answer)}</strong></div><div class="explanation"><strong>Giải thích</strong>${escapeHTML(q.explanation)}</div>`:''}`;
+}
+function sourcesPanel() {
+  return `<details class="sources-panel card"><summary>${icon('shield',16)}Nguồn đối chiếu đáp án</summary><p>Kiến thức được đối chiếu với giáo trình và cơ quan nghiên cứu bên dưới. Các bài tính được giải lại; câu biên tập có bản gốc và ghi chú.</p><div class="source-list">${Object.values(SOURCES).map(src=>`<a href="${escapeHTML(src.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(src.title)}</a>`).join('')}</div></details>`;
+}
+
+function questionHTML(q,i) {
+  const s=state.session,a=s.answers[q.id],answered=countAnswered(q),feedback=s.submitted||s.mode==='practice'&&answered>0;
+  let content='';
+  if(q.type==='mcq') {
+    content=`<div class="options" role="group" aria-label="Chọn một đáp án cho câu ${i+1}">${q.order.map((originalIndex,displayIndex)=>{
+      const selected=a===originalIndex,right=originalIndex===q.answer;
+      const cls=feedback?(right?'correct':selected?'incorrect':''):selected?'selected':'';
+      return `<button class="option ${cls}" data-action="answer" data-index="${i}" data-option="${originalIndex}" aria-pressed="${selected}" ${feedback?'disabled':''}><span class="letter">${LETTERS[displayIndex]}</span><span class="choice-content">${escapeHTML(q.options[originalIndex])}</span>${feedback&&right?'<span class="choice-mark">Đáp án đúng</span>':feedback&&selected?'<span class="choice-mark">Bạn chọn</span>':''}</button>`;
+    }).join('')}</div>${feedback?`<div class="answer-summary">Bạn chọn: <strong>${Number.isInteger(a)?LETTERS[q.order.indexOf(a)]:'Bỏ trống'}</strong> · Đáp án đúng: <strong>${LETTERS[q.order.indexOf(q.answer)]}</strong></div><div class="explanation"><strong>Giải thích</strong>${escapeHTML(q.explanation)}</div>`:''}`;
+  } else if(q.type==='tf') {
+    content=q.statements.map((st,j)=>{
+      const chosen=a&&a[j],hasChoice=typeof chosen==='boolean',show=s.submitted||s.mode==='practice'&&hasChoice;
+      const right=hasChoice&&chosen===st.answer;
+      return `<div class="statement ${show&&hasChoice?(right?'correct':'incorrect'):''}"><div class="statement-row"><div class="statement-text"><strong>${'abcd'[j]}.</strong> ${escapeHTML(st.text)}</div><div class="tf-controls" role="group" aria-label="Ý ${'abcd'[j]} câu ${i+1}">${[true,false].map(v=>`<button class="tf-choice ${show&&v===st.answer?'right':show&&hasChoice&&chosen===v?'wrong':hasChoice&&chosen===v?'selected':''}" data-action="tf-answer" data-index="${i}" data-statement="${j}" data-value="${v}" aria-pressed="${hasChoice&&chosen===v}" ${show?'disabled':''}>${v?'Đúng':'Sai'}</button>`).join('')}</div></div>${show?`<div class="statement-feedback"><strong>${hasChoice?`Bạn chọn: ${chosen?'Đúng':'Sai'}`:'Bỏ trống'} · Đáp án: ${st.answer?'Đúng':'Sai'}</strong><br>${escapeHTML(st.explanation)}</div>`:''}</div>`;
+    }).join('');
+    if(s.submitted)content+=`<div class="answer-summary">Điểm câu này: <strong>${pointsFor(q).toFixed(2)} / 1</strong> · Trả lời ${answered}/4 ý.</div>`;
+  }
+  if(q.type==='short')content=shortHTML(q,i);
+  const showNote=s.submitted||(s.mode==='practice'&&(q.type==='short'?s.checked[q.id]:isComplete(q)));
+  return `<article id="question-${i}" class="card question-card" data-qindex="${i}" aria-labelledby="question-title-${i}"><div class="question-heading"><h2 id="question-title-${i}">Câu ${i+1}:<span class="question-source">${CHAPTERS[q.chapter].label} · ${LESSONS[q.lesson]?LESSONS[q.lesson].name:''} · ${TYPES[q.type]} · Câu ${q.number} trong đề gốc</span></h2>${q.needReview?'<span class="pill orange">Cần kiểm tra</span>':''}</div>${q.needReview?'<div class="review-alert">Đáp án tham khảo cần được giáo viên đối chiếu; câu này vẫn được tính điểm theo đáp án đã soạn.</div>':''}<div class="question-text">${escapeHTML(q.prompt)}</div>${questionTable(q)}${FIGURES[q.id]?`<img class="question-image" src="${FIGURES[q.id].src}" alt="${escapeHTML(FIGURES[q.id].alt)}" width="${FIGURES[q.id].width}" height="${FIGURES[q.id].height}">`:''}${content}${showNote?referenceLinks(q)+originalDetails(q):''}<div class="question-actions"><div class="navigation"><button class="btn" data-action="navigate" data-index="${i-1}" ${i===0?'disabled':''}>← Câu trước</button><button class="btn soft" data-action="navigate" data-index="${i+1}" ${i===s.questions.length-1?'disabled':''}>Câu sau →</button></div>${!s.submitted?`<button class="flag-button ${s.flags[q.id]?'flagged':''}" data-action="flag" data-index="${i}" aria-pressed="${!!s.flags[q.id]}">${icon('flag',14)} ${s.flags[q.id]?'Đã đánh dấu':'Đánh dấu xem lại'}</button>`:''}</div></article>`;
+}
+function renderQuestions() {
+  const s=state.session;
+  const partHeading=q=>`<div class="part-label"><span>${PARTS[q.type]}</span>${q.type==='mcq'?'Trắc nghiệm nhiều lựa chọn':q.type==='tf'?'Trắc nghiệm đúng–sai':'Trả lời ngắn'}</div>`;
+  $('#questions-area').innerHTML=s.view==='single'?partHeading(s.questions[s.current])+questionHTML(s.questions[s.current],s.current):s.questions.map((q,i)=>(i===0||q.type!==s.questions[i-1].type?partHeading(q):'')+questionHTML(q,i)).join('');
+}
+function renderGrid() {
+  const s=state.session,complete=answerCount(),total=s.questions.length;
+  $('#question-aside').innerHTML=`<div class="aside-title"><h2>Bảng câu hỏi</h2><button class="close-drawer" data-action="close-drawer" aria-label="Đóng bảng câu hỏi">${icon('close',18)}</button></div><p class="aside-progress">Đã hoàn thành <strong>${complete}/${total}</strong> câu</p><div class="progress-track"><div class="progress-fill" style="width:${complete/total*100}%"></div></div>${Object.keys(TYPES).map(type=>{
+    const qs=s.questions.map((q,i)=>({q,i})).filter(x=>x.q.type===type);
+    if(!qs.length)return '';
+    return `<div class="grid-label">${TYPES[type]}</div><div class="question-grid">${qs.map(({q,i})=>`<button class="q-number ${questionState(q)} ${i===s.current?'current':''}" data-action="navigate" data-index="${i}" ${i===s.current?'aria-current="true"':''} aria-label="Câu ${i+1}, ${s.submitted?(countAnswered(q)===0?'bỏ trống':pointsFor(q)===1?'đúng':pointsFor(q)>0?'đúng một phần':'sai'):s.flags[q.id]?'đánh dấu xem lại':isComplete(q)?'đã làm':countAnswered(q)?'đã làm một phần':'chưa làm'}">${i+1}</button>`).join('')}</div>`;
+  }).join('')}<div class="legend">${s.submitted?'<span><i class="green"></i>Đúng</span><span><i class="red"></i>Sai</span><span><i class="orange"></i>Đúng một phần</span><span><i class="gray"></i>Bỏ trống</span>':'<span><i></i>Chưa làm</span><span><i class="blue"></i>Đã làm</span><span><i class="orange"></i>Xem lại</span><span><i style="background:#EEF4FF;border-color:#8DB6FF"></i>Làm một phần</span>'}</div><p class="aside-note">${s.submitted?'Câu đúng–sai có thể đạt điểm từng phần. Bấm số câu để xem lời giải.':s.mode==='practice'?'Luyện tập: câu A/B/C/D và từng ý đúng–sai đã trả lời được khóa sau khi hiện giải thích.':'Bạn có thể thay đổi đáp án trước khi nộp bài. Viền đậm đánh dấu câu đang xem.'}</p>`;
+  $('#mobile-progress').textContent=`${complete}/${total}`;
+}
+function updateGridCurrent() {
+  if(!state.session)return;
+  document.querySelectorAll('.q-number').forEach(b=>{const active=Number(b.dataset.index)===state.session.current;b.classList.toggle('current',active);if(active)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current');});
+}
+function navigate(index) {
+  const s=state.session;if(index<0||index>=s.questions.length)return;
+  s.current=index;closeDrawer();
+  if(s.view==='single'){renderQuestions();window.scrollTo({top:0,behavior:'auto'});}
+  else $('#question-'+index).scrollIntoView({behavior:'smooth',block:'start'});
+  updateGridCurrent();
+}
+function updateQuestion(index) {
+  const s=state.session,old=$('#question-'+index),active=document.activeElement;
+  const focusData=old&&active&&old.contains(active)?Object.assign({},active.dataset):null;
+  if(old)old.outerHTML=questionHTML(s.questions[index],index);
+  renderGrid();
+  // Giữ vị trí bàn phím khi câu hỏi được vẽ lại sau một thao tác.
+  if(focusData){
+    const card=$('#question-'+index);
+    const replacement=Array.from(card.querySelectorAll('button')).find(b=>!b.disabled&&Object.keys(focusData).every(k=>b.dataset[k]===focusData[k]));
+    if(replacement)replacement.focus({preventScroll:true});
+    else {card.setAttribute('tabindex','-1');card.focus({preventScroll:true});}
+  }
+}
+function updateTimer() {
+  const s=state.session;if(!s||s.submitted||state.screen!=='exam')return;
+  const remaining=Math.max(0,Math.ceil((s.deadline-Date.now())/1000));
+  const el=$('#timer');if(el){el.textContent=formatTime(remaining);el.classList.toggle('urgent',remaining<300);}
+  if(remaining<=0)finishExam(true);
+}
+function canAnswer() {
+  const s=state.session;if(!s||s.submitted)return false;
+  if(Date.now()>=s.deadline){finishExam(true);return false;}return true;
+}
+function confirmSubmit() {
+  if(!canAnswer())return;
+  const s=state.session,done=answerCount(),partial=s.questions.filter(q=>countAnswered(q)>0&&!isComplete(q)).length;
+  showModal('Xác nhận nộp bài',`<p>Bạn đã làm <strong>${done}/${s.questions.length}</strong> câu, còn <strong>${s.questions.length-done}</strong> câu chưa làm xong. Bạn có chắc muốn nộp?</p>${partial?`<p class="modal-description">Có ${partial} câu đúng–sai mới làm một phần; các ý đã trả lời vẫn được chấm điểm.</p>`:''}<div class="modal-actions"><button class="btn" data-action="close-modal">Tiếp tục làm</button><button class="btn primary" data-action="finish">Nộp bài</button></div>`);
+}
+function finishExam(auto=false) {
+  const s=state.session;if(!s||s.submitted)return;
+  clearInterval(timerId);s.submitted=true;s.autoSubmitted=auto;
+  s.elapsed=Math.min(s.durationSeconds,Math.max(0,Math.floor((Date.now()-s.startedAt)/1000)));
+  s.quiz=s.questions;
+  s.totalPoints=s.quiz.reduce((sum,q)=>sum+pointsFor(q,s),0);s.score=s.totalPoints/s.quiz.length*10;
+  closeModal(false);closeDrawer();
+  saveHistory({title:s.spec.title+' · '+(s.spec.filter==='mixed'?'Tổng hợp':TYPES[s.spec.filter]),mode:s.mode,score:s.score,elapsed:s.elapsed,duration:s.durationSeconds,date:Date.now()});
+  renderResult();window.scrollTo(0,0);if(auto)toast('Đã hết '+(s.durationSeconds/60)+' phút. Bài làm đã tự động được nộp.');
+}
+function renderResult() {
+  state.screen='result';renderHeader();$('#footer').classList.remove('hidden');
+  const s=state.session,total=s.questions.length,correct=s.questions.filter(q=>pointsFor(q)===1).length,blank=s.questions.filter(q=>!countAnswered(q)).length,wrong=total-correct-blank;
+  const partial=s.questions.filter(q=>{const p=pointsFor(q);return p>0&&p<1;}).length;
+  const tf=s.questions.filter(q=>q.type==='tf'),tfRight=tf.reduce((n,q)=>n+pointsFor(q)*4,0),tfBlank=tf.reduce((n,q)=>n+4-countAnswered(q),0);
+  const percentage=Math.round(s.totalPoints/total*100);
+  $('#main').innerHTML=`<div class="result-wrap"><div class="breadcrumb">Ôn tập / ${escapeHTML(s.spec.title)} / Kết quả</div><section class="card result-card"><span class="pill ${s.autoSubmitted?'orange':'green'}">${icon('check',14)} ${s.autoSubmitted?'Hết giờ · Đã tự nộp':'Đã hoàn thành bài làm'}</span><h1>${s.score>=8?'Một bước tiến thật vững!':s.score>=5?'Tiếp tục luyện, bạn sẽ tiến bộ!':'Cùng xem lại để hiểu bài hơn.'}</h1><p>${escapeHTML(s.spec.title)} · Giới hạn ${s.durationSeconds/60} phút · ${s.mode==='practice'?'Luyện tập có xem đáp án':'Thi thử'}</p><div class="result-main"><div class="ring result-ring" style="background:conic-gradient(var(--blue) ${percentage}%,#E9EFF8 0)"><div class="ring-inner"><strong>${percentage}%</strong><small>ĐIỂM ĐẠT ĐƯỢC</small></div></div><div><div class="big-score">${s.score.toFixed(2)}<small> / 10</small></div><div class="score-caption">${s.totalPoints.toFixed(2)} / ${total} điểm gốc</div></div></div><div class="result-stats"><div class="stat"><strong class="green-text">${correct}</strong><span>Câu đúng hoàn toàn</span></div><div class="stat"><strong class="red-text">${wrong}</strong><span>Câu sai / chưa đủ đúng</span></div><div class="stat"><strong>${blank}</strong><span>Câu bỏ trống toàn bộ</span></div><div class="stat"><strong style="font-size:19px">${formatTime(s.elapsed)}</strong><span>Thời gian làm bài</span></div></div><div class="result-actions"><button class="btn primary" data-action="review">Xem lại bài làm ${icon('arrow',16)}</button><button class="btn" data-action="retry">Làm lại</button><button class="btn" data-action="home">Về trang chủ</button></div></section><section class="card result-detail"><h2>Cách tính điểm của bài này</h2><p>Mỗi câu A/B/C/D hoặc trả lời ngắn đúng = 1 điểm. Mỗi ý đúng–sai đúng = 0,25 điểm. Điểm thang 10 = ${s.totalPoints.toFixed(2)} ÷ ${total} × 10 = <strong>${s.score.toFixed(2)}</strong>. Không trừ điểm câu sai hoặc bỏ trống.</p>${tf.length?`<p>Phần đúng–sai: <strong>${tfRight}/${tf.length*4}</strong> ý đúng, ${tf.length*4-tfRight-tfBlank} ý sai, ${tfBlank} ý bỏ trống. Có ${partial} câu đạt điểm một phần, được gộp vào nhóm “sai / chưa đủ đúng” ở trên.</p>`:''}<p>${s.mode==='practice'?'Đây là kết quả luyện tập có hiển thị đáp án trong lúc làm. ':''}${s.questions.filter(q=>q.needReview).length?`Có ${s.questions.filter(q=>q.needReview).length} câu cần kiểm tra lại đáp án, vẫn tính điểm tham khảo. `:''}Các câu biên tập có ghi chú, bản gốc và nguồn đối chiếu trong phần xem lại.</p></section></div>`;
+  $('#main').focus({preventScroll:true});
+}
+function openDrawer() {
+  drawerFocus=document.activeElement;$('#question-aside').classList.add('drawer-open');$('#drawer-overlay').classList.remove('hidden');
+  $('.mobile-grid-toggle').setAttribute('aria-expanded','true');document.body.style.overflow='hidden';
+  $('#question-aside').setAttribute('role','dialog');$('#question-aside').setAttribute('aria-modal','true');$('.close-drawer').focus();
+}
+function closeDrawer() {
+  const aside=$('#question-aside');if(!aside)return;
+  const opened=aside.classList.contains('drawer-open');aside.classList.remove('drawer-open');aside.removeAttribute('role');aside.removeAttribute('aria-modal');
+  $('#drawer-overlay').classList.add('hidden');$('.mobile-grid-toggle').setAttribute('aria-expanded','false');
+  document.body.style.overflow='';if(opened&&drawerFocus&&document.contains(drawerFocus))drawerFocus.focus();
+}
+/* Dùng một bộ xử lý sự kiện, không tạo hàng trăm hàm onclick trong HTML. */
+document.addEventListener('click',event=>{
+  const button=event.target.closest('[data-action]');if(!button||button.disabled)return;
+  const action=button.dataset.action,s=state.session;
+  if(action==='close-modal'){closeModal();return;}
+  if(action==='home'){
+    if(s&&!s.submitted&&state.screen==='exam')return;
+    closeModal(false);closeDrawer();renderHome();window.scrollTo(0,0);
+  } else if(action==='filter'){state.filter=button.dataset.filter;renderHome();}
+  else if(action==='chapter'){state.chapter=button.dataset.chapter;renderHome();$('#exam-list-title').scrollIntoView({block:'start'});}
+  else if(action==='chapters'){state.chapter='all';renderHome();window.scrollTo(0,0);}
+  else if(action==='setup')setupExam(button.dataset.chapter,state.filter,button.dataset.lesson||'all',Number(button.dataset.part||0));
+  else if(action==='mode'){
+    pendingMode=button.dataset.mode;document.querySelectorAll('.mode-button').forEach(b=>{b.classList.toggle('active',b.dataset.mode===pendingMode);b.setAttribute('aria-pressed',b.dataset.mode===pendingMode);});
+  } else if(action==='start')startExam();
+  else if(action==='view'){
+    s.view=button.dataset.view;closeDrawer();renderExam();window.scrollTo(0,0);
+    if(s.view==='all')$('#question-'+s.current).scrollIntoView({block:'start'});
+  } else if(action==='navigate')navigate(Number(button.dataset.index));
+  else if(action==='flag'){
+    if(!canAnswer())return;const i=Number(button.dataset.index),q=s.questions[i];s.flags[q.id]=!s.flags[q.id];updateQuestion(i);
+  } else if(action==='answer'){
+    if(!canAnswer())return;const i=Number(button.dataset.index),q=s.questions[i];if(s.mode==='practice'&&countAnswered(q))return;
+    s.answers[q.id]=Number(button.dataset.option);updateQuestion(i);
+  } else if(action==='tf-answer'){
+    if(!canAnswer())return;const i=Number(button.dataset.index),j=Number(button.dataset.statement),q=s.questions[i];
+    if(!s.answers[q.id])s.answers[q.id]=[null,null,null,null];
+    if(s.mode==='practice'&&typeof s.answers[q.id][j]==='boolean')return;
+    s.answers[q.id][j]=button.dataset.value==='true';updateQuestion(i);
+  } else if(action==='drawer')openDrawer();
+  else if(action==='close-drawer')closeDrawer();
+  else if(action==='check-short'){
+    if(!canAnswer())return;const i=Number(button.dataset.index),q=s.questions[i];
+    if(q.type!=='short'||s.mode!=='practice'||s.checked[q.id]||normalizeShort(q,s.answers[q.id])===null)return;
+    s.checked[q.id]=true;updateQuestion(i);
+  }
+  else if(action==='submit')confirmSubmit();
+  else if(action==='finish')finishExam(Date.now()>=s.deadline);
+  else if(action==='review'){state.screen='review';s.current=0;renderExam();window.scrollTo(0,0);}
+  else if(action==='result'){closeDrawer();renderResult();window.scrollTo(0,0);}
+  else if(action==='retry'){state.partSize=s.spec.partSize;setupExam(s.spec.chapter,s.spec.filter,s.spec.lesson,s.spec.part);}
+  else if(action==='clear-history')showModal('Xóa lịch sử làm bài?',`<p>Toàn bộ kết quả đã lưu trên trình duyệt này sẽ bị xóa.</p><div class="modal-actions"><button class="btn" data-action="close-modal">Giữ lại</button><button class="btn danger" data-action="confirm-clear">Xóa lịch sử</button></div>`);
+  else if(action==='confirm-clear'){
+    historyMemory=[];try{localStorage.removeItem(HISTORY_KEY);}catch(e){storageWarning=true;}
+    closeModal();renderHome();toast('Đã xóa lịch sử làm bài.');
+  }
+});
+document.addEventListener('change',e=>{
+  if(e.target.id==='chapter-filter'){state.chapter=e.target.value;renderHome();}
+  if(e.target.id==='part-size'){state.partSize=Number(e.target.value);renderHome();}
+  if(e.target.id==='duration-preset'){
+    const custom=e.target.value==='custom';$('#custom-duration-field').hidden=!custom;
+    $('#duration-error').hidden=true;$('#duration-custom').removeAttribute('aria-invalid');
+    if(custom)$('#duration-custom').focus();
+  }
+});
+document.addEventListener('input',e=>{
+  const el=e.target;
+  if(el.hasAttribute('data-short-index')){
+    if(!canAnswer())return;
+    const s=state.session,i=Number(el.dataset.shortIndex),q=s.questions[i];
+    if(s.mode==='practice'&&s.checked[q.id])return;
+    s.answers[q.id]=el.value;
+    const invalid=!!el.value.trim()&&normalizeShort(q,el.value)===null;
+    el.setAttribute('aria-invalid',invalid);$('#short-error-'+i).hidden=!invalid;
+    const button=$('#question-'+i+' [data-action="check-short"]');if(button)button.disabled=!el.value.trim()||invalid;
+    renderGrid();
+  }
+  if(e.target.id==='duration-custom'){$('#duration-error').hidden=true;e.target.removeAttribute('aria-invalid');}
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&e.target.hasAttribute('data-short-index')){
+    const button=$('#question-'+e.target.dataset.shortIndex+' [data-action="check-short"]');
+    if(button&&!button.disabled){e.preventDefault();button.click();return;}
+  }
+  const modal=$('.modal'),drawer=$('.question-aside.drawer-open'),scope=modal||drawer;
+  if(e.key==='Escape'){if(modal)closeModal();else if(drawer)closeDrawer();return;}
+  if(e.key==='Tab'&&scope){
+    const items=Array.from(scope.querySelectorAll('button:not(:disabled),select,textarea,input:not(:disabled),a[href],summary,[tabindex="0"]')).filter(el=>el.getClientRects().length);
+    if(!items.length){e.preventDefault();return;}
+    const first=items[0],last=items[items.length-1];
+    if(e.shiftKey&&(document.activeElement===first||document.activeElement===scope)){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&(document.activeElement===last||document.activeElement===scope)){e.preventDefault();first.focus();}
+  }
+});
+let scrollQueued=false;
+window.addEventListener('scroll',()=>{
+  if(scrollQueued||!state.session||state.session.view!=='all'||!['exam','review'].includes(state.screen))return;
+  scrollQueued=true;requestAnimationFrame(()=>{
+    scrollQueued=false;let current=0;const top=($('#header').offsetHeight||80)+40;
+    document.querySelectorAll('.question-card').forEach(el=>{if(el.getBoundingClientRect().top<=top)current=Number(el.dataset.qindex);});
+    if(current!==state.session.current){state.session.current=current;updateGridCurrent();}
+  });
+},{passive:true});
+window.addEventListener('resize',()=>{if(window.innerWidth>760&&$('.drawer-open'))closeDrawer();});
+window.addEventListener('beforeunload',e=>{if(state.session&&!state.session.submitted){e.preventDefault();e.returnValue='';}});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)updateTimer();});
+/* Kiểm tra cấu trúc dữ liệu trước khi cho người dùng bắt đầu. */
+function validateQuestions() {
+  const ids=new Set();
+  return QUESTIONS.length===126&&QUESTIONS.every(q=>{
+    if(ids.has(q.id)||!CHAPTERS[q.chapter]||!LESSONS[q.lesson]||!q.prompt)return false;ids.add(q.id);
+    return q.type==='mcq'?q.options.length===4&&q.options.every(x=>typeof x==='string'&&x.trim())&&Number.isInteger(q.answer)&&q.answer>=0&&q.answer<4&&!!q.explanation:q.type==='tf'?q.statements.length===4&&q.statements.every(st=>typeof st.answer==='boolean'&&st.text&&st.explanation):q.type==='short'&&q.short&&['number','sequence'].includes(q.short.format)&&normalizeShort(q,q.short.answer)!==null&&!!q.explanation;
+  });
+}
+if(validateQuestions())renderHome();
+else {renderHeader();$('#main').innerHTML='<div class="wrap"><div class="note">Dữ liệu câu hỏi chưa hợp lệ. Hãy kiểm tra lại const QUESTIONS trước khi làm bài.</div></div>';}
+</script>
+</body>
+</html>
