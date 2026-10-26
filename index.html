@@ -462,17 +462,12 @@ main:focus{outline:none}
 .part-source summary{cursor:pointer}
 .part-source span{display:block;margin-top:6px;overflow-wrap:anywhere}
 .part-card>.btn{margin-top:auto;width:100%}
-.full-exam{margin-top:24px;padding:20px;display:flex;align-items:center;justify-content:space-between;gap:20px;background:#F9FBFF}
-.full-exam strong{font-size:14px}
-.full-exam p{font-size:12px;color:var(--muted);margin:4px 0 0}
-.full-exam .btn{flex-shrink:0}
 .question-source{line-height:1.7}
 .toolbar>.filter select{max-width:310px}
 
 @media(max-width:760px){.chapter-cards{grid-template-columns:1fr}
 .part-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
 .part-size-filter{margin-left:0}
-.full-exam{align-items:stretch;flex-direction:column}
 .section-heading{flex-wrap:wrap}
 .lesson-heading{align-items:flex-start}
 .lesson-heading .text-button{font-size:11px;flex-shrink:0}
@@ -486,6 +481,41 @@ main:focus{outline:none}
 .lesson-heading .text-button{max-width:77px}
 .hero h1{font-size:28px}
 .header-note{max-width:85px}
+}
+
+
+/* Số nằm trong vòng; nhãn nằm ở luồng riêng bên dưới để không tràn khi tăng cỡ chữ. */
+.overview-badge{width:112px;flex:0 0 112px;min-width:0;display:flex;flex-direction:column;align-items:center;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+
+.overview .ring{position:relative;display:block;width:112px;height:112px;min-width:112px;min-height:112px;padding:0;flex:none}
+
+.overview .ring-inner{position:absolute;top:8px;right:8px;bottom:8px;left:8px;width:auto;height:auto;min-width:0;min-height:0;display:flex;align-items:center;justify-content:center;flex-direction:column}
+
+.overview .ring strong{font-size:32px;line-height:1;white-space:nowrap;flex:none;margin:0;padding:0}
+
+.overview-caption{display:block;width:100%;max-width:100%;margin-top:8px;font-size:9px;line-height:1.3;text-align:center;color:var(--muted);white-space:normal;overflow-wrap:normal}
+
+.overview>div:last-child{min-width:0;flex:1}
+
+@media(max-width:760px){.overview-badge{width:92px;flex-basis:92px}
+.overview .ring{width:92px;height:92px;min-width:92px;min-height:92px}
+.overview .ring strong{font-size:28px}
+}
+
+@media(max-width:440px){.overview-badge{width:88px;flex-basis:88px}
+.overview .ring{width:88px;height:88px;min-width:88px;min-height:88px}
+.overview .ring strong{font-size:26px}
+}
+
+
+/* Thi tổng hợp nằm cùng bộ chọn dạng câu hỏi, phía trên danh sách bài/phần. */
+.mode-row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-basis:100%;min-width:0}
+.mode-row .tabs{min-width:0;max-width:100%}
+.full-exam-button{flex-shrink:0}
+
+@media(max-width:760px){.mode-row{flex-direction:column;align-items:stretch;gap:12px}
+.mode-row .tabs{width:100%}
+.full-exam-button{width:100%;min-height:44px}
 }
 
 </style>
@@ -4230,11 +4260,11 @@ function renderHome() {
       return `<article class="card part-card"><span class="part-badge">PHẦN ${part} / ${parts}</span><h4>${chunk.list.length} câu ôn tập</h4><p class="part-summary">${summary}</p><details class="part-source"><summary>Số câu trong đề gốc</summary><span>${nums.join(', ')}</span></details><button class="btn primary" data-action="setup" data-chapter="${state.chapter}" data-lesson="${id}" data-part="${part}">Làm phần ${part} ${icon('arrow',15)}</button></article>`;
     }).join('')}</div></section>`;
   }).join('');
-  $('#main').innerHTML=`<div class="wrap"><section class="hero"><div><div class="eyebrow">SINH HỌC 12 / GIỮA HỌC KỲ I · 2026–2027</div><h1>Ôn từng phần nhỏ.<br><span>Nắm chắc từng chương.</span></h1><p>Chọn chương, chọn bài, rồi học từng phần ${state.partSize} câu.<br>126 câu được chia nhỏ; bạn không cần làm tất cả trong một lượt.</p><div class="hero-chips"><span class="pill">${icon('book',14)}Theo chương và bài SGK</span><span class="pill">${icon('check',14)}Giải thích & nguồn đối chiếu</span></div></div><div class="overview"><div class="ring"><div class="ring-inner"><strong>${QUESTIONS.length}</strong><small>CÂU TRONG KHO</small></div></div><div><h2>Chia nhỏ để học dễ hơn</h2><p><i class="dot"></i>${counts[0]} câu A/B/C/D</p><p><i class="dot light"></i>${counts[1]} câu đúng–sai · ${counts[1]*4} ý</p><p><i class="dot" style="background:var(--green)"></i>${counts[2]} câu trả lời ngắn</p></div></div></section>
+  $('#main').innerHTML=`<div class="wrap"><section class="hero"><div><div class="eyebrow">SINH HỌC 12 / GIỮA HỌC KỲ I · 2026–2027</div><h1>Ôn từng phần nhỏ.<br><span>Nắm chắc từng chương.</span></h1><p>Chọn chương, chọn bài, rồi học từng phần ${state.partSize} câu.<br>126 câu được chia nhỏ; bạn không cần làm tất cả trong một lượt.</p><div class="hero-chips"><span class="pill">${icon('book',14)}Theo chương và bài SGK</span><span class="pill">${icon('check',14)}Giải thích & nguồn đối chiếu</span></div></div><div class="overview"><div class="overview-badge"><div class="ring" role="img" aria-label="${QUESTIONS.length} câu trong kho"><div class="ring-inner"><strong aria-hidden="true">${QUESTIONS.length}</strong></div></div><small class="overview-caption" aria-hidden="true">CÂU TRONG KHO</small></div><div><h2>Chia nhỏ để học dễ hơn</h2><p><i class="dot"></i>${counts[0]} câu A/B/C/D</p><p><i class="dot light"></i>${counts[1]} câu đúng–sai · ${counts[1]*4} ý</p><p><i class="dot" style="background:var(--green)"></i>${counts[2]} câu trả lời ngắn</p></div></div></section>
   <section aria-labelledby="exam-list-title"><div class="section-heading"><div><h2 id="exam-list-title">${selected?escapeHTML(selected.name):'Chọn chương để bắt đầu'}</h2><p>${selected?'Mỗi bài được chia thành các phần nhỏ; số câu gốc được giữ để đối chiếu.':'Chỉ hiện các chương và bài có câu hỏi trong đề cương.'}</p></div>${selected?'<button class="btn" data-action="chapters">← Các chương</button>':''}</div><p class="book-credit">Phân chương, bài theo <a href="${escapeHTML(BOOK_INFO.sourceUrl)}" target="_blank" rel="noopener noreferrer">${escapeHTML(BOOK_INFO.bookTitle)}</a>. <a href="${escapeHTML(BOOK_INFO.tocSourceUrl)}" target="_blank" rel="noopener noreferrer">Mục lục đối chiếu của NXBGD</a>.</p>
-  <div class="toolbar"><div class="tabs" role="group" aria-label="Lọc loại câu hỏi">${[['mixed','Tổng hợp'],['mcq','A/B/C/D'],['tf','Đúng–Sai'],['short','Trả lời ngắn']].map(([key,label])=>`<button class="tab ${state.filter===key?'active':''}" data-action="filter" data-filter="${key}" aria-pressed="${state.filter===key}">${label}</button>`).join('')}</div><label class="filter" for="chapter-filter">Chương <select id="chapter-filter"><option value="all">Tất cả chương</option>${Object.keys(CHAPTERS).map(id=>`<option value="${id}">${escapeHTML(CHAPTERS[id].label+' · '+CHAPTERS[id].name)}</option>`).join('')}</select></label><label class="filter part-size-filter" for="part-size">Mỗi phần <select id="part-size">${[10,15,20].map(n=>`<option value="${n}" ${state.partSize===n?'selected':''}>${n} câu</option>`).join('')}</select></label></div>
+  <div class="toolbar"><div class="mode-row"><div class="tabs" role="group" aria-label="Lọc loại câu hỏi">${[['mixed','Tổng hợp'],['mcq','A/B/C/D'],['tf','Đúng–Sai'],['short','Trả lời ngắn']].map(([key,label])=>`<button class="tab ${state.filter===key?'active':''}" data-action="filter" data-filter="${key}" aria-pressed="${state.filter===key}">${label}</button>`).join('')}</div><button class="btn primary full-exam-button" data-action="setup" data-chapter="${state.chapter}" ${examSpec(state.chapter,state.filter).total?'':'hidden'}>${icon('clock',17)}${state.filter!=='mixed'?'Thi thử '+examSpec(state.chapter,state.filter).total+' câu đã lọc':selected?'Thi thử cả chương · '+examSpec(state.chapter,state.filter).total+' câu':'Thi thử toàn bộ 126 câu'}</button></div><label class="filter" for="chapter-filter">Chương <select id="chapter-filter"><option value="all">Tất cả chương</option>${Object.keys(CHAPTERS).map(id=>`<option value="${id}">${escapeHTML(CHAPTERS[id].label+' · '+CHAPTERS[id].name)}</option>`).join('')}</select></label><label class="filter part-size-filter" for="part-size">Mỗi phần <select id="part-size">${[10,15,20].map(n=>`<option value="${n}" ${state.partSize===n?'selected':''}>${n} câu</option>`).join('')}</select></label></div>
   ${selected?(lessonCards||'<div class="card empty">Chương này không có dạng câu đã chọn. Hãy đổi bộ lọc.</div>'):`<div class="chapter-cards">${chapterCards}</div>`}
-  <div class="full-exam card" ${examSpec(state.chapter,state.filter).total?'':'hidden'}><div><strong>${selected?'Khi đã ôn xong các bài trong chương':'Khi đã ôn xong từng chương'}</strong><p>Bạn có thể làm một lượt tổng hợp để kiểm tra lại kiến thức.</p></div><button class="btn soft" data-action="setup" data-chapter="${state.chapter}">${state.filter!=='mixed'?'Thi thử '+examSpec(state.chapter,state.filter).total+' câu đã lọc':selected?'Thi thử cả chương':'Thi thử toàn bộ 126 câu'}</button></div>
+
   <div class="note"><strong>Cách chấm:</strong> A/B/C/D và trả lời ngắn đúng = 1 điểm/câu; mỗi ý đúng–sai đúng = 0,25 điểm. Điểm /10 = điểm đạt ÷ số câu của phần đang làm × 10. Đảo câu chỉ trong từng dạng, giữ A/B/C/D → đúng–sai → trả lời ngắn. Câu biên tập có ghi chú và bản gốc khi xem đáp án.</div>${sourcesPanel()}</section>
   <section class="history-section" aria-labelledby="history-title"><div class="section-heading"><div><h2 id="history-title">Lịch sử từng phần</h2><p>Tên bài và số phần được lưu cùng điểm, thời gian và ngày làm.</p></div>${getHistory().length?'<button class="text-button" data-action="clear-history">Xóa lịch sử</button>':''}</div><div class="card history-box">${historyHTML()}</div>${storageWarning?'<p class="aside-note">Lưu trữ cục bộ không khả dụng; lịch sử chỉ giữ trong phiên mở trang này.</p>':''}</section></div>`;
   $('#chapter-filter').value=state.chapter;$('#main').focus({preventScroll:true});
